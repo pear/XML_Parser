@@ -271,8 +271,8 @@ class XML_Parser extends PEAR
         switch ($this->mode) {
 
             case 'func':
-                xml_set_object($this->parser, $this);
-                xml_set_element_handler($this->parser, 'funcStartHandler', 'funcEndHandler');
+                xml_set_object($this->parser, $this->_handlerObj);
+                xml_set_element_handler($this->parser, array(&$this, 'funcStartHandler'), array(&$this, 'funcEndHandler'));
                 break;
 
             case 'event':
@@ -581,6 +581,8 @@ class XML_Parser extends PEAR
         $func = 'xmltag_' . $elem;
         if (method_exists($this->_handlerObj, $func)) {
             call_user_func(array(&$this->_handlerObj, $func), $xp, $elem, $attribs);
+        } elseif (method_exists($this->_handlerObj, 'xmltag')) {
+            call_user_func(array(&$this->_handlerObj, 'xmltag'), $xp, $elem, $attribs);
         }
     }
 
@@ -592,6 +594,8 @@ class XML_Parser extends PEAR
         $func = 'xmltag_' . $elem . '_';
         if (method_exists($this->_handlerObj, $func)) {
             call_user_func(array(&$this->_handlerObj, $func), $xp, $elem);
+        } elseif (method_exists($this->_handlerObj, 'xmltag_')) {
+            call_user_func(array(&$this->_handlerObj, 'xmltag_'), $xp, $elem, $attribs);
         }
     }
 
