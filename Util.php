@@ -310,7 +310,7 @@ class XML_Util {
 
         // create attribute list
         $attList    =   XML_Util::attributesToString($tag["attributes"]);
-        if (!isset($tag["content"]) || empty($tag["content"])) {
+        if (!isset($tag["content"]) || (string)$tag["content"] == '') {
             $tag    =   sprintf("<%s%s/>", $tag["qname"], $attList);
         } elseif (is_scalar($tag["content"])) {
             if ($replaceEntities) {
