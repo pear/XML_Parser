@@ -90,7 +90,7 @@ class XML_Util {
     */
     function apiVersion()
     {
-        return "0.6";
+        return "1.0";
     }
 
    /**
@@ -111,6 +111,7 @@ class XML_Util {
     * @param    string  string where XML special chars should be replaced
     * @param    integer setting for entities in attribute values (one of XML_UTIL_ENTITIES_XML, XML_UTIL_ENTITIES_XML_REQUIRED, XML_UTIL_ENTITIES_HTML)
     * @return   string  string with replaced chars
+    * @see      reverseEntities()
     */
     function replaceEntities($string, $replaceEntities = XML_UTIL_ENTITIES_XML)
     {
@@ -131,6 +132,51 @@ class XML_Util {
                 break;
             case XML_UTIL_ENTITIES_HTML:
                 return htmlspecialchars($string);
+                break;
+        }
+        return $string;
+    }
+
+   /**
+    * reverse XML entities
+    *
+    * With the optional second parameter, you may select, which
+    * entities should be reversed.
+    *
+    * <code>
+    * require_once 'XML/Util.php';
+    * 
+    * // reverse XML entites:
+    * $string = XML_Util::reverseEntities("This string contains &lt; &amp; &gt;.");
+    * </code>
+    *
+    * @access   public
+    * @static
+    * @param    string  string where XML special chars should be replaced
+    * @param    integer setting for entities in attribute values (one of XML_UTIL_ENTITIES_XML, XML_UTIL_ENTITIES_XML_REQUIRED, XML_UTIL_ENTITIES_HTML)
+    * @return   string  string with replaced chars
+    * @see      replaceEntities()
+    */
+    function reverseEntities($string, $replaceEntities = XML_UTIL_ENTITIES_XML)
+    {
+        switch ($replaceEntities) {
+            case XML_UTIL_ENTITIES_XML:
+                return strtr($string,array(
+                                          '&amp;'  => '&',
+                                          '&gt;'   => '>',
+                                          '&lt;'   => '<',
+                                          '&quot;' => '"',
+                                          '&apos;' => '\'' ));
+                break;
+            case XML_UTIL_ENTITIES_XML_REQUIRED:
+                return strtr($string,array(
+                                          '&amp;'  => '&',
+                                          '&lt;'   => '<',
+                                          '&quot;' => '"' ));
+                break;
+            case XML_UTIL_ENTITIES_HTML:
+                $arr = array_flip(get_html_translation_table(HTML_SPECIALCHARS));
+                return strtr($string, $arr);
                 break;
         }
         return $string;

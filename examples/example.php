@@ -21,6 +21,13 @@
     print "\n<br><br>\n";
 
     /**
+    * reversing XML entities
+    */
+    print "replace XML entities:<br>\n";
+    print XML_Util::reverseEntities("This string contains &lt; &amp; &gt;.");
+    print "\n<br><br>\n";
+
+    /**
     * building XML declaration
     */
     print "building XML declaration:<br>\n";

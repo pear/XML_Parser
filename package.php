@@ -18,7 +18,7 @@ require_once 'PEAR/PackageFileManager.php';
 /**
  * current version
  */
-$version = '0.6.1';
+$version = '1.0.0';
 
 /**
  * current state
@@ -29,7 +29,7 @@ $state = 'stable';
  * release notes
  */
 $notes = <<<EOT
-- Added check for tag name (either as local part or qualified name) in createTagFromArray() (bug #1083)
+- Added reverseEntities() (request #2639)
 EOT;
 
 /**

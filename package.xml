@@ -19,11 +19,11 @@
     </maintainer>
   </maintainers>
   <release>
-    <version>0.6.1</version>
-    <date>2004-06-27</date>
+    <version>1.0.0</version>
+    <date>2004-10-28</date>
     <license>PHP License</license>
     <state>stable</state>
-    <notes>- Added check for tag name (either as local part or qualified name) in createTagFromArray() (bug #1083)</notes>
+    <notes>- Added reverseEntities() (request #2639)</notes>
     <deps>
       <dep type="ext" rel="has" optional="no">pcre</dep>
       <dep type="pkg" rel="has" optional="no">PEAR</dep>
@@ -130,10 +130,17 @@ minor whitespace fixes (Davey)</notes>
     </release>
     <release>
       <version>0.6.1</version>
-      <date>2004-06-27</date>
+      <date>2004-10-28</date>
       <license>PHP License</license>
       <state>stable</state>
       <notes>- Added check for tag name (either as local part or qualified name) in createTagFromArray() (bug #1083)</notes>
+    </release>
+    <release>
+      <version>1.0.0</version>
+      <date>2004-10-28</date>
+      <license>PHP License</license>
+      <state>stable</state>
+      <notes>- Added reverseEntities() (request #2639)</notes>
     </release>
   </changelog>
 </package>
