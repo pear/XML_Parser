@@ -18,18 +18,24 @@ require_once 'PEAR/PackageFileManager.php';
 /**
  * current version
  */
-$version = '1.2.0beta3';
+$version = '1.2.0';
 
 /**
  * current state
  */
-$state = 'beta';
+$state = 'stable';
 
 /**
  * release notes
  */
 $notes = <<<EOT
 - added setHandlerObj() which allows you to have the parser separate from the handler methods
+- fixed bug with setMode()
+- moved the init routines for the handlers in _initHandlers()
+- added new examples
+- fixed test files so they do not fail because of different resource ids
+XML_Parser_Simple:
+- added new class XML_Parser_Simple that provides a stack for the elements so the user only needs to implement one method to handle the tag and cdata.
 EOT;
 
 /**
