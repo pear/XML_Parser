@@ -356,6 +356,7 @@ class XML_Parser extends PEAR
         if ($this->isError( $result )) {
             return $result;
         }
+        return true;
     }
 
     // }}}

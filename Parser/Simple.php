@@ -182,6 +182,7 @@ class XML_Parser_Simple extends XML_Parser
         if ($this->isError( $result )) {
             return $result;
         }
+        return true;
     }
 
    /**
