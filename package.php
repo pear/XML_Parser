@@ -29,9 +29,11 @@ $state = 'beta';
  * release notes
  */
 $notes = <<<EOT
-- Fixed bug 1438 (namespaces not accepted for isValidName())
+- Fixed bug 1438 (namespaces not accepted for isValidName()) (thanks to davey)
 - added optional parameter to replaceEntities() to define the set of entities to replace
-- added optional parameter to attributesToString() to define, whether entities should be replaced
+- added optional parameter to attributesToString() to define, whether entities should be replaced (requested by Sebastian Bergmann)
+- allowed second parameter to XML_Util::attributesToString() to be an array containing options (easier to use, if you only need to set the last parameter)
+- introduced XML_Util::raiseError() to avoid the necessity of including PEAR.php, will only be included on error
 EOT;
 
 /**
