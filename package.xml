@@ -13,11 +13,12 @@
     </maintainer>
   </maintainers>
   <release>
-    <version>0.5.1</version>
-    <date>2003-09-26</date>
+    <version>0.5.2</version>
+    <date>2003-11-22</date>
     <license>PHP License</license>
     <state>stable</state>
-    <notes>added default namespace parameter (optional) in splitQualifiedName() (requested by Sebastian Bergmann)</notes>
+    <notes>now creates XHTML compliant empty tags (Davey),
+minor whitespace fixes (Davey)</notes>
     <deps>
       <dep type="ext" rel="has">pcre</dep>
     </deps>
@@ -38,7 +39,7 @@
     <filelist>
       <file role="doc" baseinstalldir="XML" md5sum="4471a91bec05d653d16449e906221b15" name="examples/example.php"/>
       <file role="doc" baseinstalldir="XML" md5sum="16eaf07e3e1390ce5cdfe91fc1be51a5" name="examples/example2.php"/>
-      <file role="php" baseinstalldir="XML" md5sum="d174454a45c528df0a851a74e51fadd8" name="Util.php"/>
+      <file role="php" baseinstalldir="XML" md5sum="7474e53e6d3ee227187f6ed96f741225" name="Util.php"/>
     </filelist>
   </release>
   <changelog>
@@ -99,6 +100,14 @@ added createComment</notes>
       <license>PHP License</license>
       <state>stable</state>
       <notes>added default namespace parameter (optional) in splitQualifiedName() (requested by Sebastian Bergmann)</notes>
+    </release>
+    <release>
+      <version>0.5.2</version>
+      <date>2003-11-22</date>
+      <license>PHP License</license>
+      <state>stable</state>
+      <notes>now creates XHTML compliant empty tags (Davey),
+minor whitespace fixes (Davey)</notes>
     </release>
   </changelog>
 </package>
