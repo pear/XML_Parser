@@ -17,7 +17,7 @@ Furthermore its now possible to split the parser from the handler object, so you
     </maintainer>
     <maintainer>
       <user>ssb</user>
-      <name>Stig Sæther Bakken</name>
+      <name>Stig S&#230;ther Bakken</name>
       <email>stig@php.net</email>
       <role>developer</role>
     </maintainer>
@@ -29,11 +29,12 @@ Furthermore its now possible to split the parser from the handler object, so you
     </maintainer>
   </maintainers>
   <release>
-    <version>1.2.4</version>
-    <date>2005-01-18</date>
+    <version>1.2.5</version>
+    <date>2005-02-26</date>
     <license>PHP License</license>
     <state>stable</state>
-    <notes>- fixed a bug in XML_Parser_Simple when trying to register more than the default handlers and a separate callback object (schst)</notes>
+    <notes>- fixed Bug #3557 (removed $attribs parameter, which caused a notice)
+- fixed Bug #3277 (remove obsolete ini_set('allow_url_fopen'))</notes>
     <deps>
       <dep type="php" rel="ge" version="4.2.0" optional="no"/>
       <dep type="pkg" rel="has" optional="no">PEAR</dep>
@@ -223,6 +224,14 @@ XML_Parser_Simple:
       <license>PHP License</license>
       <state>stable</state>
       <notes>- fixed a bug in XML_Parser_Simple when trying to register more than the default handlers and a separate callback object (schst)</notes>
+    </release>
+    <release>
+      <version>1.2.5</version>
+      <date>2005-02-26</date>
+      <license>PHP License</license>
+      <state>stable</state>
+      <notes>- fixed Bug #3557 (removed $attribs parameter, which caused a notice)
+- fixed Bug #3277 (remove obsolete ini_set('allow_url_fopen'))</notes>
     </release>
   </changelog>
 </package>

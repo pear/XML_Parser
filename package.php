@@ -18,7 +18,7 @@ require_once 'PEAR/PackageFileManager.php';
 /**
  * current version
  */
-$version = '1.2.4';
+$version = '1.2.5';
 
 /**
  * current state
@@ -29,7 +29,8 @@ $state = 'stable';
  * release notes
  */
 $notes = <<<EOT
-- fixed a bug in XML_Parser_Simple when trying to register more than the default handlers and a separate callback object (schst)
+- fixed Bug #3557 (removed \$attribs parameter, which caused a notice)
+- fixed Bug #3277 (remove obsolete ini_set('allow_url_fopen'))
 EOT;
 
 /**
@@ -70,7 +71,7 @@ if (PEAR::isError($result)) {
 }
 
 $package->addMaintainer('schst', 'lead', 'Stephan Schmidt', 'schst@php-tools.net');
-$package->addMaintainer('ssb', 'developer', 'Stig Sæther Bakken', 'stig@php.net');
+$package->addMaintainer('ssb', 'developer', 'Stig S&#230;ther Bakken', 'stig@php.net');
 $package->addMaintainer('cox', 'developer', 'Tomas V.V.Cox', 'cox@php.net');
 
 $package->addDependency('PEAR', '', 'has', 'pkg', false);
