@@ -18,16 +18,17 @@ require_once 'PEAR/PackageFileManager.php';
 /**
  * current version
  */
-$version = '1.1.0beta2';
+$version = '1.1.0';
+
+/**
+ * current state
+ */
+$state = 'stable';
 
 /**
  * release notes
  */
 $notes = <<<EOT
-beta2:
-- Fixed calling of __construct
-
-beta1:
 - Fixed memory leaks parsing many documents or big files (mroch)
 - Fixed setInput() url detection regex (mroch)
 - Added setInputString() method, allowing strings to be passed as input (schst)
@@ -63,7 +64,7 @@ $result = $package->setOptions(array(
     'summary'           => 'XML parsing class based on PHP\'s bundled expat',
     'description'       => $description,
     'version'           => $version,
-    'state'             => 'beta',
+    'state'             => $state,
     'license'           => 'PHP License',
     'filelistgenerator' => 'cvs',
     'ignore'            => array('package.php', 'package.xml'),
