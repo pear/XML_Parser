@@ -18,12 +18,12 @@ require_once 'PEAR/PackageFileManager.php';
 /**
  * current version
  */
-$version = '0.6.0beta1';
+$version = '0.6.0';
 
 /**
  * current state
  */
-$state = 'beta';
+$state = 'stable';
 
 /**
  * release notes
@@ -70,6 +70,7 @@ if (PEAR::isError($result)) {
 }
 
 $package->addMaintainer('schst', 'lead', 'Stephan Schmidt', 'schst@php-tools.net');
+$package->addMaintainer('davey', 'helper', 'Davey Shafik', 'davey@php.net');
 
 $package->addDependency('PEAR', '', 'has', 'pkg', false);
 $package->addDependency('php', '4.2.0', 'ge', 'php', false);
