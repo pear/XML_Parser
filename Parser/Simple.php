@@ -127,6 +127,10 @@ class XML_Parser_Simple extends XML_Parser
      */
     function _initHandlers()
     {
+        if (!is_object($this->_handlerObj)) {
+            $this->_handlerObj = &$this;
+        }
+
         if ($this->mode != 'func' && $this->mode != 'event') {
             return $this->raiseError('Unsupported mode given', XML_PARSER_ERROR_UNSUPPORTED_MODE);
         }
@@ -203,15 +207,15 @@ class XML_Parser_Simple extends XML_Parser
         $el   = array_pop($this->_elStack);
         $data = $this->_data[$this->_depth];
         $this->_depth--;
-     
+
         switch ($this->mode) {
             case 'event':
-                $this->handleElement($el['name'], $el['attribs'], $data);
+                $this->_handlerObj->handleElement($el['name'], $el['attribs'], $data);
                 break;
             case 'func':
                 $func = 'handleElement_' . $elem;
-                if (method_exists($this, $func)) {
-                    call_user_func(array(&$this, $func), $el['name'], $el['attribs'], $data);
+                if (method_exists($this->_handlerObj, $func)) {
+                    call_user_func(array(&$this->_handlerObj, $func), $el['name'], $el['attribs'], $data);
                 }
                 break;
         }
