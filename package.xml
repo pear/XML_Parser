@@ -20,7 +20,7 @@ in "event" mode it uses a set of generic callbacks.
     </maintainer>
     <maintainer>
       <user>cox</user>
-      <role>helper</role>
+      <role>developer</role>
       <name>Tomas V.V.Cox</name>
       <email>cox@php.net</email>
     </maintainer>
@@ -30,7 +30,16 @@ in "event" mode it uses a set of generic callbacks.
     <version>1.1</version>
     <date>2003-10-05</date>
     <notes>
-- Allows strings to be passed as inputs
+- Fixed memory leaks parsing many documents or big files
+- Fixed setInput() url detection regex
+- Added setInputString() method, allowing strings to be passed as input
+- Error handling rewritten
+- Increased the overall parsing speed
+- Added free() method
+- PHPDoc additions/fixes
+
+Thanks to Marshall Roch and Stephan Schmidt for their commments
+and contributions
     </notes>
     <filelist>
       <dir name="/" baseinstalldir="XML">
