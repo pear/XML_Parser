@@ -472,6 +472,12 @@ class XML_Util {
             $tag["attributes"] = array();
         }
         
+        if (isset($tag['namespaces'])) {
+        	foreach ($tag['namespaces'] as $ns => $uri) {
+                $tag['attributes']['xmlns:'.$ns] = $uri;
+        	}
+        }
+
         // qualified name is not given
         if (!isset($tag["qname"])) {
             // check for namespace

@@ -168,6 +168,24 @@
     print "\n<br><br>\n";
 
     /**
+    * creating an XML tag with more namespaces
+    */
+    $tag = array(
+                  "namespace"   => "foo",
+                  "localPart"   => "bar",
+                  "attributes"  => array( "key" => "value", "argh" => "fruit&vegetable" ),
+                  "content"     => "I'm inside the tag",
+                  "namespaces"  => array(
+                                            "bar"  => "http://bar.com",
+                                            "pear" => "http://pear.php.net",
+                                        )
+                );
+
+    print "creating an XML tag with more namespaces:<br />";
+    print htmlentities(XML_Util::createTagFromArray($tag));
+    print "\n<br><br>\n";
+
+    /**
     * creating an XML tag with a CData Section
     */
     $tag = array(
