@@ -221,12 +221,12 @@ class XML_Parser extends PEAR
             return true;
         }
         // see if it's an absolute URL (has a scheme at the beginning)
-        elseif (eregi('://', substr($fp, 0, 10))) {
+        elseif (eregi('^[a-z]+://', substr($fp, 0, 10))) {
             return $this->setInputFile($fp);
         }
         // see if it's a local file
         elseif (file_exists($fp)) {
-            return $this->setInputFile($fp); 
+            return $this->setInputFile($fp);
         }
         // it must be a string
         else {
@@ -253,25 +253,28 @@ class XML_Parser extends PEAR
 
         // if $this->fp was fopened previously
         if (is_resource($this->fp)) {
-            // write entire file to $data
-            while (!feof($this->fp)) {
-                $data .= fread($this->fp, 2048);
+
+            while ($data = fread($this->fp, 4096)) {
+                if (($err = $this->parseString($data, feof($this->fp))) !== true) {
+                    fclose($this->fp);
+                    return $err;
+                }
             }
+
             fclose($this->fp);
+        }
         // otherwise, $this->fp must be a string
-        } else {
-            $data = $this->fp;
+        else {
+
+            $err = $this->parseString($this->fp, true);
+
+            if (PEAR::isError($err)) {
+                xml_parser_free($this->parser);
+                return $err;
+            }
+
         }
-
-        // This allows outside scripts to grab downloaded
-        // feed data and cache it
-        $this->data = $data;
-
-        $err = $this->parseString($data, true);
-        if (PEAR::isError($err)) {
-            return $err;
-        }
-
+        xml_parser_free($this->parser);
         return true;
     }
 
