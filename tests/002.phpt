@@ -40,13 +40,13 @@ class __TestParser2 extends XML_Parser {
 print "new __TestParser2 ";
 var_dump(get_class($o = new __TestParser2()));
 print "setInputFile ";
-var_dump($o->setInputFile("test2.xml"));
+print is_resource($o->setInputFile("test2.xml"))."\n";
 print "parse ";
 var_dump($o->parse());
 
 ?>
 --EXPECT--
 new __TestParser2 string(13) "__testparser2"
-setInputFile resource(7) of type (stream)
+setInputFile 1
 parse <ROOT><![CDATA[foo]]></ROOT>
 bool(true)
