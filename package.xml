@@ -5,19 +5,20 @@
   <summary>XML parsing class based on PHP's bundled expat</summary>
   <description>This is an XML parser based on PHPs built-in xml extension.
 It supports two basic modes of operation: &quot;func&quot; and &quot;event&quot;.  In &quot;func&quot; mode, it will look for a function named after each element (xmltag_ELEMENT for start tags and xmltag_ELEMENT_ for end tags), and in &quot;event&quot; mode it uses a set of generic callbacks.
-Furthemore this package contains some specialized parsers that help you solve common XML parsing tasks.</description>
+
+Since version 1.2.0 there's a new XML_Parser_Simple class that makes parsing of most XML documents easier, by automatically providing a stack for the elements.</description>
   <maintainers>
-    <maintainer>
-      <user>ssb</user>
-      <name>Stig Sæther Bakken</name>
-      <email>stig@php.net</email>
-      <role>developer</role>
-    </maintainer>
     <maintainer>
       <user>schst</user>
       <name>Stephan Schmidt</name>
       <email>schst@php-tools.net</email>
       <role>lead</role>
+    </maintainer>
+    <maintainer>
+      <user>ssb</user>
+      <name>Stig Sæther Bakken</name>
+      <email>stig@php.net</email>
+      <role>developer</role>
     </maintainer>
     <maintainer>
       <user>cox</user>
@@ -27,11 +28,11 @@ Furthemore this package contains some specialized parsers that help you solve co
     </maintainer>
   </maintainers>
   <release>
-    <version>1.2.0</version>
-    <date>2004-04-23</date>
+    <version>1.2.0beta1</version>
+    <date>2004-05-17</date>
     <license>PHP License</license>
     <state>beta</state>
-    <notes>- added new class XML_Parser_Simple that provides a stack for the elements so the user only needs to implement one method to handle the tag and cdata.</notes>
+    <notes>added new class XML_Parser_Simple that provides a stack for the elements so the user only needs to implement one method to handle the tag and cdata.</notes>
     <deps>
       <dep type="php" rel="ge" version="4.2.0" optional="no"/>
       <dep type="pkg" rel="has" optional="no">PEAR</dep>
@@ -39,7 +40,9 @@ Furthemore this package contains some specialized parsers that help you solve co
     <filelist>
       <dir baseinstalldir="XML" name="/">
        <dir name="examples">
-        <file role="doc" name=" xml_parser_simple1.php"/>
+        <file role="doc" name="xml_parser_file.php"/>
+        <file role="doc" name="xml_parser_file.xml"/>
+        <file role="doc" name="xml_parser_simple1.php"/>
         <file role="doc" name="xml_parser_simple1.xml"/>
        </dir> <!-- examples -->
        <dir name="Parser">
@@ -136,11 +139,18 @@ Thanks to Marshall Roch for commments and contributions and Tomas V.V. Cox
 for applying a lot of fixes and improvements.</notes>
     </release>
     <release>
-      <version>1.2.0</version>
-      <date>2004-04-23</date>
+      <version>1.2.0beta1</version>
+      <date>2004-05-17</date>
       <license>PHP License</license>
       <state>beta</state>
-      <notes>- added new class XML_Parser_Simple that provides a stack for the elements so the user only needs to implement one method to handle the tag and cdata.</notes>
+      <notes>added new class XML_Parser_Simple that provides a stack for the elements so the user only needs to implement one method to handle the tag and cdata.</notes>
+    </release>
+    <release>
+      <version>1.2.0</version>
+      <date>2004-05-17</date>
+      <license>PHP License</license>
+      <state>beta</state>
+      <notes>added new class XML_Parser_Simple that provides a stack for the elements so the user only needs to implement one method to handle the tag and cdata.</notes>
     </release>
   </changelog>
 </package>

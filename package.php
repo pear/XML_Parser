@@ -18,7 +18,7 @@ require_once 'PEAR/PackageFileManager.php';
 /**
  * current version
  */
-$version = '1.2.0';
+$version = '1.2.0beta1';
 
 /**
  * current state
@@ -29,7 +29,7 @@ $state = 'beta';
  * release notes
  */
 $notes = <<<EOT
-- added new class XML_Parser_Simple that provides a stack for the elements so the user only needs to implement one method to handle the tag and cdata.
+added new class XML_Parser_Simple that provides a stack for the elements so the user only needs to implement one method to handle the tag and cdata.
 EOT;
 
 /**
@@ -38,7 +38,8 @@ EOT;
 $description = <<<EOT
 This is an XML parser based on PHPs built-in xml extension.
 It supports two basic modes of operation: "func" and "event".  In "func" mode, it will look for a function named after each element (xmltag_ELEMENT for start tags and xmltag_ELEMENT_ for end tags), and in "event" mode it uses a set of generic callbacks.
-Furthemore this package contains some specialized parsers that help you solve common XML parsing tasks.
+
+Since version 1.2.0 there's a new XML_Parser_Simple class that makes parsing of most XML documents easier, by automatically providing a stack for the elements.
 EOT;
 
 $package = new PEAR_PackageFileManager();
@@ -67,8 +68,8 @@ if (PEAR::isError($result)) {
     die();
 }
 
-$package->addMaintainer('ssb', 'developer', 'Stig Sæther Bakken', 'stig@php.net');
 $package->addMaintainer('schst', 'lead', 'Stephan Schmidt', 'schst@php-tools.net');
+$package->addMaintainer('ssb', 'developer', 'Stig Sæther Bakken', 'stig@php.net');
 $package->addMaintainer('cox', 'developer', 'Tomas V.V.Cox', 'cox@php.net');
 
 $package->addDependency('PEAR', '', 'has', 'pkg', false);
