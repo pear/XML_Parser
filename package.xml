@@ -34,9 +34,9 @@
     <provides type="function" name="XML_Util::splitQualifiedName" />
     <provides type="function" name="XML_Util::isValidName" />
     <filelist>
-      <file role="doc" baseinstalldir="XML" md5sum="5d27c2cb7d171f027ba111b184ea41dd" name="examples/example.php"/>
+      <file role="doc" baseinstalldir="XML" md5sum="5de69ea70c8b02fda7301b14292179b6" name="examples/example.php"/>
       <file role="doc" baseinstalldir="XML" md5sum="3257be997ee92be613fae49b48741de6" name="examples/example2.php"/>
-      <file role="php" baseinstalldir="XML" md5sum="940ad62a3ecfb7028a288e7aee449559" name="Util.php"/>
+      <file role="php" baseinstalldir="XML" md5sum="391b109a12ffcd9d781de08a09a3e1e5" name="Util.php"/>
     </filelist>
   </release>
   <changelog>
