@@ -68,7 +68,7 @@ class XML_Util {
     */
     function apiVersion()
     {
-		return "0.5.1";
+        return "0.5.1";
     }
 
    /**
@@ -356,13 +356,13 @@ class XML_Util {
         // create attribute list
         $attList    =   XML_Util::attributesToString($tag["attributes"], true, $multiline, $indent, $linebreak );
         if (!isset($tag["content"]) || (string)$tag["content"] == '') {
-            $tag    =   sprintf("<%s%s/>", $tag["qname"], $attList);
+            $tag    =   sprintf("<%s%s />", $tag["qname"], $attList);
         } else {
             if ($replaceEntities == XML_UTIL_REPLACE_ENTITIES) {
                 $tag["content"] = XML_Util::replaceEntities($tag["content"]);
             } elseif ($replaceEntities == XML_UTIL_CDATA_SECTION) {
-				$tag["content"] = XML_Util::createCDataSection($tag["content"]);
-			}
+                $tag["content"] = XML_Util::createCDataSection($tag["content"]);
+            }
             $tag    =   sprintf("<%s%s>%s</%s>", $tag["qname"], $attList, $tag["content"], $tag["qname"] );
         }        
         return  $tag;
