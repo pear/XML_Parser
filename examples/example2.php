@@ -1,6 +1,6 @@
 <?PHP
     require_once 'XML/Util.php';
-    
+
     /**
     * creating a start element
     */
@@ -22,6 +22,13 @@
     */
     print "creating an end element:<br>";
     print htmlentities(XML_Util::createEndElement("myNs:myTag"));
+    print "\n<br><br>\n";
+
+    /**
+    * creating a CData section
+    */
+    print "creating a CData section:<br>";
+    print htmlentities(XML_Util::createCDataSection("I am content."));
     print "\n<br><br>\n";
 
 ?>

@@ -35,6 +35,15 @@ define("XML_UTIL_ERROR_INVALID_START", 52);
  */
 define("XML_UTIL_ERROR_NON_SCALAR_CONTENT", 60);
     
+/**
+ * replace XML entities
+ */
+define("XML_UTIL_REPLACE_ENTITIES", 1);
+
+/**
+ * embedd content in a CData Section
+ */
+define("XML_UTIL_CDATA_SECTION", 2);
     
 /**
  * utility class for working with XML documents
@@ -214,12 +223,12 @@ class XML_Util {
     * @param    array   $attributes        array containg attributes
     * @param    mixed   $content
     * @param    string  $namespaceUri      URI of the namespace
-    * @param    boolean $replaceEntities   whether to replace XML special chars in content or not
+    * @param    integer $replaceEntities   whether to replace XML special chars in content, embedd it in a CData section or none of both
     * @return   string  $string            XML tag
     * @see      XML_Util::createTagFromArray()
     * @uses     XML_Util::createTagFromArray() to create the tag
     */
-    function createTag( $qname, $attributes = array(), $content = null, $namespaceUri = null, $replaceEntities = true )
+    function createTag( $qname, $attributes = array(), $content = null, $namespaceUri = null, $replaceEntities = XML_UTIL_REPLACE_ENTITIES )
     {
         $tag = array(
                      "qname"      => $qname,
@@ -260,7 +269,7 @@ class XML_Util {
     *           "qname"        => "foo:bar",
     *           "namespaceUri" => "http://foo.com",
     *           "attributes"   => array( "key" => "value", "argh" => "fruit&vegetable" ),
-    *           "content"      => "I'm inside the tag"
+    *           "content"      => "I'm inside the tag",
     *            );
     * // creating a tag with qualified name and namespaceUri
     * $string = XML_Util::createTagFromArray($tag);
@@ -269,13 +278,13 @@ class XML_Util {
     * @access   public
     * @static
     * @param    array   $tag               tag definition
-    * @param    boolean $replaceEntities   whether to replace XML special chars in content or not
+    * @param    integer $replaceEntities   whether to replace XML special chars in content, embedd it in a CData section or none of both
     * @return   string  $string            XML tag
     * @see      XML_Util::createTag()
     * @uses     XML_Util::attributesToString() to serialize the attributes of the tag
     * @uses     XML_Util::splitQualifiedName() to get local part and namespace of a qualified name
     */
-    function createTagFromArray( $tag, $replaceEntities = true )
+    function createTagFromArray( $tag, $replaceEntities = XML_UTIL_REPLACE_ENTITIES )
     {
         // if no attributes hav been set, use empty attributes
         if (!isset($tag["attributes"]) || !is_array($tag["attributes"])) {
@@ -314,9 +323,11 @@ class XML_Util {
         if (!isset($tag["content"]) || (string)$tag["content"] == '') {
             $tag    =   sprintf("<%s%s/>", $tag["qname"], $attList);
         } elseif (is_scalar($tag["content"])) {
-            if ($replaceEntities) {
+            if ($replaceEntities == XML_UTIL_REPLACE_ENTITIES) {
                 $tag["content"] = XML_Util::replaceEntities($tag["content"]);
-            }
+            } elseif ($replaceEntities == XML_UTIL_CDATA_SECTION) {
+				$tag["content"] = sprintf("<![CDATA[%s]]>", $tag["content"]);
+			}
             $tag    =   sprintf("<%s%s>%s</%s>", $tag["qname"], $attList, $tag["content"], $tag["qname"] );
         } else {
             return PEAR::raiseError( "Supplied non-scalar value as tag content", XML_UTIL_ERROR_NON_SCALAR_CONTENT );
@@ -342,7 +353,7 @@ class XML_Util {
     * @return   string  $string            XML start element
     * @see      XML_Util::createEndElement(), XML_Util::createTag()
     */
-    function createStartElement( $qname, $attributes = array(), $namespaceUri = null )
+    function createStartElement($qname, $attributes = array(), $namespaceUri = null)
     {
         // if no attributes hav been set, use empty attributes
         if (!isset($attributes) || !is_array($attributes)) {
@@ -385,12 +396,32 @@ class XML_Util {
     * @return   string  $string            XML end element
     * @see      XML_Util::createStartElement(), XML_Util::createTag()
     */
-    function createEndElement( $qname )
+    function createEndElement($qname)
     {
         $element    =   sprintf("</%s>", $qname);
         return  $element;
     }
     
+   /**
+    * create a CData section
+    *
+    * <code>
+    * require_once 'XML/Util.php';
+    * 
+    * // create a CData section
+    * $tag = XML_Util::createCDataSection("I am content.");
+    * </code>
+    *
+    * @access   public
+    * @static
+    * @param    string  $data              data of the CData section
+    * @return   string  $string            CData section with content
+    */
+    function createCDataSection($data)
+    {
+        return  sprintf("<![CDATA[%s]]>", $data);
+    }
+
    /**
     * split qualified name and return namespace and local part
     *
