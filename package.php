@@ -18,7 +18,7 @@ require_once 'PEAR/PackageFileManager.php';
 /**
  * current version
  */
-$version = '1.2.0beta2';
+$version = '1.2.0beta3';
 
 /**
  * current state
@@ -29,16 +29,7 @@ $state = 'beta';
  * release notes
  */
 $notes = <<<EOT
-XML_Parser:
-- fixed bug with setMode()
-- moved the init routines for the handlers in _initHandlers()
-XML_Parser_Simple:
-- fixed bug with character data (did not get parsed)
-- fixed bug with setMode()
-- some refactoring
-- added getCurrentDepth() to retrieve the tag depth
-- added addToData()
-- added new example
+- added setHandlerObj() which allows you to have the parser separate from the handler methods
 EOT;
 
 /**

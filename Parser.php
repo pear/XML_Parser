@@ -33,7 +33,6 @@
  * @author  Stephan Schmidt <schst@php-tools.net>
  */
 
-
 /**
  * uses PEAR's error handling
  */
@@ -88,8 +87,6 @@ define('XML_PARSER_ERROR_REMOTE', 205);
  * @author  Stephan Schmidt <schst@php-tools.net>
  * @todo    create XML_Parser_Namespace to parse documents with namespaces
  * @todo    create XML_Parser_Pull
- * @todo    create XML_Parser_Simple, that automatically builds a
- *          stack and passes name, attributes and cdata to the end element handler
  * @todo    Tests that need to be made:
  *          - mixing character encodings
  *          - a test using all expat handlers
@@ -159,6 +156,13 @@ class XML_Parser extends PEAR
      * @var string
      */
     var $tgtenc;
+
+    /**
+     * handler object
+     *
+     * @var object
+     */
+    var $_handlerObj;
 
     // }}}
     // {{{ constructor
@@ -230,6 +234,27 @@ class XML_Parser extends PEAR
     }
 
     /**
+     * Sets the object, that will handle the XML events
+     *
+     * This allows you to create a handler object independent of the
+     * parser object that you are using and easily switch the underlying
+     * parser.
+     *
+     * If no object will be set, XML_Parser assumes that you
+     * extend this class and handle the events in $this.
+     *
+     * @access  public
+     * @param   object      object to handle the events
+     * @return  boolean     will always return true
+     * @since   v1.2.0beta3
+     */
+    function setHandlerObj(&$obj)
+    {
+        $this->_handlerObj = &$obj;
+        return true;
+    }
+
+    /**
      * Init the element handlers
      *
      * @access  private
@@ -239,15 +264,19 @@ class XML_Parser extends PEAR
         if (!is_resource($this->parser)) {
             return false;
         }
-        xml_set_object($this->parser, $this);
 
+        if (!is_object($this->_handlerObj)) {
+            $this->_handlerObj = &$this;
+        }
         switch ($this->mode) {
 
             case 'func':
+                xml_set_object($this->parser, $this);
                 xml_set_element_handler($this->parser, 'funcStartHandler', 'funcEndHandler');
                 break;
 
             case 'event':
+                xml_set_object($this->parser, $this->_handlerObj);
                 xml_set_element_handler($this->parser, 'startHandler', 'endHandler');
                 break;
             default:
@@ -255,11 +284,12 @@ class XML_Parser extends PEAR
                 break;
         }
 
+
         /**
          * set additional handlers for character data, entities, etc.
          */
         foreach ($this->handler as $xml_func => $method) {
-            if (method_exists($this, $method)) {
+            if (method_exists($this->_handlerObj, $method)) {
                 $xml_func = 'xml_set_' . $xml_func;
                 $xml_func($this->parser, $method);
             }
@@ -540,8 +570,8 @@ class XML_Parser extends PEAR
     function funcStartHandler($xp, $elem, $attribs)
     {
         $func = 'xmltag_' . $elem;
-        if (method_exists($this, $func)) {
-            call_user_func(array(&$this, $func), $xp, $elem, $attribs);
+        if (method_exists($this->_handlerObj, $func)) {
+            call_user_func(array(&$this->_handlerObj, $func), $xp, $elem, $attribs);
         }
     }
 
@@ -552,7 +582,7 @@ class XML_Parser extends PEAR
     {
         $func = 'xmltag_' . $elem . '_';
         if (method_exists($this, $func)) {
-            call_user_func(array(&$this, $func), $xp, $elem);
+            call_user_func(array(&$this->_handlerObj, $func), $xp, $elem);
         }
     }
 
