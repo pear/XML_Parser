@@ -1,4 +1,14 @@
 <?PHP
+/**
+ * several examples for the methods of XML_Util
+ *
+ * $Id$
+ *
+ * @author      Stephan Schmidt
+ * @package     XML_Util
+ * @subpackage  examples
+ * @category    XML
+ */
     error_reporting(E_ALL);
 
     require_once 'XML/Util.php';
