@@ -509,7 +509,7 @@ class XML_Util {
     * @param  string    $defaultNs  default namespace (optional)
     * @return array     $parts      array containing namespace and local part
     */
-    function splitQualifiedName($qname, $defaultNs)
+    function splitQualifiedName($qname, $defaultNs = null)
     {
         if (strstr($qname, ':')) {
             $tmp = explode(":", $qname);

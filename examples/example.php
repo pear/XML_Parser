@@ -83,6 +83,14 @@
     print "</pre>";
     print "\n<br>\n";
 
+    /**
+    * splitting a qualified tag name (no namespace, but default namespace specified)
+    */
+    print "splitting qualified tag name (no namespace, but default namespace specified):<br>\n";
+    print "<pre>";
+    print_r(XML_Util::splitQualifiedName("foo", "bar"));
+    print "</pre>";
+    print "\n<br>\n";
 
     /**
     * verifying XML names
