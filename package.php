@@ -18,7 +18,7 @@ require_once 'PEAR/PackageFileManager.php';
 /**
  * current version
  */
-$version = '1.2.3';
+$version = '1.2.4';
 
 /**
  * current state
@@ -29,8 +29,7 @@ $state = 'stable';
  * release notes
  */
 $notes = <<<EOT
-- fixed a bug that occured when using 'func' mode and setHandlerObj() (schst)
-- added default handlers for 'func' mode (schst)
+- fixed a bug in XML_Parser_Simple when trying to register more than the default handlers and a separate callback object (schst)
 EOT;
 
 /**

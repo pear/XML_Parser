@@ -29,12 +29,11 @@ Furthermore its now possible to split the parser from the handler object, so you
     </maintainer>
   </maintainers>
   <release>
-    <version>1.2.3</version>
-    <date>2005-01-17</date>
+    <version>1.2.4</version>
+    <date>2005-01-18</date>
     <license>PHP License</license>
     <state>stable</state>
-    <notes>- fixed a bug that occured when using 'func' mode and setHandlerObj() (schst)
-- added default handlers for 'func' mode (schst)</notes>
+    <notes>- fixed a bug in XML_Parser_Simple when trying to register more than the default handlers and a separate callback object (schst)</notes>
     <deps>
       <dep type="php" rel="ge" version="4.2.0" optional="no"/>
       <dep type="pkg" rel="has" optional="no">PEAR</dep>
@@ -217,6 +216,13 @@ XML_Parser_Simple:
       <state>stable</state>
       <notes>- fixed a bug that occured when using 'func' mode and setHandlerObj() (schst)
 - added default handlers for 'func' mode (schst)</notes>
+    </release>
+    <release>
+      <version>1.2.4</version>
+      <date>2005-01-18</date>
+      <license>PHP License</license>
+      <state>stable</state>
+      <notes>- fixed a bug in XML_Parser_Simple when trying to register more than the default handlers and a separate callback object (schst)</notes>
     </release>
   </changelog>
 </package>
