@@ -19,15 +19,11 @@
     </maintainer>
   </maintainers>
   <release>
-    <version>0.6.0</version>
-    <date>2004-06-07</date>
+    <version>0.6.1</version>
+    <date>2004-06-27</date>
     <license>PHP License</license>
     <state>stable</state>
-    <notes>- Fixed bug 1438 (namespaces not accepted for isValidName()) (thanks to davey)
-- added optional parameter to replaceEntities() to define the set of entities to replace
-- added optional parameter to attributesToString() to define, whether entities should be replaced (requested by Sebastian Bergmann)
-- allowed second parameter to XML_Util::attributesToString() to be an array containing options (easier to use, if you only need to set the last parameter)
-- introduced XML_Util::raiseError() to avoid the necessity of including PEAR.php, will only be included on error</notes>
+    <notes>- Added check for tag name (either as local part or qualified name) in createTagFromArray() (bug #1083)</notes>
     <deps>
       <dep type="ext" rel="has" optional="no">pcre</dep>
       <dep type="pkg" rel="has" optional="no">PEAR</dep>
@@ -131,6 +127,13 @@ minor whitespace fixes (Davey)</notes>
 - added optional parameter to attributesToString() to define, whether entities should be replaced (requested by Sebastian Bergmann)
 - allowed second parameter to XML_Util::attributesToString() to be an array containing options (easier to use, if you only need to set the last parameter)
 - introduced XML_Util::raiseError() to avoid the necessity of including PEAR.php, will only be included on error</notes>
+    </release>
+    <release>
+      <version>0.6.1</version>
+      <date>2004-06-27</date>
+      <license>PHP License</license>
+      <state>stable</state>
+      <notes>- Added check for tag name (either as local part or qualified name) in createTagFromArray() (bug #1083)</notes>
     </release>
   </changelog>
 </package>
