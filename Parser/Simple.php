@@ -121,32 +121,16 @@ class XML_Parser_Simple extends XML_Parser
     }
 
     /**
-     * Sets the mode of the parser.
+     * inits the handlers
      *
-     * Possible modes are:
-     * - func
-     * - event
-     *
-     * This also sets all handlers for the parser.
-     *
-     * You do not need to call this method in most cases, as
-     * it's called automatically when parsing a document.
-     *
-     * You can set the mode using the second parameter
-     * in the constructor.
-     *
-     * @param  string $mode
-     * @see    $handler
+     * @access  private
      */
-    function setMode($mode)
+    function _initHandlers()
     {
-        $this->mode = $mode;
-
-        xml_set_object($this->parser, $this);
-
-        if ($mode != 'func' && $mode != 'event') {
-            $this->raiseError('Unsupported mode given', XML_PARSER_ERROR_UNSUPPORTED_MODE);
+        if ($this->mode != 'func' && $this->mode != 'event') {
+            return $this->raiseError('Unsupported mode given', XML_PARSER_ERROR_UNSUPPORTED_MODE);
         }
+        xml_set_object($this->parser, $this);
 
         xml_set_element_handler($this->parser, 'startHandler', 'endHandler');
 
@@ -217,7 +201,7 @@ class XML_Parser_Simple extends XML_Parser
     function endHandler($xp, $elem)
     {
         $el   = array_pop($this->_elStack);
-        $data = '';
+        $data = $this->_data[$this->_depth];
         $this->_depth--;
      
         switch ($this->mode) {
@@ -241,9 +225,9 @@ class XML_Parser_Simple extends XML_Parser
     * @param    resource    xml parser resource
     * @param    string      data
     */
-    function characterData($xp, $data)
+    function cdataHandler($xp, $data)
     {
-        $this->_data[$this->_depth] = $data;
+        $this->_data[$this->_depth] .= $data;
     }
 
    /**
@@ -259,6 +243,33 @@ class XML_Parser_Simple extends XML_Parser
     */
     function handleElement($name, $attribs, $data)
     {
+    }
+
+   /**
+    * get the current tag depth
+    *
+    * The root tag is in depth 0.
+    *
+    * @access   public
+    * @return   integer
+    */
+    function getCurrentDepth()
+    {
+        return $this->_depth;
+    }
+
+   /**
+    * add some string to the current ddata.
+    *
+    * This is commonly needed, when a document is parsed recursively.
+    *
+    * @access   public
+    * @param    string      data to add
+    * @return   void
+    */
+    function addToData( $data )
+    {
+        $this->_data[$this->_depth] .= $data;
     }
 }
 ?>
