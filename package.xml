@@ -18,12 +18,21 @@ in "event" mode it uses a set of generic callbacks.
       <name>Stig Sæther Bakken</name>
       <email>stig@php.net</email>
     </maintainer>
+    <maintainer>
+      <user>cox</user>
+      <role>helper</role>
+      <name>Tomas V.V.Cox</name>
+      <email>cox@php.net</email>
+    </maintainer>
   </maintainers>
   <release>
     <state>stable</state>
-    <version>1.0.1</version>
+    <version>1.1</version>
     <date>2003-02-23</date>
-    <notes>Typo bugfix release</notes>
+    <notes>
+- Fixed memory leaks parsing many documents or big files
+- Fixed setInput() url detection regex
+    </notes>
     <filelist>
       <dir name="/" baseinstalldir="XML">
         <file role="php">Parser.php</file>
@@ -40,27 +49,4 @@ in "event" mode it uses a set of generic callbacks.
       <dep type="php" rel="ge" version="4.0.4pl1" />
     </deps>
   </release>
-  <changelog>
-    <release>
-      <state>stable</state>
-      <version>1.0</version>
-      <date>2002-05-09</date>
-      <notes>First independent release</notes>
-      <filelist>
-        <dir name="/" baseinstalldir="XML">
-          <file role="php">Parser.php</file>
-        </dir>
-        <file role="test">tests/001.phpt</file>
-        <file role="test">tests/002.phpt</file>
-        <file role="test">tests/003.phpt</file>
-        <file role="test">tests/004.phpt</file>
-        <file role="test">tests/005.phpt</file>
-        <file role="test">tests/test2.xml</file>
-        <file role="test">tests/test3.xml</file>
-      </filelist>
-      <deps>
-        <dep type="php" rel="ge" version="4.0.4pl1" />
-      </deps>
-    </release>
-  </changelog>
 </package>
