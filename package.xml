@@ -30,7 +30,7 @@ in &quot;event&quot; mode it uses a set of generic callbacks.</description>
   </maintainers>
   <release>
     <version>1.1.0beta1</version>
-    <date>2004-04-13</date>
+    <date>2004-04-16</date>
     <license>PHP License</license>
     <state>beta</state>
     <notes>- Fixed memory leaks parsing many documents or big files (mroch)
@@ -47,11 +47,12 @@ in &quot;event&quot; mode it uses a set of generic callbacks.</description>
 - improved parse() and parseString() to be able to parse more than one document (schst)
 - added PHP5 constructor (schst)
 - moved xml_parser_create() to _create() for PHP5 compatibility (schst)
+- added dependency on PHP 4.2
 
 Thanks to Marshall Roch for commments and contributions and Tomas V.V. Cox
 for applying a lot of fixes and improvements.</notes>
     <deps>
-      <dep type="php" rel="ge" version="4.0.4pl1" optional="no"/>
+      <dep type="php" rel="ge" version="4.2.0" optional="no"/>
       <dep type="pkg" rel="has" optional="no">PEAR</dep>
     </deps>
     <filelist>
@@ -64,15 +65,15 @@ for applying a lot of fixes and improvements.</notes>
         <file role="test" name="005.phpt"/>
         <file role="test" name="test2.xml"/>
         <file role="test" name="test3.xml"/>
-       </dir> <!-- tests -->
+       </dir>
        <file role="php" name="Parser.php"/>
-      </dir> <!-- / -->
+      </dir>
     </filelist>
   </release>
   <changelog>
     <release>
       <version>1.1.0beta1</version>
-      <date>2004-04-13</date>
+      <date>2004-04-16</date>
       <license>PHP License</license>
       <state>beta</state>
       <notes>- Fixed memory leaks parsing many documents or big files (mroch)
@@ -89,6 +90,7 @@ for applying a lot of fixes and improvements.</notes>
 - improved parse() and parseString() to be able to parse more than one document (schst)
 - added PHP5 constructor (schst)
 - moved xml_parser_create() to _create() for PHP5 compatibility (schst)
+- added dependency on PHP 4.2
 
 Thanks to Marshall Roch for commments and contributions and Tomas V.V. Cox
 for applying a lot of fixes and improvements.</notes>
