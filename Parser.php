@@ -372,22 +372,16 @@ class XML_Parser extends PEAR
      */
     function setInputFile($file)
     {
-        $oldVal = false;
         /**
          * check, if file is a remote file
          */
         if (eregi('^(http|ftp)://', substr($file, 0, 10))) {
-            if (!ini_get('safe_mode')) {
-                $oldVal = ini_set('allow_url_fopen', 1);
-            } else {
-                return $this->raiseError('Remote files cannot be parsed, as safe mode is enabled.', XML_PARSER_ERROR_REMOTE);
+            if (!ini_get('allow_url_fopen')) {
+            	return $this->raiseError('Remote files cannot be parsed, as safe mode is enabled.', XML_PARSER_ERROR_REMOTE);
             }
         }
         
         $fp = @fopen($file, 'rb');
-        if ($oldVal !== false) {
-            ini_set('allow_url_fopen', $oldVal);
-        }
         if (is_resource($fp)) {
             $this->fp = $fp;
             return $fp;
