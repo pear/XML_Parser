@@ -69,7 +69,7 @@ class XML_Parser extends PEAR {
         "character_data_handler"            => "cdataHandler",
         "default_handler"                   => "defaultHandler",
         "processing_instruction_handler"    => "piHandler",
-        "unparsed_entitry_decl_handler"     => "unparsedHandler",
+        "unparsed_entity_decl_handler"      => "unparsedHandler",
         "notation_decl_handler"             => "notationHandler",
         "external_entity_ref_handler"       => "entityrefHandler"
     );
