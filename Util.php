@@ -46,7 +46,7 @@ define("XML_UTIL_REPLACE_ENTITIES", 1);
 /**
  * embedd content in a CData Section
  */
-define("XML_UTIL_CDATA_SECTION", 2);
+define("XML_UTIL_CDATA_SECTION", 5);
 
 /**
  * do not replace entitites
@@ -141,7 +141,7 @@ class XML_Util {
                                           '"'  => '&quot;' ));
                 break;
             case XML_UTIL_ENTITIES_HTML:
-                return htmlspecialchars($string);
+                return htmlentities($string);
                 break;
         }
         return $string;
@@ -185,7 +185,7 @@ class XML_Util {
                                           '&quot;' => '"' ));
                 break;
             case XML_UTIL_ENTITIES_HTML:
-                $arr = array_flip(get_html_translation_table(HTML_SPECIALCHARS));
+                $arr = array_flip(get_html_translation_table(HTML_ENTITIES));
                 return strtr($string, $arr);
                 break;
         }
@@ -321,6 +321,9 @@ class XML_Util {
             if( !$multiline || count($attributes) == 1) {
                 foreach ($attributes as $key => $value) {
                     if ($entities != XML_UTIL_ENTITIES_NONE) {
+                        if ($entities === XML_UTIL_CDATA_SECTION) {
+                        	$entities = XML_UTIL_ENTITIES_XML;
+                        }
                         $value = XML_Util::replaceEntities($value, $entities);
                     }
                     $string .= ' '.$key.'="'.$value.'"';
@@ -456,8 +459,8 @@ class XML_Util {
     */
     function createTagFromArray($tag, $replaceEntities = XML_UTIL_REPLACE_ENTITIES, $multiline = false, $indent = "_auto", $linebreak = "\n" )
     {
-        if (isset($tag["content"]) && !is_scalar($tag["content"])) {
-            return XML_Util::raiseError( "Supplied non-scalar value as tag content", XML_UTIL_ERROR_NON_SCALAR_CONTENT );
+        if (isset($tag['content']) && !is_scalar($tag['content'])) {
+            return XML_Util::raiseError( 'Supplied non-scalar value as tag content', XML_UTIL_ERROR_NON_SCALAR_CONTENT );
         }
 
         if (!isset($tag['qname']) && !isset($tag['localPart'])) {
@@ -504,16 +507,21 @@ class XML_Util {
         }
         
         // create attribute list
-        $attList    =   XML_Util::attributesToString($tag["attributes"], true, $multiline, $indent, $linebreak );
-        if (!isset($tag["content"]) || (string)$tag["content"] == '') {
-            $tag    =   sprintf("<%s%s />", $tag["qname"], $attList);
+        $attList    =   XML_Util::attributesToString($tag['attributes'], true, $multiline, $indent, $linebreak, $replaceEntities );
+        if (!isset($tag['content']) || (string)$tag['content'] == '') {
+            $tag    =   sprintf('<%s%s />', $tag['qname'], $attList);
         } else {
-            if ($replaceEntities == XML_UTIL_REPLACE_ENTITIES) {
-                $tag["content"] = XML_Util::replaceEntities($tag["content"]);
-            } elseif ($replaceEntities == XML_UTIL_CDATA_SECTION) {
-                $tag["content"] = XML_Util::createCDataSection($tag["content"]);
+            switch ($replaceEntities) {
+                case XML_UTIL_ENTITIES_NONE:
+                    break;
+                case XML_UTIL_CDATA_SECTION:
+                    $tag['content'] = XML_Util::createCDataSection($tag['content']);
+                    break;
+                default:
+                    $tag['content'] = XML_Util::replaceEntities($tag['content'], $replaceEntities);
+                    break;
             }
-            $tag    =   sprintf("<%s%s>%s</%s>", $tag["qname"], $attList, $tag["content"], $tag["qname"] );
+            $tag    =   sprintf('<%s%s>%s</%s>', $tag['qname'], $attList, $tag['content'], $tag['qname'] );
         }        
         return  $tag;
     }

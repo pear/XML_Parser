@@ -181,6 +181,19 @@
     print "\n<br><br>\n";
 
     /**
+    * creating an XML tag with a CData Section
+    */
+    $tag = array(
+                  "qname"        => "foo",
+                  "attributes"   => array( "key" => "value", "argh" => "tütü" ),
+                  "content"      => "Also XHTML-tags can be created and HTML entities can be replaced Ä ä Ü ö <>."
+                );
+
+    print "creating a tag with HTML entities:<br>\n";
+    print htmlentities(XML_Util::createTagFromArray($tag, XML_UTIL_ENTITIES_HTML));
+    print "\n<br><br>\n";
+
+    /**
     * creating an XML tag with createTag
     */
     print "creating a tag with createTag:<br>";
