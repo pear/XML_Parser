@@ -13,11 +13,11 @@
     </maintainer>
   </maintainers>
   <release>
-    <version>0.2</version>
-    <date>2003-08-12</date>
+    <version>0.2.1</version>
+    <date>2003-09-05</date>
     <license>PHP License</license>
     <state>stable</state>
-    <notes>added XML_Util::getDocTypeDeclaration()</notes>
+    <notes>fixed bug with zero as tag content in createTagFromArray and createTag</notes>
     <deps>
       <dep type="ext" rel="has">pcre</dep>
     </deps>
@@ -32,56 +32,8 @@
     <provides type="function" name="XML_Util::splitQualifiedName" />
     <provides type="function" name="XML_Util::isValidName" />
     <filelist>
-      <file role="doc" baseinstalldir="XML" md5sum="82894291ce043c6a862e2ec85552efbf" name="apidoc/blank.html"/>
-      <file role="doc" baseinstalldir="XML" md5sum="a8b00ef9fb2d73bd56909b924327b016" name="apidoc/classtrees_XML_Util.html"/>
-      <file role="doc" baseinstalldir="XML" md5sum="46bc56912fb767da76390aae982efc76" name="apidoc/elementindex.html"/>
-      <file role="doc" baseinstalldir="XML" md5sum="9c7ef6403e8a32d686d6f115aab80f1f" name="apidoc/elementindex_XML_Util.html"/>
-      <file role="doc" baseinstalldir="XML" md5sum="c9a85d43f152ca73817d8a8b1c642ed6" name="apidoc/errors.html"/>
-      <file role="doc" baseinstalldir="XML" md5sum="1e6f449d30123af6aa3244c23b27bf30" name="apidoc/index.html"/>
-      <file role="doc" baseinstalldir="XML" md5sum="ecd79125dafe8827c1fa6de998f4d802" name="apidoc/li_XML_Util.html"/>
-      <file role="doc" baseinstalldir="XML" md5sum="354ab8cbc33e7166198643582b834506" name="apidoc/packages.html"/>
-      <file role="doc" baseinstalldir="XML" md5sum="0b3b8cfa4348fa840997929bdd0f57f3" name="apidoc/todolist.html"/>
-      <file role="doc" baseinstalldir="XML" md5sum="947f9884e04b1d7a294120b4208b1301" name="apidoc/media/banner.css"/>
-      <file role="doc" baseinstalldir="XML" md5sum="db0cb5cf345b074561965d98ba7cff2e" name="apidoc/media/stylesheet.css"/>
-      <file role="doc" baseinstalldir="XML" md5sum="9dc3fb889eab6ca02847e7cc44520747" name="apidoc/media/images/blank.png"/>
-      <file role="doc" baseinstalldir="XML" md5sum="61a377b4e70e93180c55612e05a18d6a" name="apidoc/media/images/Class.png"/>
-      <file role="doc" baseinstalldir="XML" md5sum="dbfb1b7eba9f8bc6cceca66d273c248f" name="apidoc/media/images/class_folder.png"/>
-      <file role="doc" baseinstalldir="XML" md5sum="7081fd7a2eb997858e2998f43edd98ee" name="apidoc/media/images/Constant.png"/>
-      <file role="doc" baseinstalldir="XML" md5sum="e277b94541353c0535fad01adf6e2cde" name="apidoc/media/images/Constructor.png"/>
-      <file role="doc" baseinstalldir="XML" md5sum="bc255f86390a680bfc3633f94f81e503" name="apidoc/media/images/Destructor.png"/>
-      <file role="doc" baseinstalldir="XML" md5sum="8c092768f85b3c268a506002a949b132" name="apidoc/media/images/file.png"/>
-      <file role="doc" baseinstalldir="XML" md5sum="3a95fa77866149bf2c93b73cec195bd6" name="apidoc/media/images/folder.png"/>
-      <file role="doc" baseinstalldir="XML" md5sum="493f5f771389ee0c2a6d3699f6871920" name="apidoc/media/images/Function.png"/>
-      <file role="doc" baseinstalldir="XML" md5sum="bc31b4d50e39311fc1a97f45c7f876e4" name="apidoc/media/images/function_folder.png"/>
-      <file role="doc" baseinstalldir="XML" md5sum="52b1b9efe19b2484b9af6762dc08fd92" name="apidoc/media/images/Global.png"/>
-      <file role="doc" baseinstalldir="XML" md5sum="8cdb41d4407690691fb1ab5265ee0b7c" name="apidoc/media/images/I.png"/>
-      <file role="doc" baseinstalldir="XML" md5sum="4f8fa20dd8f20d4a1ff0415ccdac3a38" name="apidoc/media/images/Index.png"/>
-      <file role="doc" baseinstalldir="XML" md5sum="9c75e77d6c1dc1697f225c0f8a90ba85" name="apidoc/media/images/L.png"/>
-      <file role="doc" baseinstalldir="XML" md5sum="10d4789e288c445ab5e6c4b93d01c884" name="apidoc/media/images/Lminus.png"/>
-      <file role="doc" baseinstalldir="XML" md5sum="498f5c3f351867da496ace814682cbfd" name="apidoc/media/images/Lplus.png"/>
-      <file role="doc" baseinstalldir="XML" md5sum="a85d74db78c84c76507ecfeecf9b1a26" name="apidoc/media/images/Method.png"/>
-      <file role="doc" baseinstalldir="XML" md5sum="c6ec5b9d231a9fad30330d8260d6d086" name="apidoc/media/images/next_button.png"/>
-      <file role="doc" baseinstalldir="XML" md5sum="f47ba09d08f3c3e0346f6e1874d65d4a" name="apidoc/media/images/next_button_disabled.png"/>
-      <file role="doc" baseinstalldir="XML" md5sum="5e4e26d47ecc2b15a8319fffaf572b14" name="apidoc/media/images/package.png"/>
-      <file role="doc" baseinstalldir="XML" md5sum="11a33590cbcbe60ed17af5353baa3953" name="apidoc/media/images/package_folder.png"/>
-      <file role="doc" baseinstalldir="XML" md5sum="6e72f301e455ef1c0ba4ea3407f6c344" name="apidoc/media/images/Page.png"/>
-      <file role="doc" baseinstalldir="XML" md5sum="0c31f4ecb81d1a95b1caeda8fcd4b533" name="apidoc/media/images/previous_button.png"/>
-      <file role="doc" baseinstalldir="XML" md5sum="03528f21c88d4cc28eea2a8892b4048e" name="apidoc/media/images/previous_button_disabled.png"/>
-      <file role="doc" baseinstalldir="XML" md5sum="c9be21e373cbbe64254240ce952cb462" name="apidoc/media/images/PrivateClass.png"/>
-      <file role="doc" baseinstalldir="XML" md5sum="9e14c58e388ed4bed6e51e97cbd8ada2" name="apidoc/media/images/PrivateMethod.png"/>
-      <file role="doc" baseinstalldir="XML" md5sum="32f2c857eff1d8486b4efd97873cc79e" name="apidoc/media/images/PrivateVariable.png"/>
-      <file role="doc" baseinstalldir="XML" md5sum="6346415134bebdc6fcba24a14e6a2f69" name="apidoc/media/images/T.png"/>
-      <file role="doc" baseinstalldir="XML" md5sum="83ced60c3a5307605dc25ef7df3800bc" name="apidoc/media/images/Tminus.png"/>
-      <file role="doc" baseinstalldir="XML" md5sum="f0b02c1ecc496aafce1ca1f78bc53ddc" name="apidoc/media/images/Tplus.png"/>
-      <file role="doc" baseinstalldir="XML" md5sum="8ef82dba493e25ef00a0eac2c61c7133" name="apidoc/media/images/tutorial.png"/>
-      <file role="doc" baseinstalldir="XML" md5sum="eaf972b7be6f45c70d4c024f8eb5feb9" name="apidoc/media/images/tutorial_folder.png"/>
-      <file role="doc" baseinstalldir="XML" md5sum="31e9c574f92b3b3a51fc237329927b5e" name="apidoc/media/images/up_button.png"/>
-      <file role="doc" baseinstalldir="XML" md5sum="127cfe571d543d38dd1d8faf4dd6f081" name="apidoc/media/images/Variable.png"/>
-      <file role="doc" baseinstalldir="XML" md5sum="5ab612b2b94a321e25950c324f037b9a" name="apidoc/XML_Util/XML_Util.html"/>
-      <file role="doc" baseinstalldir="XML" md5sum="ff072f9dab1baaa7c3cd42b89c39cf7b" name="apidoc/XML_Util/_Util_XML_XML_Util_php.html"/>
       <file role="doc" baseinstalldir="XML" md5sum="5de69ea70c8b02fda7301b14292179b6" name="examples/example.php"/>
-      <file role="php" baseinstalldir="XML" md5sum="05b6f58284f6680d3416d61ca35f5d62" name="Util.php"/>
-      <file role="data" baseinstalldir="XML" md5sum="07cd16ea2b5159aeaed4dcb0a9b2d55c" name="XML_Util-0.2.tgz"/>
+      <file role="php" baseinstalldir="XML" md5sum="653dfde4907c23f6fbc9deb5e80a4ff0" name="Util.php"/>
     </filelist>
   </release>
   <changelog>
@@ -103,6 +55,13 @@
       <license>PHP License</license>
       <state>stable</state>
       <notes>added XML_Util::getDocTypeDeclaration()</notes>
+    </release>
+    <release>
+      <version>0.2.1</version>
+      <date>2003-09-05</date>
+      <license>PHP License</license>
+      <state>stable</state>
+      <notes>fixed bug with zero as tag content in createTagFromArray and createTag</notes>
     </release>
   </changelog>
 </package>
