@@ -473,13 +473,17 @@ class XML_Parser extends PEAR
         
             while ($data = fread($this->fp, 4096)) {
                 if (!$this->_parseString($data, feof($this->fp))) {
-                    return $this->raiseError();
+                    $error = &$this->raiseError();
+                    $this->free();
+                    return $error;
                 }
             }
         // otherwise, $this->fp must be a string
         } else {
             if (!$this->_parseString($this->fp, true)) {
-                return $this->raiseError();
+                $error = &$this->raiseError();
+                $this->free();
+                return $error;
             }
         }
         $this->free();
@@ -522,7 +526,9 @@ class XML_Parser extends PEAR
         }
         
         if (!$this->_parseString($data, $eof)) {
-           return $this->raiseError();
+           $error = &$this->raiseError();
+           $this->free();
+           return $error;
         }
 
         if ($eof === true) {
@@ -554,7 +560,7 @@ class XML_Parser extends PEAR
     /**
      * XML_Parser::raiseError()
      * 
-     * Trows a XML_Parser_Error and free's the internal resources
+     * Throws a XML_Parser_Error
      * 
      * @param string  $msg   the error message
      * @param integer $ecode the error message code
@@ -564,7 +570,6 @@ class XML_Parser extends PEAR
     {
         $msg = !is_null($msg) ? $msg : $this->parser;
         $err = &new XML_Parser_Error($msg, $ecode);
-        $this->free();
         return parent::raiseError($err);
     }
     
