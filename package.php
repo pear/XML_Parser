@@ -18,35 +18,18 @@ require_once 'PEAR/PackageFileManager.php';
 /**
  * current version
  */
-$version = '1.1.0';
+$version = '1.2.0';
 
 /**
  * current state
  */
-$state = 'stable';
+$state = 'beta';
 
 /**
  * release notes
  */
 $notes = <<<EOT
-- Fixed memory leaks parsing many documents or big files (mroch)
-- Fixed setInput() url detection regex (mroch)
-- Added setInputString() method, allowing strings to be passed as input (schst)
-- Error handling rewritten (cox)
-- Increased the overall parsing speed (cox)
-- Added free() method (schst
-- Added reset() method, that is called when parsing a document so it is possible to parse more than one document per instance (schst)
-- Added error codes (schst)
-- revamped documentation (cox, schst)
-- Fixed bug #516 (url fopen and safe mode) (schst)
-- Fixed bug #637 (dependency on PEAR) (schst)
-- improved parse() and parseString() to be able to parse more than one document (schst)
-- added PHP5 constructor (schst)
-- moved xml_parser_create() to _create() for PHP5 compatibility (schst)
-- added dependency on PHP 4.2
-
-Thanks to Marshall Roch for commments and contributions and Tomas V.V. Cox
-for applying a lot of fixes and improvements.
+- added new class XML_Parser_Simple that provides a stack for the elements so the user only needs to implement one method to handle the tag and cdata.
 EOT;
 
 /**
@@ -55,6 +38,7 @@ EOT;
 $description = <<<EOT
 This is an XML parser based on PHPs built-in xml extension.
 It supports two basic modes of operation: "func" and "event".  In "func" mode, it will look for a function named after each element (xmltag_ELEMENT for start tags and xmltag_ELEMENT_ for end tags), and in "event" mode it uses a set of generic callbacks.
+Furthemore this package contains some specialized parsers that help you solve common XML parsing tasks.
 EOT;
 
 $package = new PEAR_PackageFileManager();
@@ -83,7 +67,7 @@ if (PEAR::isError($result)) {
     die();
 }
 
-$package->addMaintainer('ssb', 'lead', 'Stig Sæther Bakken', 'stig@php.net');
+$package->addMaintainer('ssb', 'developer', 'Stig Sæther Bakken', 'stig@php.net');
 $package->addMaintainer('schst', 'lead', 'Stephan Schmidt', 'schst@php-tools.net');
 $package->addMaintainer('cox', 'developer', 'Tomas V.V.Cox', 'cox@php.net');
 
