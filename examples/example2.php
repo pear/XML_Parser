@@ -31,4 +31,21 @@
     print htmlentities(XML_Util::createCDataSection("I am content."));
     print "\n<br><br>\n";
 
+    /**
+    * creating an XML tag with multiline mode
+    */
+    $tag = array(
+                  "qname"        => "foo:bar",
+                  "namespaceUri" => "http://foo.com",
+                  "attributes"   => array( "key" => "value", "argh" => "fruit&vegetable" ),
+                  "content"      => "I'm inside the tag & contain dangerous chars"
+                );
+
+    print "creating a tag with qualified name and namespaceUri:<br>\n";
+    print "<pre>";
+    print htmlentities(XML_Util::createTagFromArray($tag, XML_UTIL_REPLACE_ENTITIES, true));
+    print "</pre>";
+    print "\n<br><br>\n";
+
+
 ?>

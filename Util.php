@@ -239,11 +239,14 @@ class XML_Util {
     * @param    mixed   $content
     * @param    string  $namespaceUri      URI of the namespace
     * @param    integer $replaceEntities   whether to replace XML special chars in content, embedd it in a CData section or none of both
+    * @param    boolean $multiline         whether to create a multiline tag where each attribute gets written to a single line
+    * @param    string  $indent            string used to indent attributes (_auto indents attributes so they start at the same column)
+    * @param    string  $linebreak         string used for linebreaks
     * @return   string  $string            XML tag
     * @see      XML_Util::createTagFromArray()
     * @uses     XML_Util::createTagFromArray() to create the tag
     */
-    function createTag($qname, $attributes = array(), $content = null, $namespaceUri = null, $replaceEntities = XML_UTIL_REPLACE_ENTITIES)
+    function createTag($qname, $attributes = array(), $content = null, $namespaceUri = null, $replaceEntities = XML_UTIL_REPLACE_ENTITIES, $multiline = false, $indent = "_auto", $linebreak = "\n")
     {
         $tag = array(
                      "qname"      => $qname,
@@ -260,7 +263,7 @@ class XML_Util {
             $tag["namespaceUri"] = $namespaceUri;
         }
 
-        return XML_Util::createTagFromArray($tag, $replaceEntities);
+        return XML_Util::createTagFromArray($tag, $replaceEntities, $multiline, $indent, $linebreak);
     }
 
    /**
@@ -294,12 +297,15 @@ class XML_Util {
     * @static
     * @param    array   $tag               tag definition
     * @param    integer $replaceEntities   whether to replace XML special chars in content, embedd it in a CData section or none of both
+    * @param    boolean $multiline         whether to create a multiline tag where each attribute gets written to a single line
+    * @param    string  $indent            string used to indent attributes (_auto indents attributes so they start at the same column)
+    * @param    string  $linebreak         string used for linebreaks
     * @return   string  $string            XML tag
     * @see      XML_Util::createTag()
     * @uses     XML_Util::attributesToString() to serialize the attributes of the tag
     * @uses     XML_Util::splitQualifiedName() to get local part and namespace of a qualified name
     */
-    function createTagFromArray($tag, $replaceEntities = XML_UTIL_REPLACE_ENTITIES)
+    function createTagFromArray($tag, $replaceEntities = XML_UTIL_REPLACE_ENTITIES, $multiline = false, $indent = "_auto", $linebreak = "\n" )
     {
         if (isset($tag["content"]) && !is_scalar($tag["content"])) {
             return PEAR::raiseError( "Supplied non-scalar value as tag content", XML_UTIL_ERROR_NON_SCALAR_CONTENT );
@@ -337,8 +343,15 @@ class XML_Util {
             }
         }
 
+        // check for multiline attributes
+        if ($multiline === true) {
+            if ($indent === "_auto") {
+                $indent = str_repeat(" ", (strlen($tag["qname"])+2));
+            }
+        }
+        
         // create attribute list
-        $attList    =   XML_Util::attributesToString($tag["attributes"]);
+        $attList    =   XML_Util::attributesToString($tag["attributes"], true, $multiline, $indent, $linebreak );
         if (!isset($tag["content"]) || (string)$tag["content"] == '') {
             $tag    =   sprintf("<%s%s/>", $tag["qname"], $attList);
         } else {
