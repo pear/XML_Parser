@@ -34,6 +34,11 @@ define("XML_UTIL_ERROR_INVALID_START", 52);
 define("XML_UTIL_ERROR_NON_SCALAR_CONTENT", 60);
     
 /**
+ * error code for missing tag name
+ */
+define("XML_UTIL_ERROR_NO_TAG_NAME", 61);
+    
+/**
  * replace XML entities
  */
 define("XML_UTIL_REPLACE_ENTITIES", 1);
@@ -372,6 +377,10 @@ class XML_Util {
     {
         if (isset($tag["content"]) && !is_scalar($tag["content"])) {
             return XML_Util::raiseError( "Supplied non-scalar value as tag content", XML_UTIL_ERROR_NON_SCALAR_CONTENT );
+        }
+
+        if (!isset($tag['qname']) && !isset($tag['localPart'])) {
+            return XML_Util::raiseError( 'You must either supply a qualified name (qname) or local tag name (localPart).', XML_UTIL_ERROR_NO_TAG_NAME );
         }
 
         // if no attributes hav been set, use empty attributes
