@@ -3,11 +3,8 @@
 <package version="1.0">
   <name>XML_Parser</name>
   <summary>XML parsing class based on PHP's bundled expat</summary>
-  <description>This is an XML parser based on PHPs built-in xml extension.  It
-supports two basic modes of operation: &quot;func&quot; and &quot;event&quot;.  In &quot;func&quot;
-mode, it will look for a function named after each element
-(xmltag_ELEMENT for start tags and xmltag_ELEMENT_ for end tags), and
-in &quot;event&quot; mode it uses a set of generic callbacks.</description>
+  <description>This is an XML parser based on PHPs built-in xml extension.
+It supports two basic modes of operation: &quot;func&quot; and &quot;event&quot;.  In &quot;func&quot; mode, it will look for a function named after each element (xmltag_ELEMENT for start tags and xmltag_ELEMENT_ for end tags), and in &quot;event&quot; mode it uses a set of generic callbacks.</description>
   <maintainers>
     <maintainer>
       <user>ssb</user>
@@ -29,11 +26,15 @@ in &quot;event&quot; mode it uses a set of generic callbacks.</description>
     </maintainer>
   </maintainers>
   <release>
-    <version>1.1.0beta1</version>
-    <date>2004-04-16</date>
+    <version>1.1.0beta2</version>
+    <date>2004-04-18</date>
     <license>PHP License</license>
     <state>beta</state>
-    <notes>- Fixed memory leaks parsing many documents or big files (mroch)
+    <notes>beta2:
+- Fixed calling of __construct
+
+beta1:
+- Fixed memory leaks parsing many documents or big files (mroch)
 - Fixed setInput() url detection regex (mroch)
 - Added setInputString() method, allowing strings to be passed as input (schst)
 - Error handling rewritten (cox)
@@ -65,9 +66,9 @@ for applying a lot of fixes and improvements.</notes>
         <file role="test" name="005.phpt"/>
         <file role="test" name="test2.xml"/>
         <file role="test" name="test3.xml"/>
-       </dir>
+       </dir> <!-- tests -->
        <file role="php" name="Parser.php"/>
-      </dir>
+      </dir> <!-- / -->
     </filelist>
   </release>
   <changelog>
@@ -77,6 +78,34 @@ for applying a lot of fixes and improvements.</notes>
       <license>PHP License</license>
       <state>beta</state>
       <notes>- Fixed memory leaks parsing many documents or big files (mroch)
+- Fixed setInput() url detection regex (mroch)
+- Added setInputString() method, allowing strings to be passed as input (schst)
+- Error handling rewritten (cox)
+- Increased the overall parsing speed (cox)
+- Added free() method (schst
+- Added reset() method, that is called when parsing a document so it is possible to parse more than one document per instance (schst)
+- Added error codes (schst)
+- revamped documentation (cox, schst)
+- Fixed bug #516 (url fopen and safe mode) (schst)
+- Fixed bug #637 (dependency on PEAR) (schst)
+- improved parse() and parseString() to be able to parse more than one document (schst)
+- added PHP5 constructor (schst)
+- moved xml_parser_create() to _create() for PHP5 compatibility (schst)
+- added dependency on PHP 4.2
+
+Thanks to Marshall Roch for commments and contributions and Tomas V.V. Cox
+for applying a lot of fixes and improvements.</notes>
+    </release>
+    <release>
+      <version>1.1.0beta2</version>
+      <date>2004-04-18</date>
+      <license>PHP License</license>
+      <state>beta</state>
+      <notes>beta2:
+- Fixed calling of __construct
+
+beta1:
+- Fixed memory leaks parsing many documents or big files (mroch)
 - Fixed setInput() url detection regex (mroch)
 - Added setInputString() method, allowing strings to be passed as input (schst)
 - Error handling rewritten (cox)

@@ -3,6 +3,8 @@
  * script to automate the generation of the
  * package.xml file.
  *
+ * $Id$
+ *
  * @author      Stephan Schmidt <schst@php-tools.net>
  * @package     XML_Parser
  * @subpackage  Tools
@@ -13,9 +15,19 @@
  */ 
 require_once 'PEAR/PackageFileManager.php';
 
-$version = '1.1.0beta1';
+/**
+ * current version
+ */
+$version = '1.1.0beta2';
 
+/**
+ * release notes
+ */
 $notes = <<<EOT
+beta2:
+- Fixed calling of __construct
+
+beta1:
 - Fixed memory leaks parsing many documents or big files (mroch)
 - Fixed setInput() url detection regex (mroch)
 - Added setInputString() method, allowing strings to be passed as input (schst)
@@ -36,12 +48,12 @@ Thanks to Marshall Roch for commments and contributions and Tomas V.V. Cox
 for applying a lot of fixes and improvements.
 EOT;
 
+/**
+ * package description
+ */
 $description = <<<EOT
-This is an XML parser based on PHPs built-in xml extension.  It
-supports two basic modes of operation: "func" and "event".  In "func"
-mode, it will look for a function named after each element
-(xmltag_ELEMENT for start tags and xmltag_ELEMENT_ for end tags), and
-in "event" mode it uses a set of generic callbacks.
+This is an XML parser based on PHPs built-in xml extension.
+It supports two basic modes of operation: "func" and "event".  In "func" mode, it will look for a function named after each element (xmltag_ELEMENT for start tags and xmltag_ELEMENT_ for end tags), and in "event" mode it uses a set of generic callbacks.
 EOT;
 
 $package = new PEAR_PackageFileManager();
