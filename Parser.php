@@ -178,7 +178,7 @@ class XML_Parser extends PEAR
      */
     function XML_Parser($srcenc = null, $mode = 'event', $tgtenc = null)
     {
-        $this->__construct($srcenc, $mode, $tgtenc);
+        XML_Parser::__construct($srcenc, $mode, $tgtenc);
     }
     // }}}
 
