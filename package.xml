@@ -13,14 +13,12 @@
     </maintainer>
   </maintainers>
   <release>
-    <version>0.4</version>
-    <date>2003-09-21</date>
+    <version>0.5</version>
+    <date>2003-09-23</date>
     <license>PHP License</license>
     <state>stable</state>
-    <notes>added createCDataSection(),
-added support for CData sections in createTag* methods,
-fixed bug #23,
-fixed bug in splitQualifiedName()</notes>
+    <notes>added support for multiline attributes in attributesToString(), createTag*() and createStartElement (requested by Yavor Shahpasov for XML_Serializer),
+added createComment</notes>
     <deps>
       <dep type="ext" rel="has">pcre</dep>
     </deps>
@@ -34,13 +32,14 @@ fixed bug in splitQualifiedName()</notes>
     <provides type="function" name="XML_Util::createTagFromArray" />
     <provides type="function" name="XML_Util::createStartElement" />
     <provides type="function" name="XML_Util::createEndElement" />
+    <provides type="function" name="XML_Util::createComment" />
     <provides type="function" name="XML_Util::createCDataSection" />
     <provides type="function" name="XML_Util::splitQualifiedName" />
     <provides type="function" name="XML_Util::isValidName" />
     <filelist>
-      <file role="doc" baseinstalldir="XML" md5sum="6071ecac4e7f1bb4223b352b1a30dc85" name="examples/example.php"/>
-      <file role="doc" baseinstalldir="XML" md5sum="48c49b25e4dd8523299da75f522dff01" name="examples/example2.php"/>
-      <file role="php" baseinstalldir="XML" md5sum="b73a3a912815c96c1c910e184c878953" name="Util.php"/>
+      <file role="doc" baseinstalldir="XML" md5sum="99e88b85ea834f43ce97aa5fc0c7164c" name="examples/example.php"/>
+      <file role="doc" baseinstalldir="XML" md5sum="16eaf07e3e1390ce5cdfe91fc1be51a5" name="examples/example2.php"/>
+      <file role="php" baseinstalldir="XML" md5sum="74fba8936d874e1fad690257d707dbd1" name="Util.php"/>
     </filelist>
   </release>
   <changelog>
@@ -86,6 +85,14 @@ fixed bug in splitQualifiedName()</notes>
 added support for CData sections in createTag* methods,
 fixed bug #23,
 fixed bug in splitQualifiedName()</notes>
+    </release>
+    <release>
+      <version>0.5</version>
+      <date>2003-09-23</date>
+      <license>PHP License</license>
+      <state>stable</state>
+      <notes>added support for multiline attributes in attributesToString(), createTag*() and createStartElement (requested by Yavor Shahpasov for XML_Serializer),
+added createComment</notes>
     </release>
   </changelog>
 </package>
