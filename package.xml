@@ -29,17 +29,11 @@ Furthermore its now possible to split the parser from the handler object, so you
     </maintainer>
   </maintainers>
   <release>
-    <version>1.2.0</version>
-    <date>2004-05-28</date>
+    <version>1.2.1</version>
+    <date>2004-10-04</date>
     <license>PHP License</license>
     <state>stable</state>
-    <notes>- added setHandlerObj() which allows you to have the parser separate from the handler methods
-- fixed bug with setMode()
-- moved the init routines for the handlers in _initHandlers()
-- added new examples
-- fixed test files so they do not fail because of different resource ids
-XML_Parser_Simple:
-- added new class XML_Parser_Simple that provides a stack for the elements so the user only needs to implement one method to handle the tag and cdata.</notes>
+    <notes>fixed bug #2442: Call to &quot;xmltag_ELEMENT_&quot; not correctly managed in function funcEndHandler</notes>
     <deps>
       <dep type="php" rel="ge" version="4.2.0" optional="no"/>
       <dep type="pkg" rel="has" optional="no">PEAR</dep>
@@ -191,6 +185,13 @@ XML_Parser_Simple:
 - fixed test files so they do not fail because of different resource ids
 XML_Parser_Simple:
 - added new class XML_Parser_Simple that provides a stack for the elements so the user only needs to implement one method to handle the tag and cdata.</notes>
+    </release>
+    <release>
+      <version>1.2.1</version>
+      <date>2004-10-04</date>
+      <license>PHP License</license>
+      <state>stable</state>
+      <notes>fixed bug #2442: Call to &quot;xmltag_ELEMENT_&quot; not correctly managed in function funcEndHandler</notes>
     </release>
   </changelog>
 </package>
