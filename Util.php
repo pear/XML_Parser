@@ -554,14 +554,13 @@ class XML_Util {
     {
         // check for invalid chars
         if (!preg_match("/^[[:alnum:]_\-.]+$/", $string)) {
-            return PEAR::raiseError( "XML name may only contain alphanumeric chars, period, hyphen and underscore", XML_UTIL_ERROR_INVALID_CHARS );
+            return PEAR::raiseError( "XML names may only start with letter or underscore", XML_UTIL_ERROR_INVALID_START );
         }
-
-        //  check for invalid starting character
-        if (!preg_match("/[[:alpha:]_]/", $string{0})) {
-            return PEAR::raiseError( "XML name may only start with letter or underscore", XML_UTIL_ERROR_INVALID_START );
-        }
-
+        
+        // check for invalid chars
+        if (!preg_match("/^([a-zA-Z_]([a-zA-Z0-9_\-\.]*)?:)?[a-zA-Z_]([a-zA-Z0-9_\-\.]+)?$/", $string)) {
+            return PEAR::raiseError( "XML names may only contain alphanumeric chars, period, hyphen, colon and underscores", XML_UTIL_ERROR_INVALID_CHARS );
+         }
         // XML name is valid
         return true;
     }
