@@ -50,7 +50,7 @@ define("XML_UTIL_CDATA_SECTION", 2);
  *
  * @category XML
  * @package  XML_Util
- * @version  0.3
+ * @version  0.4
  * @author   Stephan Schmidt <schst@php.net>
  * @todo     method to get doctype declaration
  */
@@ -65,7 +65,7 @@ class XML_Util {
     */
     function apiVersion()
     {
-		return "0.3";
+		return "0.4";
     }
 
    /**
@@ -228,7 +228,7 @@ class XML_Util {
     * @see      XML_Util::createTagFromArray()
     * @uses     XML_Util::createTagFromArray() to create the tag
     */
-    function createTag( $qname, $attributes = array(), $content = null, $namespaceUri = null, $replaceEntities = XML_UTIL_REPLACE_ENTITIES )
+    function createTag($qname, $attributes = array(), $content = null, $namespaceUri = null, $replaceEntities = XML_UTIL_REPLACE_ENTITIES)
     {
         $tag = array(
                      "qname"      => $qname,
@@ -284,8 +284,12 @@ class XML_Util {
     * @uses     XML_Util::attributesToString() to serialize the attributes of the tag
     * @uses     XML_Util::splitQualifiedName() to get local part and namespace of a qualified name
     */
-    function createTagFromArray( $tag, $replaceEntities = XML_UTIL_REPLACE_ENTITIES )
+    function createTagFromArray($tag, $replaceEntities = XML_UTIL_REPLACE_ENTITIES)
     {
+        if (isset($tag["content"]) && !is_scalar($tag["content"])) {
+            return PEAR::raiseError( "Supplied non-scalar value as tag content", XML_UTIL_ERROR_NON_SCALAR_CONTENT );
+        }
+
         // if no attributes hav been set, use empty attributes
         if (!isset($tag["attributes"]) || !is_array($tag["attributes"])) {
             $tag["attributes"] = array();
@@ -322,15 +326,13 @@ class XML_Util {
         $attList    =   XML_Util::attributesToString($tag["attributes"]);
         if (!isset($tag["content"]) || (string)$tag["content"] == '') {
             $tag    =   sprintf("<%s%s/>", $tag["qname"], $attList);
-        } elseif (is_scalar($tag["content"])) {
+        } else {
             if ($replaceEntities == XML_UTIL_REPLACE_ENTITIES) {
                 $tag["content"] = XML_Util::replaceEntities($tag["content"]);
             } elseif ($replaceEntities == XML_UTIL_CDATA_SECTION) {
-				$tag["content"] = sprintf("<![CDATA[%s]]>", $tag["content"]);
+				$tag["content"] = XML_Util::createCDataSection($tag["content"]);
 			}
             $tag    =   sprintf("<%s%s>%s</%s>", $tag["qname"], $attList, $tag["content"], $tag["qname"] );
-        } else {
-            return PEAR::raiseError( "Supplied non-scalar value as tag content", XML_UTIL_ERROR_NON_SCALAR_CONTENT );
         }        
         return  $tag;
     }
@@ -455,7 +457,7 @@ class XML_Util {
         }
         return array(
                       "namespace" => null,
-                      "localPart" => $tmp[1]
+                      "localPart" => $qname
                     );
     }
 
