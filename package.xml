@@ -28,11 +28,20 @@ Since version 1.2.0 there's a new XML_Parser_Simple class that makes parsing of 
     </maintainer>
   </maintainers>
   <release>
-    <version>1.2.0beta1</version>
-    <date>2004-05-17</date>
+    <version>1.2.0beta2</version>
+    <date>2004-05-24</date>
     <license>PHP License</license>
     <state>beta</state>
-    <notes>added new class XML_Parser_Simple that provides a stack for the elements so the user only needs to implement one method to handle the tag and cdata.</notes>
+    <notes>XML_Parser:
+- fixed bug with setMode()
+- moved the init routines for the handlers in _initHandlers()
+XML_Parser_Simple:
+- fixed bug with character data (did not get parsed)
+- fixed bug with setMode()
+- some refactoring
+- added getCurrentDepth() to retrieve the tag depth
+- added addToData()
+- added new example</notes>
     <deps>
       <dep type="php" rel="ge" version="4.2.0" optional="no"/>
       <dep type="pkg" rel="has" optional="no">PEAR</dep>
@@ -44,6 +53,8 @@ Since version 1.2.0 there's a new XML_Parser_Simple class that makes parsing of 
         <file role="doc" name="xml_parser_file.xml"/>
         <file role="doc" name="xml_parser_simple1.php"/>
         <file role="doc" name="xml_parser_simple1.xml"/>
+        <file role="doc" name="xml_parser_simple2.php"/>
+        <file role="doc" name="xml_parser_simple2.xml"/>
        </dir> <!-- examples -->
        <dir name="Parser">
         <file role="php" name="Simple.php"/>
@@ -146,11 +157,20 @@ for applying a lot of fixes and improvements.</notes>
       <notes>added new class XML_Parser_Simple that provides a stack for the elements so the user only needs to implement one method to handle the tag and cdata.</notes>
     </release>
     <release>
-      <version>1.2.0</version>
-      <date>2004-05-17</date>
+      <version>1.2.0beta2</version>
+      <date>2004-05-24</date>
       <license>PHP License</license>
       <state>beta</state>
-      <notes>added new class XML_Parser_Simple that provides a stack for the elements so the user only needs to implement one method to handle the tag and cdata.</notes>
+      <notes>XML_Parser:
+- fixed bug with setMode()
+- moved the init routines for the handlers in _initHandlers()
+XML_Parser_Simple:
+- fixed bug with character data (did not get parsed)
+- fixed bug with setMode()
+- some refactoring
+- added getCurrentDepth() to retrieve the tag depth
+- added addToData()
+- added new example</notes>
     </release>
   </changelog>
 </package>

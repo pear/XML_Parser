@@ -18,7 +18,7 @@ require_once 'PEAR/PackageFileManager.php';
 /**
  * current version
  */
-$version = '1.2.0beta1';
+$version = '1.2.0beta2';
 
 /**
  * current state
@@ -29,7 +29,16 @@ $state = 'beta';
  * release notes
  */
 $notes = <<<EOT
-added new class XML_Parser_Simple that provides a stack for the elements so the user only needs to implement one method to handle the tag and cdata.
+XML_Parser:
+- fixed bug with setMode()
+- moved the init routines for the handlers in _initHandlers()
+XML_Parser_Simple:
+- fixed bug with character data (did not get parsed)
+- fixed bug with setMode()
+- some refactoring
+- added getCurrentDepth() to retrieve the tag depth
+- added addToData()
+- added new example
 EOT;
 
 /**
