@@ -19,11 +19,12 @@
     </maintainer>
   </maintainers>
   <release>
-    <version>1.1.0</version>
-    <date>2004-11-19</date>
+    <version>1.1.1</version>
+    <date>2004-12-23</date>
     <license>PHP License</license>
     <state>stable</state>
-    <notes>- Added collapseEmptyTags (patch by Sebastian Bergmann and Thomas Duffey)</notes>
+    <notes>- fixed bug in replaceEntities() and reverseEntities() in conjunction with XML_UTIL_ENTITIES_HTML
+- createTag() and createTagFromArray() now accept XML_UTIL_ENTITIES_XML, XML_UTIL_ENTITIES_XML_REQUIRED, XML_UTIL_ENTITIES_HTML, XML_UTIL_ENTITIES_NONE and XML_UTIL_CDATA_SECTION as $replaceEntities parameter</notes>
     <deps>
       <dep type="ext" rel="has" optional="no">pcre</dep>
       <dep type="pkg" rel="has" optional="no">PEAR</dep>
@@ -148,6 +149,14 @@ minor whitespace fixes (Davey)</notes>
       <license>PHP License</license>
       <state>stable</state>
       <notes>- Added collapseEmptyTags (patch by Sebastian Bergmann and Thomas Duffey)</notes>
+    </release>
+    <release>
+      <version>1.1.1</version>
+      <date>2004-12-23</date>
+      <license>PHP License</license>
+      <state>stable</state>
+      <notes>- fixed bug in replaceEntities() and reverseEntities() in conjunction with XML_UTIL_ENTITIES_HTML
+- createTag() and createTagFromArray() now accept XML_UTIL_ENTITIES_XML, XML_UTIL_ENTITIES_XML_REQUIRED, XML_UTIL_ENTITIES_HTML, XML_UTIL_ENTITIES_NONE and XML_UTIL_CDATA_SECTION as $replaceEntities parameter</notes>
     </release>
   </changelog>
 </package>
