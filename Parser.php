@@ -42,32 +42,32 @@ require_once 'PEAR.php';
 /**
  * resource could not be created
  */
-define( 'XML_PARSER_ERROR_NO_RESOURCE', 200 );
+define('XML_PARSER_ERROR_NO_RESOURCE', 200);
 
 /**
  * unsupported mode
  */
-define( 'XML_PARSER_ERROR_UNSUPPORTED_MODE', 201);
+define('XML_PARSER_ERROR_UNSUPPORTED_MODE', 201);
 
 /**
  * invalid encoding was given
  */
-define( 'XML_PARSER_ERROR_INVALID_ENCODING', 202);
+define('XML_PARSER_ERROR_INVALID_ENCODING', 202);
 
 /**
  * specified file could not be read
  */
-define( 'XML_PARSER_ERROR_FILE_NOT_READABLE', 203);
+define('XML_PARSER_ERROR_FILE_NOT_READABLE', 203);
 
 /**
  * invalid input
  */
-define( 'XML_PARSER_ERROR_INVALID_INPUT', 204);
+define('XML_PARSER_ERROR_INVALID_INPUT', 204);
 
 /**
  * remote file cannot be retrieved in safe mode
  */
-define( 'XML_PARSER_ERROR_REMOTE', 205);
+define('XML_PARSER_ERROR_REMOTE', 205);
 
 /**
  * XML Parser class.
@@ -160,14 +160,6 @@ class XML_Parser extends PEAR
      */
     var $tgtenc;
 
-    /*
-     * Use call_user_func when php >= 4.0.7
-     *
-     * @var boolean
-     * @see setMode()
-     */
-    var $use_call_user_func = true;
-
     // }}}
     // {{{ constructor
 
@@ -239,14 +231,6 @@ class XML_Parser extends PEAR
         switch ($mode) {
 
             case 'func':
-                // use call_user_func() when php >= 4.0.7
-                // or call_user_method() if not
-                if (version_compare(phpversion(), '4.0.7', 'lt')) {
-                    $this->use_call_user_func = false;
-                } else {
-                    $this->use_call_user_func = true;
-                }
-
                 xml_set_element_handler($this->parser, 'funcStartHandler', 'funcEndHandler');
                 break;
 
@@ -262,11 +246,12 @@ class XML_Parser extends PEAR
         /**
          * set additional handlers for character data, entities, etc.
          */
-        foreach ($this->handler as $xml_func => $method)
+        foreach ($this->handler as $xml_func => $method) {
             if (method_exists($this, $method)) {
                 $xml_func = 'xml_set_' . $xml_func;
                 $xml_func($this->parser, $method);
             }
+		}
     }
 
     // }}}
@@ -324,7 +309,7 @@ class XML_Parser extends PEAR
     function reset()
     {
         $result = $this->_create();
-        if( $this->isError( $result ) ) {
+        if ($this->isError( $result )) {
             return $result;
         }
     }
@@ -543,13 +528,8 @@ class XML_Parser extends PEAR
     {
         $func = 'xmltag_' . $elem;
         if (method_exists($this, $func)) {
-            if ($this->use_call_user_func) {
-                call_user_func(array(&$this, $func), $xp, $elem, $attribs);
-            } else {
-                call_user_method($func, $this, $xp, $elem, $attribs);
-            }
+            call_user_func(array(&$this, $func), $xp, $elem, $attribs);
         }
-
     }
 
     // }}}
@@ -559,11 +539,7 @@ class XML_Parser extends PEAR
     {
         $func = 'xmltag_' . $elem . '_';
         if (method_exists($this, $func)) {
-            if ($this->use_call_user_func) {
-                call_user_func(array(&$this, $func), $xp, $elem);
-            } else {
-                call_user_method($func, $this, $xp, $elem);
-            }
+            call_user_func(array(&$this, $func), $xp, $elem);
         }
     }
 
