@@ -384,7 +384,9 @@ class XML_Parser extends PEAR
         }
         
         $fp = @fopen($file, 'rb');
-        ini_set('allow_url_fopen', $oldVal);
+        if ($oldVal !== false) {
+            ini_set('allow_url_fopen', $oldVal);
+        }
         if (is_resource($fp)) {
             $this->fp = $fp;
             return $fp;
