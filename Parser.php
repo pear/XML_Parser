@@ -595,7 +595,7 @@ class XML_Parser extends PEAR
         if (method_exists($this->_handlerObj, $func)) {
             call_user_func(array(&$this->_handlerObj, $func), $xp, $elem);
         } elseif (method_exists($this->_handlerObj, 'xmltag_')) {
-            call_user_func(array(&$this->_handlerObj, 'xmltag_'), $xp, $elem, $attribs);
+            call_user_func(array(&$this->_handlerObj, 'xmltag_'), $xp, $elem);
         }
     }
 
