@@ -30,6 +30,7 @@ $notes = <<<EOT
 - improved parse() and parseString() to be able to parse more than one document (schst)
 - added PHP5 constructor (schst)
 - moved xml_parser_create() to _create() for PHP5 compatibility (schst)
+- added dependency on PHP 4.2
 
 Thanks to Marshall Roch for commments and contributions and Tomas V.V. Cox
 for applying a lot of fixes and improvements.
@@ -74,7 +75,7 @@ $package->addMaintainer('schst', 'lead', 'Stephan Schmidt', 'schst@php-tools.net
 $package->addMaintainer('cox', 'developer', 'Tomas V.V.Cox', 'cox@php.net');
 
 $package->addDependency('PEAR', '', 'has', 'pkg', false);
-$package->addDependency('php', '4.0.4pl1', 'ge', 'php', false);
+$package->addDependency('php', '4.2.0', 'ge', 'php', false);
 
 if (isset($_GET['make']) || (isset($_SERVER['argv'][1]) && $_SERVER['argv'][1] == 'make')) {
     $result = $package->writePackageFile();
