@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE package SYSTEM "package.dtd">
+<package version="1.0">
+  <name>XML_Parser</name>
+  <summary>XML parsing class based on PHP's bundled expat</summary>
+  <description>
+This is an XML parser based on PHP's built-in xml extension.  It
+supports two basic modes of operation: "func" and "event".  In "func"
+mode, it will look for a function named after each element
+(xmltag_ELEMENT for start tags and xmltag_ELEMENT_ for end tags), and
+in "event" mode it uses a set of generic callbacks.
+  </description>
+  <license>PHP License</license>
+  <maintainers>
+    <maintainer>
+      <user>ssb</user>
+      <role>lead</role>
+      <name>Stig Sæther Bakken</name>
+      <email>stig@php.net</email>
+    </maintainer>
+  </maintainers>
+  <release>
+    <state>stable</state>
+    <version>1.0</version>
+    <date>2002-05-09</date>
+    <notes>First independent release</notes>
+    <filelist>
+      <dir name="/" baseinstalldir="XML">
+        <file role="php">Parser.php</file>
+      </dir>
+      <file role="test">tests/001.phpt</file>
+      <file role="test">tests/002.phpt</file>
+      <file role="test">tests/003.phpt</file>
+      <file role="test">tests/004.phpt</file>
+      <file role="test">tests/005.phpt</file>
+      <file role="test">tests/test2.xml</file>
+      <file role="test">tests/test3.xml</file>
+    </filelist>
+    <deps>
+      <dep type="php" rel="ge" version="4.0.4pl1" />
+    </deps>
+  </release>
+</package>
