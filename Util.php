@@ -19,11 +19,6 @@
 //    $Id$
 
 /**
- * uses PEAR errors
- */
-    require_once 'PEAR.php';
-
-/**
  * error code for invalid chars in XML name
  */
 define("XML_UTIL_ERROR_INVALID_CHARS", 51);
@@ -354,7 +349,7 @@ class XML_Util {
     function createTagFromArray($tag, $replaceEntities = XML_UTIL_REPLACE_ENTITIES, $multiline = false, $indent = "_auto", $linebreak = "\n" )
     {
         if (isset($tag["content"]) && !is_scalar($tag["content"])) {
-            return PEAR::raiseError( "Supplied non-scalar value as tag content", XML_UTIL_ERROR_NON_SCALAR_CONTENT );
+            return XML_Util::raiseError( "Supplied non-scalar value as tag content", XML_UTIL_ERROR_NON_SCALAR_CONTENT );
         }
 
         // if no attributes hav been set, use empty attributes
@@ -597,15 +592,32 @@ class XML_Util {
     {
         // check for invalid chars
         if (!preg_match("/^[[:alnum:]_\-.]$/", $string{0})) {
-            return PEAR::raiseError( "XML names may only start with letter or underscore", XML_UTIL_ERROR_INVALID_START );
+            return XML_Util::raiseError( "XML names may only start with letter or underscore", XML_UTIL_ERROR_INVALID_START );
         }
         
         // check for invalid chars
         if (!preg_match("/^([a-zA-Z_]([a-zA-Z0-9_\-\.]*)?:)?[a-zA-Z_]([a-zA-Z0-9_\-\.]+)?$/", $string)) {
-            return PEAR::raiseError( "XML names may only contain alphanumeric chars, period, hyphen, colon and underscores", XML_UTIL_ERROR_INVALID_CHARS );
+            return XML_Util::raiseError( "XML names may only contain alphanumeric chars, period, hyphen, colon and underscores", XML_UTIL_ERROR_INVALID_CHARS );
          }
         // XML name is valid
         return true;
+    }
+
+   /**
+    * replacement for XML_Util::raiseError
+    *
+    * Avoids the necessity to always require
+    * PEAR.php
+    *
+    * @access   public
+    * @param    string      error message
+    * @param    integer     error code
+    * @return   object PEAR_Error
+    */
+    function raiseError($msg, $code)
+    {
+        require_once 'PEAR.php';
+        return PEAR::raiseError($msg, $code);
     }
 }
 ?>
