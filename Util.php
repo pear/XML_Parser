@@ -72,6 +72,16 @@ define("XML_UTIL_ENTITIES_XML_REQUIRED", 2);
 define("XML_UTIL_ENTITIES_HTML", 3);
 
 /**
+ * Collapse all empty tags.
+ */
+define("XML_UTIL_COLLAPSE_ALL", 1);
+
+/**
+ * Collapse only empty XHTML tags that have no end tag.
+ */
+define("XML_UTIL_COLLAPSE_XHTML_ONLY", 2);
+
+/**
  * utility class for working with XML documents
  *
  * @category XML
@@ -331,6 +341,31 @@ class XML_Util {
             }
         }
         return $string;
+    }
+
+   /**
+    * Collapses empty tags.
+    *
+    * @access   public
+    * @static
+    * @param    string  $xml  XML
+    * @param    integer $mode Whether to collapse all empty tags (XML_UTIL_COLLAPSE_ALL) or only XHTML (XML_UTIL_COLLAPSE_XHTML_ONLY) ones.
+    * @return   string  $xml  XML
+    */
+    function collapseEmptyTags($xml, $mode = XML_UTIL_COLLAPSE_ALL) {
+        if ($mode == XML_UTIL_COLLAPSE_XHTML_ONLY) {
+            return preg_replace(
+              '/<(area|base|br|col|hr|img|input|link|meta|param)([^>]*)><\/\\1>/s',
+              '<\\1\\2 />',
+              $xml
+            );
+        } else {
+            return preg_replace(
+              '/<(\w+)([^>]*)><\/\\1>/s',
+              '<\\1\\2 />',
+              $xml
+            );
+        }
     }
 
    /**
