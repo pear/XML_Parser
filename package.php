@@ -18,7 +18,7 @@ require_once 'PEAR/PackageFileManager.php';
 /**
  * current version
  */
-$version = '1.2.1';
+$version = '1.2.2';
 
 /**
  * current state
@@ -29,7 +29,8 @@ $state = 'stable';
  * release notes
  */
 $notes = <<<EOT
-fixed bug #2442: Call to "xmltag_ELEMENT_" not correctly managed in function funcEndHandler
+- fixed small notice in XML_Parser::free(),
+- fixed Bug #2939: bug in error routine leads to segmentation fault (raiseError does not free the internal resources anymore)
 EOT;
 
 /**

@@ -29,11 +29,12 @@ Furthermore its now possible to split the parser from the handler object, so you
     </maintainer>
   </maintainers>
   <release>
-    <version>1.2.1</version>
-    <date>2004-10-04</date>
+    <version>1.2.2</version>
+    <date>2004-12-22</date>
     <license>PHP License</license>
     <state>stable</state>
-    <notes>fixed bug #2442: Call to &quot;xmltag_ELEMENT_&quot; not correctly managed in function funcEndHandler</notes>
+    <notes>- fixed small notice in XML_Parser::free(),
+- fixed Bug #2939: bug in error routine leads to segmentation fault (raiseError does not free the internal resources anymore)</notes>
     <deps>
       <dep type="php" rel="ge" version="4.2.0" optional="no"/>
       <dep type="pkg" rel="has" optional="no">PEAR</dep>
@@ -192,6 +193,22 @@ XML_Parser_Simple:
       <license>PHP License</license>
       <state>stable</state>
       <notes>fixed bug #2442: Call to &quot;xmltag_ELEMENT_&quot; not correctly managed in function funcEndHandler</notes>
+    </release>
+    <release>
+      <version>1.2.2beta1</version>
+      <date>2004-12-22</date>
+      <license>PHP License</license>
+      <state>beta</state>
+      <notes>- fixed small notice in XML_Parser::free(),
+- fixed Bug #2939: bug in error routine leads to segmentation fault (raiseError does not free the internal resources anymore)</notes>
+    </release>
+    <release>
+      <version>1.2.2</version>
+      <date>2004-12-22</date>
+      <license>PHP License</license>
+      <state>stable</state>
+      <notes>- fixed small notice in XML_Parser::free(),
+- fixed Bug #2939: bug in error routine leads to segmentation fault (raiseError does not free the internal resources anymore)</notes>
     </release>
   </changelog>
 </package>
