@@ -1,5 +1,5 @@
 <?PHP
-    require_once 'XML/Util.php';
+    require_once '../Util.php';
 
     /**
     * creating a start element
@@ -16,6 +16,15 @@
     print htmlentities(XML_Util::createStartElement("myTag", array(), "http://www.w3c.org/myNs#"));
     print "\n<br><br>\n";
 
+    /**
+    * creating a start element
+    */
+    print "creating a start element:<br>";
+    print "<pre>";
+    print htmlentities(XML_Util::createStartElement("myTag", array( "foo" => "bar", "argh" => "tomato" ), "http://www.w3c.org/myNs#", true));
+    print "</pre>";
+    print "\n<br><br>\n";
+
 
     /**
     * creating an end element
@@ -29,6 +38,13 @@
     */
     print "creating a CData section:<br>";
     print htmlentities(XML_Util::createCDataSection("I am content."));
+    print "\n<br><br>\n";
+
+    /**
+    * creating a comment
+    */
+    print "creating a comment:<br>";
+    print htmlentities(XML_Util::createComment("I am a comment."));
     print "\n<br><br>\n";
 
     /**

@@ -18,6 +18,9 @@
 //
 //    $Id$
 
+/**
+ * uses PEAR errors
+ */
     require_once 'PEAR.php';
 
 /**
@@ -380,10 +383,13 @@ class XML_Util {
     * @param    string  $qname             qualified tagname (including namespace)
     * @param    array   $attributes        array containg attributes
     * @param    string  $namespaceUri      URI of the namespace
+    * @param    boolean $multiline         whether to create a multiline tag where each attribute gets written to a single line
+    * @param    string  $indent            string used to indent attributes (_auto indents attributes so they start at the same column)
+    * @param    string  $linebreak         string used for linebreaks
     * @return   string  $string            XML start element
     * @see      XML_Util::createEndElement(), XML_Util::createTag()
     */
-    function createStartElement($qname, $attributes = array(), $namespaceUri = null)
+    function createStartElement($qname, $attributes = array(), $namespaceUri = null, $multiline = false, $indent = '_auto', $linebreak = "\n")
     {
         // if no attributes hav been set, use empty attributes
         if (!isset($attributes) || !is_array($attributes)) {
@@ -392,6 +398,13 @@ class XML_Util {
         
         if ($namespaceUri != null) {
             $parts = XML_Util::splitQualifiedName($qname);
+        }
+
+        // check for multiline attributes
+        if ($multiline === true) {
+            if ($indent === "_auto") {
+                $indent = str_repeat(" ", (strlen($qname)+2));
+            }
         }
 
         if ($namespaceUri != null) {
@@ -405,7 +418,7 @@ class XML_Util {
         }
 
         // create attribute list
-        $attList    =   XML_Util::attributesToString($attributes);
+        $attList    =   XML_Util::attributesToString($attributes, true, $multiline, $indent, $linebreak);
         $element    =   sprintf("<%s%s>", $qname, $attList);
         return  $element;
     }
@@ -430,6 +443,27 @@ class XML_Util {
     {
         $element    =   sprintf("</%s>", $qname);
         return  $element;
+    }
+    
+   /**
+    * create an XML comment
+    *
+    * <code>
+    * require_once 'XML/Util.php';
+    * 
+    * // create an XML start element:
+    * $tag = XML_Util::createComment("I am a comment");
+    * </code>
+    *
+    * @access   public
+    * @static
+    * @param    string  $content           content of the comment
+    * @return   string  $comment           XML comment
+    */
+    function createComment($content)
+    {
+        $comment    =   sprintf("<!-- %s -->", $content);
+        return  $comment;
     }
     
    /**
