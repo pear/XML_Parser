@@ -92,6 +92,12 @@ class XML_Parser extends PEAR
      */
     var $use_call_user_func = true;
 
+    /**
+     * @var string XML data
+     * @see parse()
+     */
+    var $data = "";
+
     // }}}
     // {{{ constructor
 
@@ -203,7 +209,8 @@ class XML_Parser extends PEAR
     /**
      * Sets the file handle to use with parse().
      *
-     * @param    resource    fopen
+     * @param    mixed    Can bei either a resource returned from fopen(),
+     *                    a URL, a local filename or a string.
      * @access   public
      * @see      parse(), setInputFile()
      */
@@ -213,8 +220,21 @@ class XML_Parser extends PEAR
             $this->fp = $fp;
             return true;
         }
+        // see if it's an absolute URL (has a scheme at the beginning)
+        elseif (eregi('://', substr($fp, 0, 10))) {
+            return $this->setInputFile($fp);
+        }
+        // see if it's a local file
+        elseif (file_exists($fp)) {
+            return $this->setInputFile($fp); 
+        }
+        // it must be a string
+        else {
+            $this->fp = $fp;
+            return true;
+        }
 
-        return $this->raiseError("not a file resource");
+        return $this->raiseError("Illegal input format.");
     }
 
     // }}}
@@ -230,21 +250,27 @@ class XML_Parser extends PEAR
      */
     function parse()
     {
-        if (!is_resource($this->fp)) {
-            return $this->raiseError("no input");
-        }
 
-        while ($data = fread($this->fp, 2048)) {
-
-            $err = $this->parseString($data, feof($this->fp));
-            if (PEAR::isError($err)) {
-                fclose($this->fp);
-                return $err;
+        // if $this->fp was fopened previously
+        if (is_resource($this->fp)) {
+            // write entire file to $data
+            while (!feof($this->fp)) {
+                $data .= fread($this->fp, 2048);
             }
-
+            fclose($this->fp);
+        // otherwise, $this->fp must be a string
+        } else {
+            $data = $this->fp;
         }
 
-        fclose($this->fp);
+        // This allows outside scripts to grab downloaded
+        // feed data and cache it
+        $this->data = $data;
+
+        $err = $this->parseString($data, true);
+        if (PEAR::isError($err)) {
+            return $err;
+        }
 
         return true;
     }
