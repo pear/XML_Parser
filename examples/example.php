@@ -1,5 +1,5 @@
 <?PHP
-    require_once 'XML/Util.php';
+    require_once '../Util.php';
     
     /**
     * replacing XML entities

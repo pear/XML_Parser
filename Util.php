@@ -213,6 +213,7 @@ class XML_Util {
     * @param    string  $qname             qualified tagname (including namespace)
     * @param    array   $attributes        array containg attributes
     * @param    mixed   $content
+    * @param    string  $namespaceUri      URI of the namespace
     * @param    boolean $replaceEntities   whether to replace XML special chars in content or not
     * @return   string  $string            XML tag
     * @see      XML_Util::createTagFromArray()
@@ -323,6 +324,73 @@ class XML_Util {
         return  $tag;
     }
 
+   /**
+    * create a start element
+    *
+    * <code>
+    * require_once 'XML/Util.php';
+    * 
+    * // create an XML start element:
+    * $tag = XML_Util::createStartElement("myNs:myTag", array("foo" => "bar") ,"http://www.w3c.org/myNs#");
+    * </code>
+    *
+    * @access   public
+    * @static
+    * @param    string  $qname             qualified tagname (including namespace)
+    * @param    array   $attributes        array containg attributes
+    * @param    string  $namespaceUri      URI of the namespace
+    * @return   string  $string            XML start element
+    * @see      XML_Util::createEndElement(), XML_Util::createTag()
+    */
+    function createStartElement( $qname, $attributes = array(), $namespaceUri = null )
+    {
+        // if no attributes hav been set, use empty attributes
+        if (!isset($attributes) || !is_array($attributes)) {
+            $attributes = array();
+        }
+        
+        if ($namespaceUri != null) {
+            $parts = XML_Util::splitQualifiedName($qname);
+        }
+
+        if ($namespaceUri != null) {
+            // is a namespace given
+            if (isset($parts["namespace"]) && !empty($parts["namespace"])) {
+                $attributes["xmlns:".$parts["namespace"]] = $namespaceUri;
+            } else {
+                // define this Uri as the default namespace
+                $attributes["xmlns"] = $namespaceUri;
+            }
+        }
+
+        // create attribute list
+        $attList    =   XML_Util::attributesToString($attributes);
+        $element    =   sprintf("<%s%s>", $qname, $attList);
+        return  $element;
+    }
+
+   /**
+    * create an end element
+    *
+    * <code>
+    * require_once 'XML/Util.php';
+    * 
+    * // create an XML start element:
+    * $tag = XML_Util::createEndElement("myNs:myTag");
+    * </code>
+    *
+    * @access   public
+    * @static
+    * @param    string  $qname             qualified tagname (including namespace)
+    * @return   string  $string            XML end element
+    * @see      XML_Util::createEndElement(), XML_Util::createTag()
+    */
+    function createEndElement( $qname )
+    {
+        $element    =   sprintf("</%s>", $qname);
+        return  $element;
+    }
+    
    /**
     * split qualified name and return namespace and local part
     *
