@@ -226,32 +226,34 @@ class XML_Parser extends PEAR
     {
         $this->mode = $mode;
 
-        xml_set_object($this->parser, $this);
-
-        switch ($mode) {
-
-            case 'func':
-                xml_set_element_handler($this->parser, 'funcStartHandler', 'funcEndHandler');
-                break;
-
-            case 'event':
-                xml_set_element_handler($this->parser, 'startHandler', 'endHandler');
-                break;
-
-            default:
-                $this->raiseError('Unsupported mode given', XML_PARSER_ERROR_UNSUPPORTED_MODE);
-                break;
-        }
-
-        /**
-         * set additional handlers for character data, entities, etc.
-         */
-        foreach ($this->handler as $xml_func => $method) {
-            if (method_exists($this, $method)) {
-                $xml_func = 'xml_set_' . $xml_func;
-                $xml_func($this->parser, $method);
+        if (is_resource($this->parser)) {
+            xml_set_object($this->parser, $this);
+    
+            switch ($mode) {
+    
+                case 'func':
+                    xml_set_element_handler($this->parser, 'funcStartHandler', 'funcEndHandler');
+                    break;
+    
+                case 'event':
+                    xml_set_element_handler($this->parser, 'startHandler', 'endHandler');
+                    break;
+    
+                default:
+                    $this->raiseError('Unsupported mode given', XML_PARSER_ERROR_UNSUPPORTED_MODE);
+                    break;
             }
-		}
+    
+            /**
+             * set additional handlers for character data, entities, etc.
+             */
+            foreach ($this->handler as $xml_func => $method) {
+                if (method_exists($this, $method)) {
+                    $xml_func = 'xml_set_' . $xml_func;
+                    $xml_func($this->parser, $method);
+                }
+    		}
+        }
     }
 
     // }}}
