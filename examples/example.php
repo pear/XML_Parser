@@ -1,5 +1,5 @@
 <?PHP
-    require_once 'XML/Util.php';
+    require_once '../Util.php';
     
     /**
     * replacing XML entities
@@ -47,6 +47,22 @@
     print "converting array to string:<br>\n";
     print XML_Util::attributesToString($att);
     print "\n<br><br>\n";
+
+
+    /**
+    * creating an attribute string with linebreaks
+    */
+    $att = array(
+                  "foo"   =>  "bar",
+                  "argh"  =>  "tomato"
+                );
+
+    print "converting array to string (including line breaks):<br>\n";
+    print "<pre>";
+    print XML_Util::attributesToString($att, true, true);
+    print "</pre>";
+    print "\n<br><br>\n";
+
 
     /**
     * splitting a qualified tag name

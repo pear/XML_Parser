@@ -50,7 +50,7 @@ define("XML_UTIL_CDATA_SECTION", 2);
  *
  * @category XML
  * @package  XML_Util
- * @version  0.4
+ * @version  0.4.1
  * @author   Stephan Schmidt <schst@php.net>
  * @todo     method to get doctype declaration
  */
@@ -65,7 +65,7 @@ class XML_Util {
     */
     function apiVersion()
     {
-		return "0.4";
+		return "0.4.1";
     }
 
    /**
@@ -187,18 +187,33 @@ class XML_Util {
     * @static
     * @param    array   $attributes  attribute array
     * @param    boolean $sort        sort attribute list alphabetically
+    * @param    boolean $multiline   use linebreaks, if more than one attribute is given
+    * @param    string  $indent      string used for indentation of multiline attributes
+    * @param    string  $linebreak   string used for linebreaks of multiline attributes
     * @return   string  $string      string representation of the attributes
     * @uses     XML_Util::replaceEntities() to replace XML entities in attribute values
     */
-    function attributesToString($attributes, $sort = true)
+    function attributesToString($attributes, $sort = true, $multiline = false, $indent = '    ', $linebreak = "\n")
     {
         $string = "";
         if (is_array($attributes) && !empty($attributes)) {
             if ($sort) {
                 ksort($attributes);
             }
-            foreach ($attributes as $key => $value) {
-                $string .= " ".$key.'="'.XML_Util::replaceEntities($value).'"';
+            if( !$multiline || count($attributes) == 1) {
+                foreach ($attributes as $key => $value) {
+                    $string .= " ".$key.'="'.XML_Util::replaceEntities($value).'"';
+                }
+            } else {
+                $first = true;
+                foreach ($attributes as $key => $value) {
+                    if ($first) {
+                        $string .= " ".$key.'="'.XML_Util::replaceEntities($value).'"';
+                        $first = false;
+                    } else {
+                        $string .= $linebreak.$indent.$key.'="'.XML_Util::replaceEntities($value).'"';
+                    }
+                }
             }
         }
         return $string;
