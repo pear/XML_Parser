@@ -29,12 +29,12 @@ Furthermore its now possible to split the parser from the handler object, so you
     </maintainer>
   </maintainers>
   <release>
-    <version>1.2.2</version>
-    <date>2004-12-22</date>
+    <version>1.2.3</version>
+    <date>2005-01-17</date>
     <license>PHP License</license>
     <state>stable</state>
-    <notes>- fixed small notice in XML_Parser::free(),
-- fixed Bug #2939: bug in error routine leads to segmentation fault (raiseError does not free the internal resources anymore)</notes>
+    <notes>- fixed a bug that occured when using 'func' mode and setHandlerObj() (schst)
+- added default handlers for 'func' mode (schst)</notes>
     <deps>
       <dep type="php" rel="ge" version="4.2.0" optional="no"/>
       <dep type="pkg" rel="has" optional="no">PEAR</dep>
@@ -209,6 +209,14 @@ XML_Parser_Simple:
       <state>stable</state>
       <notes>- fixed small notice in XML_Parser::free(),
 - fixed Bug #2939: bug in error routine leads to segmentation fault (raiseError does not free the internal resources anymore)</notes>
+    </release>
+    <release>
+      <version>1.2.3</version>
+      <date>2005-01-17</date>
+      <license>PHP License</license>
+      <state>stable</state>
+      <notes>- fixed a bug that occured when using 'func' mode and setHandlerObj() (schst)
+- added default handlers for 'func' mode (schst)</notes>
     </release>
   </changelog>
 </package>
