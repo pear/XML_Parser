@@ -11,7 +11,7 @@ XML Parser: parse simple string
 //               - parse simple string
 //
 
-require_once "XML/Parser.php";
+require_once "../Parser.php";
 
 class __TestParser1 extends XML_Parser {
     function __TestParser1() {

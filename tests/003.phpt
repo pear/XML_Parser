@@ -12,7 +12,7 @@ XML Parser: parse from file resource
 //
 chdir (dirname(__FILE__));
 
-require_once "XML/Parser.php";
+require_once "../Parser.php";
 
 class __TestParser3 extends XML_Parser {
     function __TestParser3() {
@@ -49,7 +49,7 @@ var_dump($o->parse());
 ?>
 --EXPECT--
 new __TestParser3 string(13) "__testparser3"
-fopen resource(4) of type (stream)
+fopen resource(7) of type (stream)
 setInput bool(true)
 parse <ROOT><![CDATA[foo]]></ROOT>
 bool(true)
