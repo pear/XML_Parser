@@ -53,7 +53,7 @@ define("XML_UTIL_CDATA_SECTION", 2);
  *
  * @category XML
  * @package  XML_Util
- * @version  0.5
+ * @version  0.5.1
  * @author   Stephan Schmidt <schst@php.net>
  * @todo     method to get doctype declaration
  */
@@ -68,7 +68,7 @@ class XML_Util {
     */
     function apiVersion()
     {
-		return "0.5";
+		return "0.5.1";
     }
 
    /**
