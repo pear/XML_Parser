@@ -6,7 +6,8 @@
   <description>This is an XML parser based on PHPs built-in xml extension.
 It supports two basic modes of operation: &quot;func&quot; and &quot;event&quot;.  In &quot;func&quot; mode, it will look for a function named after each element (xmltag_ELEMENT for start tags and xmltag_ELEMENT_ for end tags), and in &quot;event&quot; mode it uses a set of generic callbacks.
 
-Since version 1.2.0 there's a new XML_Parser_Simple class that makes parsing of most XML documents easier, by automatically providing a stack for the elements.</description>
+Since version 1.2.0 there's a new XML_Parser_Simple class that makes parsing of most XML documents easier, by automatically providing a stack for the elements.
+Furthermore its now possible to split the parser from the handler object, so you do not have to extend XML_Parser anymore in order to parse a document with it.</description>
   <maintainers>
     <maintainer>
       <user>schst</user>
@@ -28,20 +29,11 @@ Since version 1.2.0 there's a new XML_Parser_Simple class that makes parsing of 
     </maintainer>
   </maintainers>
   <release>
-    <version>1.2.0beta2</version>
-    <date>2004-05-24</date>
+    <version>1.2.0beta3</version>
+    <date>2004-05-25</date>
     <license>PHP License</license>
     <state>beta</state>
-    <notes>XML_Parser:
-- fixed bug with setMode()
-- moved the init routines for the handlers in _initHandlers()
-XML_Parser_Simple:
-- fixed bug with character data (did not get parsed)
-- fixed bug with setMode()
-- some refactoring
-- added getCurrentDepth() to retrieve the tag depth
-- added addToData()
-- added new example</notes>
+    <notes>- added setHandlerObj() which allows you to have the parser separate from the handler methods</notes>
     <deps>
       <dep type="php" rel="ge" version="4.2.0" optional="no"/>
       <dep type="pkg" rel="has" optional="no">PEAR</dep>
@@ -51,10 +43,12 @@ XML_Parser_Simple:
        <dir name="examples">
         <file role="doc" name="xml_parser_file.php"/>
         <file role="doc" name="xml_parser_file.xml"/>
+        <file role="doc" name="xml_parser_handler.php"/>
         <file role="doc" name="xml_parser_simple1.php"/>
         <file role="doc" name="xml_parser_simple1.xml"/>
         <file role="doc" name="xml_parser_simple2.php"/>
         <file role="doc" name="xml_parser_simple2.xml"/>
+        <file role="doc" name="xml_parser_simple_handler.php"/>
        </dir> <!-- examples -->
        <dir name="Parser">
         <file role="php" name="Simple.php"/>
@@ -171,6 +165,13 @@ XML_Parser_Simple:
 - added getCurrentDepth() to retrieve the tag depth
 - added addToData()
 - added new example</notes>
+    </release>
+    <release>
+      <version>1.2.0beta3</version>
+      <date>2004-05-25</date>
+      <license>PHP License</license>
+      <state>beta</state>
+      <notes>- added setHandlerObj() which allows you to have the parser separate from the handler methods</notes>
     </release>
   </changelog>
 </package>
