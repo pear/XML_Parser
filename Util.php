@@ -71,7 +71,7 @@ define("XML_UTIL_ENTITIES_HTML", 3);
  *
  * @category XML
  * @package  XML_Util
- * @version  0.5.2
+ * @version  0.6.0
  * @author   Stephan Schmidt <schst@php.net>
  */
 class XML_Util {
@@ -85,7 +85,7 @@ class XML_Util {
     */
     function apiVersion()
     {
-        return "0.5.2";
+        return "0.6";
     }
 
    /**
@@ -218,35 +218,57 @@ class XML_Util {
     *
     * @access   public
     * @static
-    * @param    array   $attributes        attribute array
-    * @param    boolean $sort              sort attribute list alphabetically
-    * @param    boolean $multiline         use linebreaks, if more than one attribute is given
-    * @param    string  $indent            string used for indentation of multiline attributes
-    * @param    string  $linebreak         string used for linebreaks of multiline attributes
-    * @param    integer $replaceEntities   setting for entities in attribute values (one of XML_UTIL_ENTITIES_NONE, XML_UTIL_ENTITIES_XML, XML_UTIL_ENTITIES_XML_REQUIRED, XML_UTIL_ENTITIES_HTML)
-    * @return   string                     string representation of the attributes
+    * @param    array         $attributes        attribute array
+    * @param    boolean|array $sort              sort attribute list alphabetically, may also be an assoc array containing the keys 'sort', 'multiline', 'indent', 'linebreak' and 'entities'
+    * @param    boolean       $multiline         use linebreaks, if more than one attribute is given
+    * @param    string        $indent            string used for indentation of multiline attributes
+    * @param    string        $linebreak         string used for linebreaks of multiline attributes
+    * @param    integer       $entities          setting for entities in attribute values (one of XML_UTIL_ENTITIES_NONE, XML_UTIL_ENTITIES_XML, XML_UTIL_ENTITIES_XML_REQUIRED, XML_UTIL_ENTITIES_HTML)
+    * @return   string                           string representation of the attributes
     * @uses     XML_Util::replaceEntities() to replace XML entities in attribute values
     * @todo     allow sort also to be an options array
     */
-    function attributesToString($attributes, $sort = true, $multiline = false, $indent = '    ', $linebreak = "\n", $replaceEntities = XML_UTIL_ENTITIES_XML)
+    function attributesToString($attributes, $sort = true, $multiline = false, $indent = '    ', $linebreak = "\n", $entities = XML_UTIL_ENTITIES_XML)
     {
-        $string = "";
+        /**
+         * second parameter may be an array
+         */
+        if (is_array($sort)) {
+            if (isset($sort['multiline'])) {
+                $multiline = $sort['multiline'];
+            }
+            if (isset($sort['indent'])) {
+                $indent = $sort['indent'];
+            }
+            if (isset($sort['linebreak'])) {
+                $multiline = $sort['linebreak'];
+            }
+            if (isset($sort['entities'])) {
+                $entities = $sort['entities'];
+            }
+            if (isset($sort['sort'])) {
+                $sort = $sort['sort'];
+            } else {
+                $sort = true;
+            }
+        }
+        $string = '';
         if (is_array($attributes) && !empty($attributes)) {
             if ($sort) {
                 ksort($attributes);
             }
             if( !$multiline || count($attributes) == 1) {
                 foreach ($attributes as $key => $value) {
-                    if ($replaceEntities != XML_UTIL_ENTITIES_NONE) {
-                        $value = XML_Util::replaceEntities($value, $replaceEntities);
+                    if ($entities != XML_UTIL_ENTITIES_NONE) {
+                        $value = XML_Util::replaceEntities($value, $entities);
                     }
-                    $string .= " ".$key.'="'.$value.'"';
+                    $string .= ' '.$key.'="'.$value.'"';
                 }
             } else {
                 $first = true;
                 foreach ($attributes as $key => $value) {
-                    if ($replaceEntities != XML_UTIL_ENTITIES_NONE) {
-                        $value = XML_Util::replaceEntities($value, $replaceEntities);
+                    if ($entities != XML_UTIL_ENTITIES_NONE) {
+                        $value = XML_Util::replaceEntities($value, $entities);
                     }
                     if ($first) {
                         $string .= " ".$key.'="'.$value.'"';

@@ -71,5 +71,13 @@
     print htmlentities(XML_Util::attributesToString($atts, true, false, false, false, XML_UTIL_ENTITIES_NONE));
     print "\n<br><br>\n";
 
+    /**
+    * using the array-syntax for attributesToString()
+    */
+    $atts = array( 'series' => 'Starsky &amp; Hutch', 'channel' => 'ABC' );
+    print "using the array-syntax for attributesToString()<br>";
+    print htmlentities(XML_Util::attributesToString($atts, array('entities' => XML_UTIL_ENTITIES_NONE)));
+    print "\n<br><br>\n";
+
 
 ?>
