@@ -505,10 +505,11 @@ class XML_Util {
     *
     * @access public
     * @static
-    * @param  string    $qname  qualified tag name
-    * @return array     $parts  array containing namespace and local part
+    * @param  string    $qname      qualified tag name
+    * @param  string    $defaultNs  default namespace (optional)
+    * @return array     $parts      array containing namespace and local part
     */
-    function splitQualifiedName($qname)
+    function splitQualifiedName($qname, $defaultNs)
     {
         if (strstr($qname, ':')) {
             $tmp = explode(":", $qname);
@@ -518,7 +519,7 @@ class XML_Util {
                         );
         }
         return array(
-                      "namespace" => null,
+                      "namespace" => $defaultNs,
                       "localPart" => $qname
                     );
     }
