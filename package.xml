@@ -19,11 +19,11 @@
     </maintainer>
   </maintainers>
   <release>
-    <version>1.0.0</version>
-    <date>2004-10-28</date>
+    <version>1.1.0</version>
+    <date>2004-11-19</date>
     <license>PHP License</license>
     <state>stable</state>
-    <notes>- Added reverseEntities() (request #2639)</notes>
+    <notes>- Added collapseEmptyTags (patch by Sebastian Bergmann and Thomas Duffey)</notes>
     <deps>
       <dep type="ext" rel="has" optional="no">pcre</dep>
       <dep type="pkg" rel="has" optional="no">PEAR</dep>
@@ -141,6 +141,13 @@ minor whitespace fixes (Davey)</notes>
       <license>PHP License</license>
       <state>stable</state>
       <notes>- Added reverseEntities() (request #2639)</notes>
+    </release>
+    <release>
+      <version>1.1.0</version>
+      <date>2004-11-19</date>
+      <license>PHP License</license>
+      <state>stable</state>
+      <notes>- Added collapseEmptyTags (patch by Sebastian Bergmann and Thomas Duffey)</notes>
     </release>
   </changelog>
 </package>

@@ -18,7 +18,7 @@ require_once 'PEAR/PackageFileManager.php';
 /**
  * current version
  */
-$version = '1.0.0';
+$version = '1.1.0';
 
 /**
  * current state
@@ -29,7 +29,7 @@ $state = 'stable';
  * release notes
  */
 $notes = <<<EOT
-- Added reverseEntities() (request #2639)
+- Added collapseEmptyTags (patch by Sebastian Bergmann and Thomas Duffey)
 EOT;
 
 /**
