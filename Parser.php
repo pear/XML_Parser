@@ -574,6 +574,9 @@ class XML_Parser extends PEAR
     function funcStartHandler($xp, $elem, $attribs)
     {
         $func = 'xmltag_' . $elem;
+        if (strchr($func, '.')) {
+            $func = str_replace('.', '_', $func);
+        }
         if (method_exists($this->_handlerObj, $func)) {
             call_user_func(array(&$this->_handlerObj, $func), $xp, $elem, $attribs);
         } elseif (method_exists($this->_handlerObj, 'xmltag')) {
@@ -587,6 +590,9 @@ class XML_Parser extends PEAR
     function funcEndHandler($xp, $elem)
     {
         $func = 'xmltag_' . $elem . '_';
+        if (strchr($func, '.')) {
+            $func = str_replace('.', '_', $func);
+        }
         if (method_exists($this->_handlerObj, $func)) {
             call_user_func(array(&$this->_handlerObj, $func), $xp, $elem);
         } elseif (method_exists($this->_handlerObj, 'xmltag_')) {

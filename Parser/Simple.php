@@ -229,6 +229,9 @@ class XML_Parser_Simple extends XML_Parser
                 break;
             case 'func':
                 $func = 'handleElement_' . $elem;
+                if (strchr($func, '.')) {
+                    $func = str_replace('.', '_', $func);
+                }
                 if (method_exists($this->_handlerObj, $func)) {
                     call_user_func(array(&$this->_handlerObj, $func), $el['name'], $el['attribs'], $data);
                 }
