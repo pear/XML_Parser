@@ -13,11 +13,14 @@
     </maintainer>
   </maintainers>
   <release>
-    <version>0.3</version>
-    <date>2003-09-12</date>
+    <version>0.4</version>
+    <date>2003-09-21</date>
     <license>PHP License</license>
     <state>stable</state>
-    <notes>added createStartElement() and createEndElement()</notes>
+    <notes>added createCDataSection(),
+added support for CData sections in createTag* methods,
+fixed bug #23,
+fixed bug in splitQualifiedName()</notes>
     <deps>
       <dep type="ext" rel="has">pcre</dep>
     </deps>
@@ -31,12 +34,13 @@
     <provides type="function" name="XML_Util::createTagFromArray" />
     <provides type="function" name="XML_Util::createStartElement" />
     <provides type="function" name="XML_Util::createEndElement" />
+    <provides type="function" name="XML_Util::createCDataSection" />
     <provides type="function" name="XML_Util::splitQualifiedName" />
     <provides type="function" name="XML_Util::isValidName" />
     <filelist>
-      <file role="doc" baseinstalldir="XML" md5sum="5de69ea70c8b02fda7301b14292179b6" name="examples/example.php"/>
-      <file role="doc" baseinstalldir="XML" md5sum="3257be997ee92be613fae49b48741de6" name="examples/example2.php"/>
-      <file role="php" baseinstalldir="XML" md5sum="391b109a12ffcd9d781de08a09a3e1e5" name="Util.php"/>
+      <file role="doc" baseinstalldir="XML" md5sum="6071ecac4e7f1bb4223b352b1a30dc85" name="examples/example.php"/>
+      <file role="doc" baseinstalldir="XML" md5sum="48c49b25e4dd8523299da75f522dff01" name="examples/example2.php"/>
+      <file role="php" baseinstalldir="XML" md5sum="b73a3a912815c96c1c910e184c878953" name="Util.php"/>
     </filelist>
   </release>
   <changelog>
@@ -72,6 +76,16 @@
       <license>PHP License</license>
       <state>stable</state>
       <notes>added createStartElement() and createEndElement()</notes>
+    </release>
+    <release>
+      <version>0.4</version>
+      <date>2003-09-21</date>
+      <license>PHP License</license>
+      <state>stable</state>
+      <notes>added createCDataSection(),
+added support for CData sections in createTag* methods,
+fixed bug #23,
+fixed bug in splitQualifiedName()</notes>
     </release>
   </changelog>
 </package>
