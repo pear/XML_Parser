@@ -8,38 +8,31 @@
     <maintainer>
       <user>schst</user>
       <name>Stephan Schmidt</name>
-      <email>schst@php.net</email>
+      <email>schst@php-tools.net</email>
       <role>lead</role>
     </maintainer>
   </maintainers>
   <release>
-    <version>0.5.2</version>
-    <date>2003-11-22</date>
+    <version>0.6.0beta1</version>
+    <date>2004-05-23</date>
     <license>PHP License</license>
-    <state>stable</state>
-    <notes>now creates XHTML compliant empty tags (Davey),
-minor whitespace fixes (Davey)</notes>
+    <state>beta</state>
+    <notes>- Fixed bug 1438 (namespaces not accepted for isValidName())
+- added optional parameter to replaceEntities() to define the set of entities to replace
+- added optional parameter to attributesToString() to define, whether entities should be replaced</notes>
     <deps>
-      <dep type="ext" rel="has">pcre</dep>
+      <dep type="ext" rel="has" optional="no">pcre</dep>
+      <dep type="pkg" rel="has" optional="no">PEAR</dep>
+      <dep type="php" rel="ge" version="4.2.0" optional="no"/>
     </deps>
-    <provides type="class" name="XML_Util" />
-    <provides type="function" name="XML_Util::apiVersion" />
-    <provides type="function" name="XML_Util::replaceEntities" />
-    <provides type="function" name="XML_Util::getXMLDeclaration" />
-    <provides type="function" name="XML_Util::getDocTypeDeclaration" />
-    <provides type="function" name="XML_Util::attributesToString" />
-    <provides type="function" name="XML_Util::createTag" />
-    <provides type="function" name="XML_Util::createTagFromArray" />
-    <provides type="function" name="XML_Util::createStartElement" />
-    <provides type="function" name="XML_Util::createEndElement" />
-    <provides type="function" name="XML_Util::createComment" />
-    <provides type="function" name="XML_Util::createCDataSection" />
-    <provides type="function" name="XML_Util::splitQualifiedName" />
-    <provides type="function" name="XML_Util::isValidName" />
     <filelist>
-      <file role="doc" baseinstalldir="XML" md5sum="4471a91bec05d653d16449e906221b15" name="examples/example.php"/>
-      <file role="doc" baseinstalldir="XML" md5sum="16eaf07e3e1390ce5cdfe91fc1be51a5" name="examples/example2.php"/>
-      <file role="php" baseinstalldir="XML" md5sum="7474e53e6d3ee227187f6ed96f741225" name="Util.php"/>
+      <dir baseinstalldir="XML" name="/">
+       <dir name="examples">
+        <file role="doc" name="example.php"/>
+        <file role="doc" name="example2.php"/>
+       </dir> <!-- examples -->
+       <file role="php" name="Util.php"/>
+      </dir> <!-- / -->
     </filelist>
   </release>
   <changelog>
@@ -108,6 +101,15 @@ added createComment</notes>
       <state>stable</state>
       <notes>now creates XHTML compliant empty tags (Davey),
 minor whitespace fixes (Davey)</notes>
+    </release>
+    <release>
+      <version>0.6.0beta1</version>
+      <date>2004-05-23</date>
+      <license>PHP License</license>
+      <state>beta</state>
+      <notes>- Fixed bug 1438 (namespaces not accepted for isValidName())
+- added optional parameter to replaceEntities() to define the set of entities to replace
+- added optional parameter to attributesToString() to define, whether entities should be replaced</notes>
     </release>
   </changelog>
 </package>

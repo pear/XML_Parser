@@ -63,5 +63,13 @@
     print "</pre>";
     print "\n<br><br>\n";
 
+    /**
+    * create an attribute string without replacing the entities
+    */
+    $atts = array( 'series' => 'Starsky &amp; Hutch', 'channel' => 'ABC' );
+    print "creating a attribute string, entities in values already had been replaced:<br>";
+    print htmlentities(XML_Util::attributesToString($atts, true, false, false, false, XML_UTIL_ENTITIES_NONE));
+    print "\n<br><br>\n";
+
 
 ?>
