@@ -13,12 +13,11 @@
     </maintainer>
   </maintainers>
   <release>
-    <version>0.5</version>
-    <date>2003-09-23</date>
+    <version>0.5.1</version>
+    <date>2003-09-26</date>
     <license>PHP License</license>
     <state>stable</state>
-    <notes>added support for multiline attributes in attributesToString(), createTag*() and createStartElement (requested by Yavor Shahpasov for XML_Serializer),
-added createComment</notes>
+    <notes>added default namespace parameter (optional) in splitQualifiedName() (requested by Sebastian Bergmann)</notes>
     <deps>
       <dep type="ext" rel="has">pcre</dep>
     </deps>
@@ -37,9 +36,9 @@ added createComment</notes>
     <provides type="function" name="XML_Util::splitQualifiedName" />
     <provides type="function" name="XML_Util::isValidName" />
     <filelist>
-      <file role="doc" baseinstalldir="XML" md5sum="99e88b85ea834f43ce97aa5fc0c7164c" name="examples/example.php"/>
+      <file role="doc" baseinstalldir="XML" md5sum="4471a91bec05d653d16449e906221b15" name="examples/example.php"/>
       <file role="doc" baseinstalldir="XML" md5sum="16eaf07e3e1390ce5cdfe91fc1be51a5" name="examples/example2.php"/>
-      <file role="php" baseinstalldir="XML" md5sum="74fba8936d874e1fad690257d707dbd1" name="Util.php"/>
+      <file role="php" baseinstalldir="XML" md5sum="d174454a45c528df0a851a74e51fadd8" name="Util.php"/>
     </filelist>
   </release>
   <changelog>
@@ -93,6 +92,13 @@ fixed bug in splitQualifiedName()</notes>
       <state>stable</state>
       <notes>added support for multiline attributes in attributesToString(), createTag*() and createStartElement (requested by Yavor Shahpasov for XML_Serializer),
 added createComment</notes>
+    </release>
+    <release>
+      <version>0.5.1</version>
+      <date>2003-09-26</date>
+      <license>PHP License</license>
+      <state>stable</state>
+      <notes>added default namespace parameter (optional) in splitQualifiedName() (requested by Sebastian Bergmann)</notes>
     </release>
   </changelog>
 </package>
