@@ -18,7 +18,7 @@ require_once 'PEAR/PackageFileManager.php';
 /**
  * current version
  */
-$version = '1.2.2';
+$version = '1.2.3';
 
 /**
  * current state
@@ -29,8 +29,8 @@ $state = 'stable';
  * release notes
  */
 $notes = <<<EOT
-- fixed small notice in XML_Parser::free(),
-- fixed Bug #2939: bug in error routine leads to segmentation fault (raiseError does not free the internal resources anymore)
+- fixed a bug that occured when using 'func' mode and setHandlerObj() (schst)
+- added default handlers for 'func' mode (schst)
 EOT;
 
 /**
