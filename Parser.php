@@ -302,20 +302,26 @@ class XML_Parser extends PEAR
         }
     }
 
+    // }}}
+    // {{{ startHandler()
+
     /**
      *
      * @abstract
      */
-    function StartHandler($xp, $elem, &$attribs)
+    function startHandler($xp, $elem, &$attribs)
     {
         return NULL;
     }
 
+    // }}}
+    // {{{ endHandler()
 
     /**
+     *
      * @abstract
      */
-    function EndHandler($xp, $elem)
+    function endHandler($xp, $elem)
     {
         return NULL;
     }
