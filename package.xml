@@ -28,10 +28,9 @@ in "event" mode it uses a set of generic callbacks.
   <release>
     <state>stable</state>
     <version>1.1</version>
-    <date>2003-02-23</date>
+    <date>2003-10-05</date>
     <notes>
-- Fixed memory leaks parsing many documents or big files
-- Fixed setInput() url detection regex
+- Allows strings to be passed as inputs
     </notes>
     <filelist>
       <dir name="/" baseinstalldir="XML">
