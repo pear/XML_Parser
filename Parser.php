@@ -540,7 +540,7 @@ class XML_Parser extends PEAR
      **/
     function free()
     {
-        if (is_resource($this->parser)) {
+        if (isset($this->parser) && is_resource($this->parser)) {
             xml_parser_free($this->parser);
             unset( $this->parser );
         }
