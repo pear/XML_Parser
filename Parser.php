@@ -372,6 +372,7 @@ class XML_Parser extends PEAR
      */
     function setInputFile($file)
     {
+        $oldVal = false;
         /**
          * check, if file is a remote file
          */
