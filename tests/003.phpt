@@ -40,7 +40,7 @@ class __TestParser3 extends XML_Parser {
 print "new __TestParser3 ";
 var_dump(get_class($o = new __TestParser3()));
 print "fopen ";
-var_dump($fp = fopen("test3.xml", "r"));
+print is_resource($fp = fopen("test3.xml", "r"))."\n";
 print "setInput ";
 var_dump($o->setInput($fp));
 print "parse ";
@@ -49,7 +49,7 @@ var_dump($o->parse());
 ?>
 --EXPECT--
 new __TestParser3 string(13) "__testparser3"
-fopen resource(7) of type (stream)
+fopen 1
 setInput bool(true)
 parse <ROOT><![CDATA[foo]]></ROOT>
 bool(true)
