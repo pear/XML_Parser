@@ -41,7 +41,7 @@ define("XML_UTIL_ERROR_NON_SCALAR_CONTENT", 60);
  *
  * @category XML
  * @package  XML_Util
- * @version  0.2
+ * @version  0.3
  * @author   Stephan Schmidt <schst@php.net>
  * @todo     method to get doctype declaration
  */
@@ -56,7 +56,7 @@ class XML_Util {
     */
     function apiVersion()
     {
-		return "0.2";
+		return "0.3";
     }
 
    /**
@@ -383,7 +383,7 @@ class XML_Util {
     * @static
     * @param    string  $qname             qualified tagname (including namespace)
     * @return   string  $string            XML end element
-    * @see      XML_Util::createEndElement(), XML_Util::createTag()
+    * @see      XML_Util::createStartElement(), XML_Util::createTag()
     */
     function createEndElement( $qname )
     {

@@ -13,11 +13,11 @@
     </maintainer>
   </maintainers>
   <release>
-    <version>0.2.1</version>
-    <date>2003-09-05</date>
+    <version>0.3</version>
+    <date>2003-09-12</date>
     <license>PHP License</license>
     <state>stable</state>
-    <notes>fixed bug with zero as tag content in createTagFromArray and createTag</notes>
+    <notes>added createStartElement() and createEndElement()</notes>
     <deps>
       <dep type="ext" rel="has">pcre</dep>
     </deps>
@@ -29,11 +29,14 @@
     <provides type="function" name="XML_Util::attributesToString" />
     <provides type="function" name="XML_Util::createTag" />
     <provides type="function" name="XML_Util::createTagFromArray" />
+    <provides type="function" name="XML_Util::createStartElement" />
+    <provides type="function" name="XML_Util::createEndElement" />
     <provides type="function" name="XML_Util::splitQualifiedName" />
     <provides type="function" name="XML_Util::isValidName" />
     <filelist>
-      <file role="doc" baseinstalldir="XML" md5sum="5de69ea70c8b02fda7301b14292179b6" name="examples/example.php"/>
-      <file role="php" baseinstalldir="XML" md5sum="653dfde4907c23f6fbc9deb5e80a4ff0" name="Util.php"/>
+      <file role="doc" baseinstalldir="XML" md5sum="5d27c2cb7d171f027ba111b184ea41dd" name="examples/example.php"/>
+      <file role="doc" baseinstalldir="XML" md5sum="3257be997ee92be613fae49b48741de6" name="examples/example2.php"/>
+      <file role="php" baseinstalldir="XML" md5sum="940ad62a3ecfb7028a288e7aee449559" name="Util.php"/>
     </filelist>
   </release>
   <changelog>
@@ -62,6 +65,13 @@
       <license>PHP License</license>
       <state>stable</state>
       <notes>fixed bug with zero as tag content in createTagFromArray and createTag</notes>
+    </release>
+    <release>
+      <version>0.3</version>
+      <date>2003-09-12</date>
+      <license>PHP License</license>
+      <state>stable</state>
+      <notes>added createStartElement() and createEndElement()</notes>
     </release>
   </changelog>
 </package>
