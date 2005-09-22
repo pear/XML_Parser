@@ -18,7 +18,7 @@ require_once 'PEAR/PackageFileManager.php';
 /**
  * current version
  */
-$version = '1.1.1';
+$version = '1.1.2';
 
 /**
  * current state
@@ -29,8 +29,7 @@ $state = 'stable';
  * release notes
  */
 $notes = <<<EOT
-- fixed bug in replaceEntities() and reverseEntities() in conjunction with XML_UTIL_ENTITIES_HTML
-- createTag() and createTagFromArray() now accept XML_UTIL_ENTITIES_XML, XML_UTIL_ENTITIES_XML_REQUIRED, XML_UTIL_ENTITIES_HTML, XML_UTIL_ENTITIES_NONE and XML_UTIL_CDATA_SECTION as \$replaceEntities parameter
+- fixed bug #5419: isValidName() now checks for character classes
 EOT;
 
 /**

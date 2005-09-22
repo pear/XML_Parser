@@ -717,13 +717,13 @@ class XML_Util {
     function isValidName($string)
     {
         // check for invalid chars
-        if (!preg_match("/^[[:alnum:]_\-.]$/", $string{0})) {
-            return XML_Util::raiseError( "XML names may only start with letter or underscore", XML_UTIL_ERROR_INVALID_START );
+        if (!preg_match('/^[[:alpha:]_]$/', $string{0})) {
+            return XML_Util::raiseError('XML names may only start with letter or underscore', XML_UTIL_ERROR_INVALID_START);
         }
         
         // check for invalid chars
-        if (!preg_match("/^([a-zA-Z_]([a-zA-Z0-9_\-\.]*)?:)?[a-zA-Z_]([a-zA-Z0-9_\-\.]+)?$/", $string)) {
-            return XML_Util::raiseError( "XML names may only contain alphanumeric chars, period, hyphen, colon and underscores", XML_UTIL_ERROR_INVALID_CHARS );
+        if (!preg_match('/^([[:alpha:]_]([[:alnum:]\-\.]*)?:)?[[:alpha:]_]([[:alnum:]\-\.]+)?$/', $string)) {
+            return XML_Util::raiseError('XML names may only contain alphanumeric chars, period, hyphen, colon and underscores', XML_UTIL_ERROR_INVALID_CHARS);
          }
         // XML name is valid
         return true;
