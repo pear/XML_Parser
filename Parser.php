@@ -673,9 +673,10 @@ class XML_Parser_Error extends PEAR_Error
     {
         if (is_resource($msgorparser)) {
             $code = xml_get_error_code($msgorparser);
-            $msgorparser = sprintf('%s at XML input line %d',
+            $msgorparser = sprintf('%s at XML input line %d:%d',
                                    xml_error_string($code),
-                                   xml_get_current_line_number($msgorparser));
+                                   xml_get_current_line_number($msgorparser),
+                                   xml_get_current_column_number($msgorparser));
         }
         $this->PEAR_Error($msgorparser, $code, $mode, $level);
     }

@@ -18,7 +18,7 @@ require_once 'PEAR/PackageFileManager.php';
 /**
  * current version
  */
-$version = '1.2.6';
+$version = '1.2.7';
 
 /**
  * current state
@@ -29,8 +29,7 @@ $state = 'stable';
  * release notes
  */
 $notes = <<<EOT
-- fixed Bug #3949: reset does not return true on success as the documentation states
-- implement Request #3905: replace "." with "_" in tagnames when using func mode
+- implemented request #4774: Error message contains column number
 EOT;
 
 /**
