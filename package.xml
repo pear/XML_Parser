@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE package SYSTEM "http://pear.php.net/dtd/package-1.0">
-<package version="1.0" packagerversion="1.4.0a9">
+<package version="1.0" packagerversion="1.4.0">
  <name>XML_Parser</name>
- <summary>XML parsing class based on PHP's bundled expat</summary>
+ <summary>XML parsing class based on PHP&apos;s bundled expat</summary>
  <description>This is an XML parser based on PHPs built-in xml extension.
 It supports two basic modes of operation: &quot;func&quot; and &quot;event&quot;.  In &quot;func&quot; mode, it will look for a function named after each element (xmltag_ELEMENT for start tags and xmltag_ELEMENT_ for end tags), and in &quot;event&quot; mode it uses a set of generic callbacks.
 
-Since version 1.2.0 there's a new XML_Parser_Simple class that makes parsing of most XML documents easier, by automatically providing a stack for the elements.
+Since version 1.2.0 there&apos;s a new XML_Parser_Simple class that makes parsing of most XML documents easier, by automatically providing a stack for the elements.
 Furthermore its now possible to split the parser from the handler object, so you do not have to extend XML_Parser anymore in order to parse a document with it.
  </description>
  <maintainers>
@@ -30,13 +30,11 @@ Furthermore its now possible to split the parser from the handler object, so you
   </maintainer>
   </maintainers>
  <release>
-  <version>1.2.6</version>
-  <date>2005-03-25</date>
+  <version>1.2.7</version>
+  <date>2005-09-24</date>
   <license>PHP License</license>
   <state>stable</state>
-  <notes>- fixed Bug #3949: reset does not return true on success as the documentation states
-- implement Request #3905: replace &quot;.&quot; with &quot;_&quot; in tagnames when using func mode
-- added package2.xml file for PEAR 1.4.0
+  <notes>- implemented request #4774: Error message contains column number
   </notes>
   <deps>
    <dep type="php" rel="ge" version="4.2.0" optional="no"/>
@@ -228,8 +226,8 @@ XML_Parser_Simple:
     <date>2005-01-17</date>
     <license>PHP License</license>
     <state>stable</state>
-    <notes>- fixed a bug that occured when using 'func' mode and setHandlerObj() (schst)
-- added default handlers for 'func' mode (schst)
+    <notes>- fixed a bug that occured when using &apos;func&apos; mode and setHandlerObj() (schst)
+- added default handlers for &apos;func&apos; mode (schst)
     </notes>
    </release>
    <release>
@@ -246,7 +244,7 @@ XML_Parser_Simple:
     <license>PHP License</license>
     <state>stable</state>
     <notes>- fixed Bug #3557 (removed $attribs parameter, which caused a notice)
-- fixed Bug #3277 (remove obsolete ini_set('allow_url_fopen'))
+- fixed Bug #3277 (remove obsolete ini_set(&apos;allow_url_fopen&apos;))
     </notes>
    </release>
    <release>
@@ -256,6 +254,14 @@ XML_Parser_Simple:
     <state>stable</state>
     <notes>- fixed Bug #3949: reset does not return true on success as the documentation states
 - implement Request #3905: replace &quot;.&quot; with &quot;_&quot; in tagnames when using func mode
+    </notes>
+   </release>
+   <release>
+    <version>1.2.7</version>
+    <date>2005-09-24</date>
+    <license>PHP License</license>
+    <state>stable</state>
+    <notes>- implemented request #4774: Error message contains column number
     </notes>
    </release>
  </changelog>

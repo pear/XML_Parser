@@ -1,5 +1,5 @@
-<?xml version="1.0"?>
-<package packagerversion="1.4.0a9" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.4.0" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
 http://pear.php.net/dtd/tasks-1.0.xsd
 http://pear.php.net/dtd/package-2.0
 http://pear.php.net/dtd/package-2.0.xsd">
@@ -10,7 +10,8 @@ http://pear.php.net/dtd/package-2.0.xsd">
 It supports two basic modes of operation: &quot;func&quot; and &quot;event&quot;.  In &quot;func&quot; mode, it will look for a function named after each element (xmltag_ELEMENT for start tags and xmltag_ELEMENT_ for end tags), and in &quot;event&quot; mode it uses a set of generic callbacks.
 
 Since version 1.2.0 there&apos;s a new XML_Parser_Simple class that makes parsing of most XML documents easier, by automatically providing a stack for the elements.
-Furthermore its now possible to split the parser from the handler object, so you do not have to extend XML_Parser anymore in order to parse a document with it. 
+Furthermore its now possible to split the parser from the handler object, so you do not have to extend XML_Parser anymore in order to parse a document with it.
+ 
  </description>
  <lead>
   <name>Stephan Schmidt</name>
@@ -22,28 +23,26 @@ Furthermore its now possible to split the parser from the handler object, so you
   <name>Stig S&amp;#230;ther Bakken</name>
   <user>ssb</user>
   <email>stig@php.net</email>
-  <active>no</active>
+  <active>yes</active>
  </developer>
  <developer>
   <name>Tomas V.V.Cox</name>
   <user>cox</user>
   <email>cox@php.net</email>
-  <active>no</active>
+  <active>yes</active>
  </developer>
- <date>2005-03-25</date>
- <time>18:16:38</time>
+ <date>2005-09-24</date>
+ <time>17:09:45</time>
  <version>
-  <release>1.2.6</release>
-  <api>1.2.0</api>
+  <release>1.2.7</release>
+  <api>1.2.7</api>
  </version>
  <stability>
   <release>stable</release>
   <api>stable</api>
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
- <notes>- fixed Bug #3949: reset does not return true on success as the documentation states
-- implement Request #3905: replace &quot;.&quot; with &quot;_&quot; in tagnames when using func mode
-- added package2.xml file for PEAR 1.4.0
+ <notes>- implemented request #4774: Error message contains column number
   
  </notes>
  <contents>
@@ -77,10 +76,9 @@ Furthermore its now possible to split the parser from the handler object, so you
   <required>
    <php>
     <min>4.2.0</min>
-    <max>6.0.0</max>
    </php>
    <pearinstaller>
-    <min>1.4.0a1</min>
+    <min>1.4.0b1</min>
    </pearinstaller>
    <package>
     <name>PEAR</name>
@@ -372,6 +370,21 @@ XML_Parser_Simple:
    <license uri="http://www.php.net/license">PHP License</license>
    <notes>- fixed Bug #3949: reset does not return true on success as the documentation states
 - implement Request #3905: replace &quot;.&quot; with &quot;_&quot; in tagnames when using func mode
+    
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.2.7</release>
+    <api>1.2.7</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2005-09-24</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>- implemented request #4774: Error message contains column number
     
    </notes>
   </release>
