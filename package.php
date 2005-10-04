@@ -18,7 +18,7 @@ require_once 'PEAR/PackageFileManager.php';
 /**
  * current version
  */
-$version = '1.2.7';
+$version = '1.2.8';
 
 /**
  * current state
@@ -29,7 +29,7 @@ $state = 'stable';
  * release notes
  */
 $notes = <<<EOT
-- implemented request #4774: Error message contains column number
+- fixed bug #5557: Raise a more useful error message when using invalid source encoding
 EOT;
 
 /**
