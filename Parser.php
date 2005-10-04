@@ -164,6 +164,13 @@ class XML_Parser extends PEAR
      */
     var $_handlerObj;
 
+    /**
+     * valid encodings
+     *
+     * @var array
+     */
+    var $_validEncodings = array('ISO-8859-1', 'UTF-8', 'US-ASCII');
+    
     // }}}
     // {{{ constructor
 
@@ -332,8 +339,10 @@ class XML_Parser extends PEAR
                 return $result;
             }
             xml_parser_set_option($xp, XML_OPTION_CASE_FOLDING, $this->folding);
-
             return true;
+        }
+        if (!in_array(strtoupper($this->srcenc), $this->_validEncodings)) {
+            return $this->raiseError('invalid source encoding', XML_PARSER_ERROR_INVALID_ENCODING);
         }
         return $this->raiseError('Unable to create XML parser resource.', XML_PARSER_ERROR_NO_RESOURCE);
     }
