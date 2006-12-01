@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE package SYSTEM "http://pear.php.net/dtd/package-1.0">
-<package version="1.0" packagerversion="1.4.0">
+<package version="1.0" packagerversion="1.4.11">
  <name>XML_Parser</name>
  <summary>XML parsing class based on PHP&apos;s bundled expat</summary>
  <description>This is an XML parser based on PHPs built-in xml extension.
@@ -30,11 +30,12 @@ Furthermore its now possible to split the parser from the handler object, so you
   </maintainer>
   </maintainers>
  <release>
-  <version>1.2.7</version>
-  <date>2005-09-24</date>
+  <version>1.2.8</version>
+  <date>2006-12-01</date>
   <license>PHP License</license>
   <state>stable</state>
-  <notes>- implemented request #4774: Error message contains column number
+  <notes>- fixed bug #5557: Raise a more useful error message when using invalid source encoding
+- fixed bug #6078: func-mode does not handle all allowed letters in tags
   </notes>
   <deps>
    <dep type="php" rel="ge" version="4.2.0" optional="no"/>
@@ -45,6 +46,7 @@ Furthermore its now possible to split the parser from the handler object, so you
     <dir name="examples">
      <file role="doc" name="xml_parser_file.php"/>
      <file role="doc" name="xml_parser_file.xml"/>
+     <file role="doc" name="xml_parser_funcmode.php"/>
      <file role="doc" name="xml_parser_handler.php"/>
      <file role="doc" name="xml_parser_simple1.php"/>
      <file role="doc" name="xml_parser_simple1.xml"/>
@@ -262,6 +264,15 @@ XML_Parser_Simple:
     <license>PHP License</license>
     <state>stable</state>
     <notes>- implemented request #4774: Error message contains column number
+    </notes>
+   </release>
+   <release>
+    <version>1.2.8</version>
+    <date>2006-12-01</date>
+    <license>PHP License</license>
+    <state>stable</state>
+    <notes>- fixed bug #5557: Raise a more useful error message when using invalid source encoding
+- fixed bug #6078: func-mode does not handle all allowed letters in tags
     </notes>
    </release>
  </changelog>
