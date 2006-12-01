@@ -12,7 +12,7 @@
 
 /**
  * uses PackageFileManager
- */ 
+ */
 require_once 'PEAR/PackageFileManager.php';
 
 /**
@@ -30,6 +30,7 @@ $state = 'stable';
  */
 $notes = <<<EOT
 - fixed bug #5557: Raise a more useful error message when using invalid source encoding
+- fixed bug #6078: func-mode does not handle all allowed letters in tags
 EOT;
 
 /**
