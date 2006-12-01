@@ -12,7 +12,7 @@
 
 /**
  * uses PackageFileManager
- */ 
+ */
 require_once 'PEAR/PackageFileManager.php';
 
 /**
@@ -30,6 +30,7 @@ $state = 'stable';
  */
 $notes = <<<EOT
 - fixed bug #5419: isValidName() now checks for character classes
+- implemented request #8196: added optional parameter to influence array sorting to createTag() createTagFromArray() and createStartElement()
 EOT;
 
 /**
