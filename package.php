@@ -18,7 +18,7 @@ require_once 'PEAR/PackageFileManager.php';
 /**
  * current version
  */
-$version = '1.1.2';
+$version = '1.1.4';
 
 /**
  * current state
@@ -29,8 +29,7 @@ $state = 'stable';
  * release notes
  */
 $notes = <<<EOT
-- fixed bug #5419: isValidName() now checks for character classes
-- implemented request #8196: added optional parameter to influence array sorting to createTag() createTagFromArray() and createStartElement()
+- Fixed bug #9561: Not allowing underscores in middle of tags
 EOT;
 
 /**
