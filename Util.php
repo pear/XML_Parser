@@ -725,7 +725,7 @@ class XML_Util {
         }
 
         // check for invalid chars
-        if (!preg_match('/^([[:alpha:]_]([[:alnum:]\-\.]*)?:)?[[:alpha:]_]([[:alnum:]\-\.]+)?$/', $string)) {
+        if (!preg_match('/^([[:alpha:]_]([[:alnum:]\-\.]*)?:)?[[:alpha:]_]([[:alnum:]\_\-\.]+)?$/', $string)) {
             return XML_Util::raiseError('XML names may only contain alphanumeric chars, period, hyphen, colon and underscores', XML_UTIL_ERROR_INVALID_CHARS);
          }
         // XML name is valid
