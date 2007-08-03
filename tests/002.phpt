@@ -11,8 +11,11 @@ XML Parser: parse from file
 //               - parse from file
 //
 chdir (dirname(__FILE__));
-
-require_once "XML/Parser.php";
+if (file_exists('../Parser.php')) {
+    require_once "../Parser.php";
+} else {
+    require_once "XML/Parser.php";
+}
 
 class __TestParser2 extends XML_Parser {
     function __TestParser2() {

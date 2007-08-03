@@ -10,8 +10,12 @@ XML Parser: parse simple string
 //               - some handlers
 //               - parse simple string
 //
-
-require_once "XML/Parser.php";
+chdir (dirname(__FILE__));
+if (file_exists('../Parser.php')) {
+    require_once "../Parser.php";
+} else {
+    require_once "XML/Parser.php";
+}
 
 class __TestParser1 extends XML_Parser {
     function __TestParser1() {

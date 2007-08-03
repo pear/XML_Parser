@@ -8,8 +8,12 @@ XML Parser: error class
 // Test for: XML/Parser.php
 // Parts tested: - parser error class
 //
-
-require_once "XML/Parser.php";
+chdir (dirname(__FILE__));
+if (file_exists('../Parser.php')) {
+    require_once "../Parser.php";
+} else {
+    require_once "XML/Parser.php";
+}
 
 print "new XML_Parser ";
 var_dump(get_class($p = new XML_Parser()));
