@@ -17,7 +17,7 @@ if (file_exists('../Parser.php')) {
 
 print "new XML_Parser ";
 var_dump(strtolower(get_class($p = new XML_Parser())));
-$e = $p->parseString("<?xml version='1.0' ?><foo></bar>", true);
+$e = $p->parseString("<?xml version='1.0' ?>\n<foo></bar>", true);
 if (PEAR::isError($e)) {
     printf("error message: %s\n", $e->getMessage());
 } else {
@@ -27,4 +27,4 @@ if (PEAR::isError($e)) {
 ?>
 --EXPECT--
 new XML_Parser string(10) "xml_parser"
-error message: XML_Parser: mismatched tag at XML input line 1
+error message: XML_Parser: Mismatched tag at XML input line 2:12
