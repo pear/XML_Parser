@@ -9,7 +9,7 @@ XML Parser: error class
 // Parts tested: - parser error class
 //
 
-require_once "../Parser.php";
+require_once "XML/Parser.php";
 
 print "new XML_Parser ";
 var_dump(get_class($p = new XML_Parser()));
