@@ -41,7 +41,7 @@ class __TestParser2 extends XML_Parser {
     }
 }
 print "new __TestParser2 ";
-var_dump(get_class($o = new __TestParser2()));
+var_dump(strtolower(get_class($o = new __TestParser2())));
 print "setInputFile ";
 print is_resource($o->setInputFile("test2.xml"))."\n";
 print "parse ";
