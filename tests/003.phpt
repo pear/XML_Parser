@@ -41,7 +41,7 @@ class __TestParser3 extends XML_Parser {
     }
 }
 print "new __TestParser3 ";
-var_dump(get_class($o = new __TestParser3()));
+var_dump(strtolower(get_class($o = new __TestParser3())));
 print "fopen ";
 print is_resource($fp = fopen("test3.xml", "r"))."\n";
 print "setInput ";
