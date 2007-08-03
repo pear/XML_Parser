@@ -12,7 +12,7 @@ XML Parser: parse from file
 //
 chdir (dirname(__FILE__));
 
-require_once "../Parser.php";
+require_once "XML/Parser.php";
 
 class __TestParser2 extends XML_Parser {
     function __TestParser2() {
