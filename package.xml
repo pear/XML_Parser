@@ -37,6 +37,27 @@
      <file role="doc" name="example.php"/>
      <file role="doc" name="example2.php"/>
     </dir> <!-- /examples -->
+    <dir name="tests">
+     <file role="test" name="AllTests.php"/>
+     <file role="test" name="testBasic_apiVersion.phpt"/>
+     <file role="test" name="testBasic_attributesToString.phpt"/>
+     <file role="test" name="testBasic_collapseEmptyTags.phpt"/>
+     <file role="test" name="testBasic_createCDataSection.phpt"/>
+     <file role="test" name="testBasic_createComment.phpt"/>
+     <file role="test" name="testBasic_createEndElement.phpt"/>
+     <file role="test" name="testBasic_createStartElement.phpt"/>
+     <file role="test" name="testBasic_createTag.phpt"/>
+     <file role="test" name="testBasic_createTagFromArray.phpt"/>
+     <file role="test" name="testBasic_getDocTypeDeclaration.phpt"/>
+     <file role="test" name="testBasic_getXmlDeclaration.phpt"/>
+     <file role="test" name="testBasic_isValidName.phpt"/>
+     <file role="test" name="testBasic_raiseError.phpt"/>
+     <file role="test" name="testBasic_replaceEntities.phpt"/>
+     <file role="test" name="testBasic_reverseEntities.phpt"/>
+     <file role="test" name="testBasic_splitQualifiedName.phpt"/>
+     <file role="test" name="testBug_4950.phpt"/>
+     <file role="test" name="testBug_5392.phpt"/>
+    </dir> <!-- /tests -->
     <file role="php" name="Util.php"/>
    </dir> <!-- / -->
   </filelist>
