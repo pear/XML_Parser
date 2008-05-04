@@ -11,7 +11,7 @@
  * PHP versions 4 and 5
  *
  * @category   XML
- * @package    Util
+ * @package    XML_Util
  * @subpackage UnitTesting
  * @author     Chuck Burgess <ashnazg@php.net>
  * @license    http://www.opensource.org/licenses/bsd-license.php New BSD License
@@ -67,7 +67,7 @@ define('XML_UTIL_DIR_PHPT', dirname(__FILE__));
  * by PhpUnit or via "pear run-tests -u". 
  *
  * @category   XML
- * @package    Util
+ * @package    XML_Util
  * @subpackage UnitTesting
  * @author     Chuck Burgess <ashnazg@php.net>
  * @license    http://www.opensource.org/licenses/bsd-license.php New BSD License

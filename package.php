@@ -39,7 +39,7 @@
  * $Id$
  *
  * @author      Stephan Schmidt <schst@php-tools.net>
- * @package     XML_Parser
+ * @package     XML_Util
  * @subpackage  Tools
  */
 
