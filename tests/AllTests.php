@@ -46,13 +46,17 @@ if (!defined('PHPUnit_MAIN_METHOD')) {
  */
 require_once 'PHPUnit/Framework.php';
 require_once 'PHPUnit/TextUI/TestRunner.php';
-
+require_once 'PHPUnit/Extensions/PhptTestSuite.php';
 
 /*
  * You must add each additional class-level test suite file here
  */
 // there are no PhpUnit test files... only PHPTs.. so nothing is listed here
 
+/**
+ * directory where PHPT tests are located
+ */
+define('XML_UTIL_DIR_PHPT', dirname(__FILE__));
 
 /**
  * Master Unit Test Suite class for XML_Util
@@ -102,6 +106,13 @@ class XML_Util_AllTests
          * You must add each additional class-level test suite name here
          */
         // there are no PhpUnit test files... only PHPTs.. so nothing is listed here
+
+        /*
+         * add PHPT tests
+         */
+        $phpt = new PHPUnit_Extensions_PhptTestSuite(XML_UTIL_DIR_PHPT);
+        $suite->addTestSuite($phpt);
+
         return $suite;
     }
 }
