@@ -671,7 +671,8 @@ class XML_Util {
     */
     function createCDataSection($data)
     {
-        return  sprintf("<![CDATA[%s]]>", $data);
+        return sprintf("<![CDATA[%s]]>", 
+            preg_replace('/\]\]>/', "]]>]]&gt;<![CDATA[", strval($data)));
     }
 
    /**

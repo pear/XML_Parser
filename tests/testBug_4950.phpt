@@ -11,4 +11,4 @@ echo XML_Util::createTag("test", array(), "Content ]]></test> here!",
 ?>
 --EXPECT--
 TEST:  test case provided in bug report
-<test><![CDATA[Content ]]>]]><![CDATA[</test> here!]]></test>
+<test><![CDATA[Content ]]>]]&gt;<![CDATA[</test> here!]]></test>
