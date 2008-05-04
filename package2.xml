@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.7.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+http://pear.php.net/dtd/tasks-1.0.xsd
+http://pear.php.net/dtd/package-2.0
+http://pear.php.net/dtd/package-2.0.xsd">
+ <name>XML_Util</name>
+ <channel>pear.php.net</channel>
+ <summary>XML utility class.</summary>
+ <description>Selection of methods that are often needed when working with XML documents. Functionality includes creating of attribute lists from arrays, creation of tags, validation of XML names and more.
+ 
+ </description>
+ <lead>
+  <name>Stephan Schmidt</name>
+  <user>schst</user>
+  <email>schst@php-tools.net</email>
+  <active>yes</active>
+ </lead>
+ <helper>
+  <name>Davey Shafik</name>
+  <user>davey</user>
+  <email>davey@php.net</email>
+  <active>yes</active>
+ </helper>
+ <date>2006-12-16</date>
+ <time>18:29:27</time>
+ <version>
+  <release>1.1.4</release>
+  <api>1.1.4</api>
+ </version>
+ <stability>
+  <release>stable</release>
+  <api>stable</api>
+ </stability>
+ <license uri="http://www.php.net/license">PHP License</license>
+ <notes>- Fixed bug #9561: Not allowing underscores in middle of tags
+ </notes>
+ <contents>
+  <dir name="/">
+   <dir name="examples">
+    <file baseinstalldir="XML" name="example.php" role="doc" />
+    <file baseinstalldir="XML" name="example2.php" role="doc" />
+   </dir> <!-- //examples -->
+   <file baseinstalldir="XML" name="Util.php" role="php" />
+  </dir> <!-- / -->
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>4.2.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.0b1</min>
+   </pearinstaller>
+   <package>
+    <name>PEAR</name>
+    <channel>pear.php.net</channel>
+   </package>
+   <extension>
+    <name>pcre</name>
+   </extension>
+  </required>
+ </dependencies>
+ <phprelease />
+ <changelog>
+  <release>
+   <version>
+    <release>0.1</release>
+    <api>0.1</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2003-08-01</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>inital release
+    
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.1.1</release>
+    <api>0.1.1</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2003-08-02</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>bugfix: removed bug in createTagFromArray
+    
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.2</release>
+    <api>0.2</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2003-08-12</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>added XML_Util::getDocTypeDeclaration()
+    
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.2.1</release>
+    <api>0.2.1</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2003-09-05</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>fixed bug with zero as tag content in createTagFromArray and createTag
+    
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.3</release>
+    <api>0.3</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2003-09-12</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>added createStartElement() and createEndElement()
+    
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.4</release>
+    <api>0.4</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2003-09-21</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>added createCDataSection(),
+added support for CData sections in createTag* methods,
+fixed bug #23,
+fixed bug in splitQualifiedName()
+    
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.5</release>
+    <api>0.5</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2003-09-23</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>added support for multiline attributes in attributesToString(), createTag*() and createStartElement (requested by Yavor Shahpasov for XML_Serializer),
+added createComment
+    
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.5.1</release>
+    <api>0.5.1</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2003-09-26</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>added default namespace parameter (optional) in splitQualifiedName() (requested by Sebastian Bergmann)
+    
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.5.2</release>
+    <api>0.5.2</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2003-11-22</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>now creates XHTML compliant empty tags (Davey),
+minor whitespace fixes (Davey)
+    
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.6.0beta1</release>
+    <api>0.6.0beta1</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2004-05-24</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>- Fixed bug 1438 (namespaces not accepted for isValidName()) (thanks to davey)
+- added optional parameter to replaceEntities() to define the set of entities to replace
+- added optional parameter to attributesToString() to define, whether entities should be replaced (requested by Sebastian Bergmann)
+- allowed second parameter to XML_Util::attributesToString() to be an array containing options (easier to use, if you only need to set the last parameter)
+- introduced XML_Util::raiseError() to avoid the necessity of including PEAR.php, will only be included on error
+    
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.6.0</release>
+    <api>0.6.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2004-06-07</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>- Fixed bug 1438 (namespaces not accepted for isValidName()) (thanks to davey)
+- added optional parameter to replaceEntities() to define the set of entities to replace
+- added optional parameter to attributesToString() to define, whether entities should be replaced (requested by Sebastian Bergmann)
+- allowed second parameter to XML_Util::attributesToString() to be an array containing options (easier to use, if you only need to set the last parameter)
+- introduced XML_Util::raiseError() to avoid the necessity of including PEAR.php, will only be included on error
+    
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.6.1</release>
+    <api>0.6.1</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2004-10-28</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>- Added check for tag name (either as local part or qualified name) in createTagFromArray() (bug #1083)
+    
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.0.0</release>
+    <api>1.0.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2004-10-28</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>- Added reverseEntities() (request #2639)
+    
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.1.0</release>
+    <api>1.1.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2004-11-19</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>- Added collapseEmptyTags (patch by Sebastian Bergmann and Thomas Duffey)
+    
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.1.1</release>
+    <api>1.1.1</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2004-12-23</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>- fixed bug in replaceEntities() and reverseEntities() in conjunction with XML_UTIL_ENTITIES_HTML
+- createTag() and createTagFromArray() now accept XML_UTIL_ENTITIES_XML, XML_UTIL_ENTITIES_XML_REQUIRED, XML_UTIL_ENTITIES_HTML, XML_UTIL_ENTITIES_NONE and XML_UTIL_CDATA_SECTION as $replaceEntities parameter
+    
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.1.2</release>
+    <api>1.1.2</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2006-12-01</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>- fixed bug #5419: isValidName() now checks for character classes
+- implemented request #8196: added optional parameter to influence array sorting to createTag() createTagFromArray() and createStartElement()
+    
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.1.4</release>
+    <api>1.1.4</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2006-12-16</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>- Fixed bug #9561: Not allowing underscores in middle of tags
+   </notes>
+  </release>
+ </changelog>
+</package>
