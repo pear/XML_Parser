@@ -727,7 +727,7 @@ class XML_Util {
     *
     * // verify tag name
     * $result = XML_Util::isValidName("invalidTag?");
-    * if (XML_Util::isError($result)) {
+    * if (is_a($result, 'PEAR_Error')) {
     *    print "Invalid XML name: " . $result->getMessage();
     * }
     * </code>
