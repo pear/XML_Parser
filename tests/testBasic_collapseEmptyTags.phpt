@@ -6,6 +6,7 @@ Chuck Burgess <ashnazg@php.net>
 --FILE--
 <?php
 require_once 'XML' . DIRECTORY_SEPARATOR . 'Util.php';
+echo '=====XML_Util::collapseEmptyTags() basic tests=====' . PHP_EOL . PHP_EOL;
 
 $emptyTag = "<foo></foo>";
 $otherTag = "<bar>baz</bar>";
@@ -30,6 +31,8 @@ echo "TEST:  one empty tag alongside non-empty tag, with COLLAPSE_XHTML_ONLY set
 echo XML_Util::collapseEmptyTags($emptyTag . $xhtmlTag . $otherTag, XML_UTIL_COLLAPSE_XHTML_ONLY) . PHP_EOL . PHP_EOL;
 ?>
 --EXPECT--
+=====XML_Util::collapseEmptyTags() basic tests=====
+
 TEST:  basic usage
 <foo />
 

@@ -6,10 +6,13 @@ Chuck Burgess <ashnazg@php.net>
 --FILE--
 <?php
 require_once 'XML' . DIRECTORY_SEPARATOR . 'Util.php';
+echo '=====XML_Util::apiVersion() basic tests=====' . PHP_EOL . PHP_EOL;
 
 echo "TEST:  basic apiVersion() call" . PHP_EOL;
 echo XML_Util::apiVersion() . PHP_EOL;
 ?>
 --EXPECT--
+=====XML_Util::apiVersion() basic tests=====
+
 TEST:  basic apiVersion() call
 1.1

@@ -6,6 +6,7 @@ Chuck Burgess <ashnazg@php.net>
 --FILE--
 <?php
 require_once 'XML' . DIRECTORY_SEPARATOR . 'Util.php';
+echo '=====XML_Util::attributesToString() basic tests=====' . PHP_EOL . PHP_EOL;
 
 $att = array("foo" => "bar", "boo" => "baz");
 
@@ -51,6 +52,8 @@ echo XML_Util::attributesToString($arr, true, false, '    ', PHP_EOL,
     XML_UTIL_ENTITIES_HTML) . PHP_EOL . PHP_EOL;
 ?>
 --EXPECT--
+=====XML_Util::attributesToString() basic tests=====
+
 TEST:  basic usage
  boo="baz" foo="bar"
 

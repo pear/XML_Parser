@@ -6,6 +6,7 @@ Chuck Burgess <ashnazg@php.net>
 --FILE--
 <?php
 require_once 'XML' . DIRECTORY_SEPARATOR . 'Util.php';
+echo '=====XML_Util::createEndElement() basic tests=====' . PHP_EOL . PHP_EOL;
 
 echo "TEST:  basic usage (myTag)" . PHP_EOL;
 echo XML_Util::createEndElement("myTag") . PHP_EOL . PHP_EOL;
@@ -14,6 +15,8 @@ echo "TEST:  basic usage with a namespaced tag (myNs:myTag)" . PHP_EOL;
 echo XML_Util::createEndElement("myNs:myTag") . PHP_EOL . PHP_EOL;
 ?>
 --EXPECT--
+=====XML_Util::createEndElement() basic tests=====
+
 TEST:  basic usage (myTag)
 </myTag>
 

@@ -6,6 +6,7 @@ Chuck Burgess <ashnazg@php.net>
 --FILE--
 <?php
 require_once 'XML' . DIRECTORY_SEPARATOR . 'Util.php';
+echo '=====XML_Util::createTagFromArray() basic tests=====' . PHP_EOL . PHP_EOL;
 
 $bad = array(
     "foo" => "bar",
@@ -93,6 +94,8 @@ echo "TEST:  basic usage with a valid array (qname, namespaceUri, attributes, an
 echo XML_Util::createTagFromArray($tag4, XML_UTIL_REPLACE_ENTITIES, true, '  ', '^', false) . PHP_EOL . PHP_EOL;
 ?>
 --EXPECT--
+=====XML_Util::createTagFromArray() basic tests=====
+
 TEST:  basic usage with an invalid array
 You must either supply a qualified name (qname) or local tag name (localPart).
 

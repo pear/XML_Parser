@@ -6,6 +6,7 @@ Chuck Burgess <ashnazg@php.net>
 --FILE--
 <?php
 require_once 'XML' . DIRECTORY_SEPARATOR . 'Util.php';
+echo '=====XML_Util::replaceEntities() basic tests=====' . PHP_EOL . PHP_EOL;
 
 echo "TEST:  basic usage" . PHP_EOL;
 echo XML_Util::replaceEntities("This string contains < & >.") . PHP_EOL . PHP_EOL;
@@ -20,6 +21,8 @@ echo "TEST:  basic usage with ENTITIES_HTML" . PHP_EOL;
 echo XML_Util::replaceEntities("This string contains < & >.", XML_UTIL_ENTITIES_HTML) . PHP_EOL . PHP_EOL;
 ?>
 --EXPECT--
+=====XML_Util::replaceEntities() basic tests=====
+
 TEST:  basic usage
 This string contains &lt; &amp; &gt;.
 
@@ -31,3 +34,4 @@ This string contains &lt; &amp; >.
 
 TEST:  basic usage with ENTITIES_HTML
 This string contains &lt; &amp; &gt;.
+

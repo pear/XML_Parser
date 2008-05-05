@@ -6,6 +6,7 @@ Chuck Burgess <ashnazg@php.net>
 --FILE--
 <?php
 require_once 'XML' . DIRECTORY_SEPARATOR . 'Util.php';
+echo '=====XML_Util::splitQualifiedName() basic tests=====' . PHP_EOL . PHP_EOL;
 
 echo "TEST:  basic usage without namespace" . PHP_EOL;
 $return = XML_Util::splitQualifiedName("xslt:stylesheet");
@@ -20,6 +21,8 @@ echo "localPart => " . $return['localPart'] . PHP_EOL;
 echo PHP_EOL;
 ?>
 --EXPECT--
+=====XML_Util::splitQualifiedName() basic tests=====
+
 TEST:  basic usage without namespace
 namespace => xslt
 localPart => stylesheet

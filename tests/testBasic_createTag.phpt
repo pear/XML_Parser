@@ -6,6 +6,7 @@ Chuck Burgess <ashnazg@php.net>
 --FILE--
 <?php
 require_once 'XML' . DIRECTORY_SEPARATOR . 'Util.php';
+echo '=====XML_Util::createTag() basic tests=====' . PHP_EOL . PHP_EOL;
 
 echo "TEST:  tag with attribute" . PHP_EOL;
 echo XML_Util::createTag(
@@ -116,6 +117,8 @@ echo XML_Util::createTag(
 ) . PHP_EOL . PHP_EOL;
 ?>
 --EXPECT--
+=====XML_Util::createTag() basic tests=====
+
 TEST:  tag with attribute
 <myNs:myTag foo="bar" />
 
