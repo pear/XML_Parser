@@ -423,7 +423,8 @@ class XML_Util
     {
         if ($mode == XML_UTIL_COLLAPSE_XHTML_ONLY) {
             return preg_replace(
-                '/<(area|base|br|col|hr|img|input|link|meta|param)([^>]*)><\/\\1>/s',
+                '/<(area|base(?:font)?|br|col|frame|hr|img|input|isindex|link|meta|'
+                . 'param)([^>]*)><\/\\1>/s',
                 '<\\1\\2 />',
                 $xml);
         } else {
