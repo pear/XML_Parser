@@ -1,5 +1,8 @@
 --TEST--
 XML_Util tests for Bug #5392 "encoding of ISO-8859-1 is the only supported encoding"
+--CREDITS--
+Chuck Burgess <ashnazg@php.net>
+# created for v1.2.0a1 2008-05-04
 --FILE--
 <?php
 require_once 'XML' . DIRECTORY_SEPARATOR . 'Util.php';
