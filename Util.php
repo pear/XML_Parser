@@ -119,7 +119,7 @@ define("XML_UTIL_COLLAPSE_XHTML_ONLY", 2);
  * @author    Stephan Schmidt <schst@php.net>
  * @copyright 2003-2008 Stephan Schmidt <schst@php.net>
  * @license   http://opensource.org/licenses/bsd-license New BSD License
- * @version   Release: 1.1.0
+ * @version   Release: @version@
  * @link      http://pear.php.net/package/XML_Util
  */
 class XML_Util
