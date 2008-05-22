@@ -9,7 +9,7 @@ $desc =
     . "creation of tags, validation of XML names and more."
 ;
 
-$version = '1.2.0a1';
+$version = '1.2.0a2';
 $apiver  = '1.2.0';
 $state   = 'alpha';
 
@@ -17,7 +17,10 @@ $notes = <<<EOT
 Changed license to New BSD License (Req #13826 [ashnazg])
 Added a test suite against all API methods [ashnazg]
 Switch to package.xml v2 [ashnazg]
-Fixed Bug #4950: Incorrect CDATA serializing [ashnazg|ja.doma]
+Added Req #13839: Missing XHTML empty tags to collapse [ashnazg|drry]
+Fixed Bug #5392: encoding of ISO-8859-1 is the only supported encoding [ashnazg]
+Fixed Bug #4950: Incorrect CDATA serializing [ashnazg|drry]
+-- (this fix differs from the one in v1.2.0a1)
 EOT;
 
 $package = new PEAR_PackageFileManager2();

@@ -25,10 +25,10 @@
   <email>davey@php.net</email>
   <active>no</active>
  </helper>
- <date>2008-05-04</date>
- <time>19:22:39</time>
+ <date>2008-05-22</date>
+ <time>03:00:00</time>
  <version>
-  <release>1.2.0a1</release>
+  <release>1.2.0a2</release>
   <api>1.2.0</api>
  </version>
  <stability>
@@ -36,10 +36,15 @@
   <api>alpha</api>
  </stability>
  <license uri="http://opensource.org/licenses/bsd-license">BSD License</license>
- <notes>Changed license to New BSD License (Req #13826 [ashnazg])
+ <notes>
+Changed license to New BSD License (Req #13826 [ashnazg])
 Added a test suite against all API methods [ashnazg]
 Switch to package.xml v2 [ashnazg]
-Fixed Bug #4950: Incorrect CDATA serializing [ashnazg|ja.doma]</notes>
+Added Req #13839: Missing XHTML empty tags to collapse [ashnazg|drry]
+Fixed Bug #5392: encoding of ISO-8859-1 is the only supported encoding [ashnazg]
+Fixed Bug #4950: Incorrect CDATA serializing [ashnazg|drry]
+-- (this fix differs from the one in v1.2.0a1)
+</notes>
  <contents>
   <dir baseinstalldir="XML" name="/">
    <dir name="examples">
@@ -85,6 +90,27 @@ Fixed Bug #4950: Incorrect CDATA serializing [ashnazg|ja.doma]</notes>
  </dependencies>
  <phprelease />
  <changelog>
+  <release>
+   <version>
+    <release>1.2.0a2</release>
+    <api>1.2.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2008-05-22</date>
+   <license uri="http://opensource.org/licenses/bsd-license">BSD License</license>
+   <notes>
+Changed license to New BSD License (Req #13826 [ashnazg])
+Added a test suite against all API methods [ashnazg]
+Switch to package.xml v2 [ashnazg]
+Added Req #13839: Missing XHTML empty tags to collapse [ashnazg|drry]
+Fixed Bug #5392: encoding of ISO-8859-1 is the only supported encoding [ashnazg]
+Fixed Bug #4950: Incorrect CDATA serializing [ashnazg|drry]
+-- (this fix differs from the one in v1.2.0a1)
+   </notes>
+  </release>
   <release>
    <version>
     <release>1.2.0a1</release>
