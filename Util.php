@@ -149,19 +149,35 @@ class XML_Util
      * $string = XML_Util::replaceEntities('This string contains < & >.');
      * </code>
      *
+     * With the optional third parameter, you may pass the character encoding
+     * <code>
+     * require_once 'XML/Util.php';
+     *
+     * // replace XML entites in UTF-8:
+     * $string = XML_Util::replaceEntities(
+     *     'This string contains < & > as well as ä, ö, ß, à and ê',
+     *     XML_UTIL_ENTITIES_HTML,
+     *     'UTF-8'
+     * );
+     * </code>
+     *
      * @param string $string          string where XML special chars 
      *                                should be replaced
      * @param int    $replaceEntities setting for entities in attribute values 
      *                                (one of XML_UTIL_ENTITIES_XML, 
      *                                XML_UTIL_ENTITIES_XML_REQUIRED, 
      *                                XML_UTIL_ENTITIES_HTML)
+     * @param string $encoding        encoding value (if any)...
+     *                                must be a valid encoding as determined
+     *                                by the htmlentities() function
      *
      * @return string string with replaced chars
      * @access public
      * @static
      * @see reverseEntities()
      */
-    function replaceEntities($string, $replaceEntities = XML_UTIL_ENTITIES_XML)
+    function replaceEntities($string, $replaceEntities = XML_UTIL_ENTITIES_XML,
+        $encoding = 'ISO-8859-1')
     {
         switch ($replaceEntities) {
         case XML_UTIL_ENTITIES_XML:
@@ -179,7 +195,7 @@ class XML_Util
                 '"' => '&quot;' ));
             break;
         case XML_UTIL_ENTITIES_HTML:
-            return htmlentities($string);
+            return htmlentities($string, ENT_COMPAT, $encoding);
             break;
         }
         return $string;
@@ -198,19 +214,36 @@ class XML_Util
      * $string = XML_Util::reverseEntities('This string contains &lt; &amp; &gt;.');
      * </code>
      *
+     * With the optional third parameter, you may pass the character encoding
+     * <code>
+     * require_once 'XML/Util.php';
+     *
+     * // reverse XML entites in UTF-8:
+     * $string = XML_Util::reverseEntities(
+     *     'This string contains &lt; &amp; &gt; as well as'
+     *     . ' &auml;, &ouml;, &szlig;, &agrave; and &ecirc;',
+     *     XML_UTIL_ENTITIES_HTML,
+     *     'UTF-8'
+     * );
+     * </code>
+     *
      * @param string $string          string where XML special chars 
      *                                should be replaced
      * @param int    $replaceEntities setting for entities in attribute values 
      *                                (one of XML_UTIL_ENTITIES_XML, 
      *                                XML_UTIL_ENTITIES_XML_REQUIRED, 
      *                                XML_UTIL_ENTITIES_HTML)
+     * @param string $encoding        encoding value (if any)...
+     *                                must be a valid encoding as determined
+     *                                by the html_entity_decode() function
      *
      * @return string string with replaced chars
      * @access public
      * @static
      * @see replaceEntities()
      */
-    function reverseEntities($string, $replaceEntities = XML_UTIL_ENTITIES_XML)
+    function reverseEntities($string, $replaceEntities = XML_UTIL_ENTITIES_XML,
+        $encoding = 'ISO-8859-1')
     {
         switch ($replaceEntities) {
         case XML_UTIL_ENTITIES_XML:
@@ -228,8 +261,7 @@ class XML_Util
                 '&quot;' => '"' ));
             break;
         case XML_UTIL_ENTITIES_HTML:
-            $arr = array_flip(get_html_translation_table(HTML_ENTITIES));
-            return strtr($string, $arr);
+            return html_entity_decode($string, ENT_COMPAT, $encoding);
             break;
         }
         return $string;
