@@ -17,7 +17,7 @@
  * @license    http://www.opensource.org/licenses/bsd-license.php New BSD License
  * @version    CVS: $Id$
  * @link       http://pear.php.net/package/XML_Util
- * @since      1.1.5
+ * @since      1.2.0a1
  */
 
 
@@ -26,7 +26,9 @@
  */
 if (version_compare(PHP_VERSION, "5.1.4") < 0) {
     // Cannnot run test suites
-    echo "Cannot run test suites... requires at least PHP v5.1.4.\n";
+    echo 'Cannot run test suite via PhpUnit... requires at least PHP v5.1.4.' . PHP_EOL;
+    echo 'Use "pear run-tests -p xml_util" to run the PHPT tests directly.' . PHP_EOL
+;
     exit(1);
 }
 
@@ -64,7 +66,7 @@ define('XML_UTIL_DIR_PHPT', dirname(__FILE__));
  * This top-level test suite class organizes 
  * all class test suite files, 
  * so that the full suite can be run 
- * by PhpUnit or via "pear run-tests -u". 
+ * by PhpUnit or via "pear run-tests -up xml_util". 
  *
  * @category   XML
  * @package    XML_Util
@@ -73,7 +75,7 @@ define('XML_UTIL_DIR_PHPT', dirname(__FILE__));
  * @license    http://www.opensource.org/licenses/bsd-license.php New BSD License
  * @version    Release: @package_version@
  * @link       http://pear.php.net/package/XML_Util
- * @since      1.1.5
+ * @since      1.2.0a1
  */
 class XML_Util_AllTests
 {
