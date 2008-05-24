@@ -11,8 +11,20 @@ echo '=====XML_Util::getDocTypeDeclaration() basic tests=====' . PHP_EOL . PHP_E
 echo "TEST:  using root only" . PHP_EOL;
 echo XML_Util::getDocTypeDeclaration("rootTag") . PHP_EOL . PHP_EOL;
 
-echo "TEST:  using root and URI" . PHP_EOL;
+echo "TEST:  using root and a string URI" . PHP_EOL;
 echo XML_Util::getDocTypeDeclaration("rootTag", "myDocType.dtd") . PHP_EOL . PHP_EOL;
+
+$uri = array(
+    'uri' => 'http://pear.php.net/dtd/package-1.0',
+    'id' => '-//PHP//PEAR/DTD PACKAGE 0.1'
+);
+$dtdEntry = '<!ELEMENT additionalInfo (#PCDATA)>';
+
+echo "TEST:  using root and an array URI" . PHP_EOL;
+echo XML_Util::getDocTypeDeclaration("rootTag", $uri) . PHP_EOL . PHP_EOL;
+
+echo "TEST:  using root and an array URI and an internal DTD entry" . PHP_EOL;
+echo XML_Util::getDocTypeDeclaration("rootTag", $uri, $dtdEntry) . PHP_EOL . PHP_EOL;
 ?>
 --EXPECT--
 =====XML_Util::getDocTypeDeclaration() basic tests=====
@@ -20,5 +32,11 @@ echo XML_Util::getDocTypeDeclaration("rootTag", "myDocType.dtd") . PHP_EOL . PHP
 TEST:  using root only
 <!DOCTYPE rootTag>
 
-TEST:  using root and URI
+TEST:  using root and a string URI
 <!DOCTYPE rootTag SYSTEM "myDocType.dtd">
+
+TEST:  using root and an array URI
+<!DOCTYPE rootTag PUBLIC "-//PHP//PEAR/DTD PACKAGE 0.1" "http://pear.php.net/dtd/package-1.0">
+
+TEST:  using root and an array URI and an internal DTD entry
+<!DOCTYPE rootTag PUBLIC "-//PHP//PEAR/DTD PACKAGE 0.1" "http://pear.php.net/dtd/package-1.0" [\n<!ELEMENT additionalInfo (#PCDATA)>\n]>

@@ -14,6 +14,9 @@ $utf8 = 'This data contains special chars like &lt;, &gt;, &amp; and &quot; as w
 echo "TEST:  basic usage" . PHP_EOL;
 echo XML_Util::reverseEntities($data) . PHP_EOL . PHP_EOL;
 
+echo "TEST:  basic usage but with bogus \$replaceEntities arg" . PHP_EOL;
+echo XML_Util::reverseEntities($data, 'I_AM_BOGUS') . PHP_EOL . PHP_EOL;
+
 echo "TEST:  basic usage with ENTITIES_XML" . PHP_EOL;
 echo XML_Util::reverseEntities($data, XML_UTIL_ENTITIES_XML) . PHP_EOL . PHP_EOL;
 
@@ -46,6 +49,9 @@ echo XML_Util::reverseEntities($utf8, XML_UTIL_ENTITIES_HTML, 'UTF-8') . PHP_EOL
 
 TEST:  basic usage
 This string contains < & >.
+
+TEST:  basic usage but with bogus $replaceEntities arg
+This string contains &lt; &amp; &gt;.
 
 TEST:  basic usage with ENTITIES_XML
 This string contains < & >.
