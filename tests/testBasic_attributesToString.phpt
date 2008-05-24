@@ -9,6 +9,19 @@ require_once 'XML' . DIRECTORY_SEPARATOR . 'Util.php';
 echo '=====XML_Util::attributesToString() basic tests=====' . PHP_EOL . PHP_EOL;
 
 $att = array("foo" => "bar", "boo" => "baz");
+$sort1 = array(
+    'multiline' => true, 
+    'indent'    => '----', 
+    'linebreak' => "^", 
+    'entities'  => XML_UTIL_ENTITIES_XML, 
+    'sort'      => true
+);
+$sort2 = array(
+    'multiline' => true, 
+    'indent'    => '----', 
+    'linebreak' => "^", 
+    'entities'  => XML_UTIL_ENTITIES_XML, 
+);
 
 echo "TEST:  basic usage" . PHP_EOL;
 echo XML_Util::attributesToString($att) . PHP_EOL . PHP_EOL;
@@ -30,6 +43,12 @@ echo XML_Util::attributesToString($att, true, true, '        ') . PHP_EOL . PHP_
 
 echo "TEST:  explicit \$linebreak = '^' (some dummy char)" . PHP_EOL;
 echo XML_Util::attributesToString($att, true, true, '^') . PHP_EOL . PHP_EOL;
+
+echo "TEST:  passing \$sort array of options that includes 'sort'" . PHP_EOL;
+echo XML_Util::attributesToString($att, $sort1) . PHP_EOL . PHP_EOL;
+
+echo "TEST:  passing \$sort array of options that doesn't include 'sort'" . PHP_EOL;
+echo XML_Util::attributesToString($att, $sort2) . PHP_EOL . PHP_EOL;
 
 echo "TEST:  do not replace entities" . PHP_EOL;
 $arr = array("foo" => "b@&r", "boo" => "b><z");
@@ -77,6 +96,14 @@ TEST:  explicit $indent = '        ' (8 spaces)
 TEST:  explicit $linebreak = '^' (some dummy char)
  boo="baz"
 ^foo="bar"
+
+TEST:  passing $sort array of options that includes 'sort'
+ boo="baz"
+----foo="bar"
+
+TEST:  passing $sort array of options that doesn't include 'sort'
+ boo="baz"
+----foo="bar"
 
 TEST:  do not replace entities
  boo="b><z" foo="b@&r"
