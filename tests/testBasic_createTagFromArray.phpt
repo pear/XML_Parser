@@ -45,6 +45,30 @@ $tag7 = array(
     "content"      => "I'm inside the tag",
 );
 
+$tag8 = array(
+    'content'      => array('foo', 'bar')
+);
+
+$tag9 = array(
+    'qname'        => 'foo:bar',
+    'namespaces'   => array('ns1' => 'uri1', 'ns2' => 'uri2')
+);
+
+$tag10 = array(
+    'namespace'    => 'http://foo.org',
+    'localPart'    => 'bar'
+);
+
+$tag11 = array(
+    'namespace'    => '',
+    'localPart'    => 'bar'
+);
+
+$tag12 = array(
+    'localPart'    => 'foo',
+    'namespaceUri' => 'http://bar.org'
+);
+
 echo "TEST:  basic usage with an invalid array" . PHP_EOL;
 echo XML_Util::createTagFromArray($bad) . PHP_EOL . PHP_EOL;
 
@@ -92,6 +116,21 @@ echo XML_Util::createTagFromArray($tag4, XML_UTIL_REPLACE_ENTITIES, true, '  ', 
 
 echo "TEST:  basic usage with a valid array (qname, namespaceUri, attributes, and content), REPLACE_ENTITIES, multiline = true, indent = (2 spaces), linebreak = '^', and sortAttributes = false" . PHP_EOL;
 echo XML_Util::createTagFromArray($tag4, XML_UTIL_REPLACE_ENTITIES, true, '  ', '^', false) . PHP_EOL . PHP_EOL;
+
+echo 'TEST:  cause a non-scalar error on the content tag' . PHP_EOL;
+echo XML_Util::createTagFromArray($tag8) . PHP_EOL . PHP_EOL;
+
+echo 'TEST:  handle an array of namespaces being passed' . PHP_EOL;
+echo XML_Util::createTagFromArray($tag9) . PHP_EOL . PHP_EOL;
+
+echo 'TEST:  qname is derived from namespace + localPart' . PHP_EOL;
+echo XML_Util::createTagFromArray($tag10) . PHP_EOL . PHP_EOL;
+
+echo 'TEST:  qname is derived from localPart only' . PHP_EOL;
+echo XML_Util::createTagFromArray($tag11) . PHP_EOL . PHP_EOL;
+
+echo 'TEST:  namespaceUri is given, but namespace is not' . PHP_EOL;
+echo XML_Util::createTagFromArray($tag12) . PHP_EOL . PHP_EOL;
 ?>
 --EXPECT--
 =====XML_Util::createTagFromArray() basic tests=====
@@ -147,3 +186,18 @@ TEST:  basic usage with a valid array (qname, namespaceUri, attributes, and cont
 
 TEST:  basic usage with a valid array (qname, namespaceUri, attributes, and content), REPLACE_ENTITIES, multiline = true, indent = (2 spaces), linebreak = '^', and sortAttributes = false
 <foo:bar key="value"^  argh="fruit&amp;vegetable"^  xmlns:foo="http://foo.com">I&apos;m inside the tag</foo:bar>
+
+TEST:  cause a non-scalar error on the content tag
+Supplied non-scalar value as tag content
+
+TEST:  handle an array of namespaces being passed
+<foo:bar xmlns:ns1="uri1" xmlns:ns2="uri2" />
+
+TEST:  qname is derived from namespace + localPart
+<http://foo.org:bar />
+
+TEST:  qname is derived from localPart only
+<bar />
+
+TEST:  namespaceUri is given, but namespace is not
+<foo xmlns="http://bar.org" />

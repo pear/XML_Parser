@@ -23,6 +23,15 @@ if (is_a($result, 'PEAR_Error')) {
 } else {
     print "Valid XML name." . PHP_EOL . PHP_EOL;
 }
+
+echo "TEST:  invalid tag that doesn't start with a letter" . PHP_EOL;
+$result = XML_Util::isValidName("1234five");
+if (is_a($result, 'PEAR_Error')) {
+    print "Invalid XML name: " . $result->getMessage() . PHP_EOL . PHP_EOL;
+} else {
+    print "Valid XML name." . PHP_EOL . PHP_EOL;
+}
+
 ?>
 --EXPECT--
 =====XML_Util::isValidName() basic tests=====
@@ -32,3 +41,6 @@ Valid XML name.
 
 TEST:  invalid tag
 Invalid XML name: XML names may only contain alphanumeric chars, period, hyphen, colon and underscores
+
+TEST:  invalid tag that doesn't start with a letter
+Invalid XML name: XML names may only start with letter or underscore

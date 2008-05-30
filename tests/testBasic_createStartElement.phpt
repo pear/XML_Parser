@@ -19,11 +19,24 @@ echo XML_Util::createStartElement(
     array("foo" => "bar")
 ) . PHP_EOL . PHP_EOL;
 
+echo "TEST:  tag only, passing '' as attribute arg" . PHP_EOL;
+echo XML_Util::createStartElement(
+    'myNs:myTag',
+    ''
+) . PHP_EOL . PHP_EOL;
+
 echo "TEST:  tag with attributes and namespace" . PHP_EOL;
 echo XML_Util::createStartElement(
     "myNs:myTag", 
     array("foo" => "bar"),
     "http://www.w3c.org/myNs#"
+) . PHP_EOL . PHP_EOL;
+
+echo "TEST:  tag with empty attributes, whose namespaceUri is not a full namespace" . PHP_EOL;
+echo XML_Util::createStartElement(
+    'myTag',
+    '',
+    'foo'
 ) . PHP_EOL . PHP_EOL;
 
 echo "TEST:  tag with attributes, namespace, and multiline = true" . PHP_EOL;
@@ -84,8 +97,14 @@ TEST:  tag only
 TEST:  tag with attributes
 <myNs:myTag foo="bar">
 
+TEST:  tag only, passing '' as attribute arg
+<myNs:myTag>
+
 TEST:  tag with attributes and namespace
 <myNs:myTag foo="bar" xmlns:myNs="http://www.w3c.org/myNs#">
+
+TEST:  tag with empty attributes, whose namespaceUri is not a full namespace
+<myTag xmlns="foo">
 
 TEST:  tag with attributes, namespace, and multiline = true
 <myNs:myTag foo="bar"
