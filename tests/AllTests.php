@@ -8,7 +8,7 @@
  * so that the full suite can be run 
  * by PhpUnit or via "pear run-tests -u". 
  *
- * PHP versions 4 and 5
+ * PHP version 5
  *
  * @category   XML
  * @package    XML_Util
