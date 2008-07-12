@@ -3,7 +3,7 @@
 require_once 'PEAR/PackageFileManager2.php';
 PEAR::setErrorHandling(PEAR_ERROR_DIE);
 
-$desc = 
+$desc =
    "Selection of methods that are often needed when working with XML documents.  "
     . "Functionality includes creating of attribute lists from arrays, "
     . "creation of tags, validation of XML names and more."
@@ -23,9 +23,9 @@ Fixed Bug #4950: Incorrect CDATA serializing [ashnazg|drry]
 -- (this fix differs from the one in v1.2.0a1)
 EOT;
 
-$package = new PEAR_PackageFileManager2();
-
-$result = $package->setOptions(array(
+$package = PEAR_PackageFileManager2::importOptions(
+    'package.xml',
+    array(
     'filelistgenerator' => 'cvs',
     'changelogoldtonew' => false,
     'simpleoutput'	=> true,
@@ -37,6 +37,8 @@ if (PEAR::isError($result)) {
     echo $result->getMessage();
     die();
 }
+
+$package->clearDeps();
 
 $package->setPackage('XML_Util');
 $package->setPackageType('php');
@@ -56,7 +58,7 @@ $package->addIgnore(array('package.php', 'package.xml'));
 $package->addReplacement('Util.php', 'package-info', '@version@', 'version');
 $package->generateContents();
 
-if ($_SERVER['argv'][1] == 'commit') {
+if ($_SERVER['argv'][1] == 'make') {
     $result = $package->writePackageFile();
 } else {
     $result = $package->debugPackageFile();
