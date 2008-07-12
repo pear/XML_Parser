@@ -9,9 +9,9 @@ $desc =
     . "creation of tags, validation of XML names and more."
 ;
 
-$version = '1.2.0a2';
+$version = '1.2.0RC1';
 $apiver  = '1.2.0';
-$state   = 'alpha';
+$state   = 'beta';
 
 $notes = <<<EOT
 Changed license to New BSD License (Req #13826 [ashnazg])

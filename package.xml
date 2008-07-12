@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package packagerversion="1.7.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
-    http://pear.php.net/dtd/tasks-1.0.xsd
-    http://pear.php.net/dtd/package-2.0
-    http://pear.php.net/dtd/package-2.0.xsd">
+<package packagerversion="1.7.2" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0     http://pear.php.net/dtd/tasks-1.0.xsd     http://pear.php.net/dtd/package-2.0     http://pear.php.net/dtd/package-2.0.xsd">
  <name>XML_Util</name>
  <channel>pear.php.net</channel>
  <summary>XML utility class</summary>
@@ -25,26 +22,24 @@
   <email>davey@php.net</email>
   <active>no</active>
  </helper>
- <date>2008-05-22</date>
- <time>03:00:00</time>
+ <date>2008-07-12</date>
+ <time>17:51:17</time>
  <version>
-  <release>1.2.0a2</release>
+  <release>1.2.0RC1</release>
   <api>1.2.0</api>
  </version>
  <stability>
-  <release>alpha</release>
-  <api>alpha</api>
+  <release>beta</release>
+  <api>beta</api>
  </stability>
  <license uri="http://opensource.org/licenses/bsd-license">BSD License</license>
- <notes>
-Changed license to New BSD License (Req #13826 [ashnazg])
+ <notes>Changed license to New BSD License (Req #13826 [ashnazg])
 Added a test suite against all API methods [ashnazg]
 Switch to package.xml v2 [ashnazg]
 Added Req #13839: Missing XHTML empty tags to collapse [ashnazg|drry]
 Fixed Bug #5392: encoding of ISO-8859-1 is the only supported encoding [ashnazg]
 Fixed Bug #4950: Incorrect CDATA serializing [ashnazg|drry]
--- (this fix differs from the one in v1.2.0a1)
-</notes>
+-- (this fix differs from the one in v1.2.0a1)</notes>
  <contents>
   <dir baseinstalldir="XML" name="/">
    <dir name="examples">
@@ -72,7 +67,9 @@ Fixed Bug #4950: Incorrect CDATA serializing [ashnazg|drry]
     <file name="testBug_4950.phpt" role="test" />
     <file name="testBug_5392.phpt" role="test" />
    </dir> <!-- /tests -->
-   <file name="Util.php" role="php" />
+   <file name="Util.php" role="php">
+    <tasks:replace from="@version@" to="version" type="package-info" />
+   </file>
   </dir> <!-- / -->
  </contents>
  <dependencies>
@@ -92,6 +89,25 @@ Fixed Bug #4950: Incorrect CDATA serializing [ashnazg|drry]
  <changelog>
   <release>
    <version>
+    <release>1.2.0RC1</release>
+    <api>1.2.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2008-07-12</date>
+   <license uri="http://opensource.org/licenses/bsd-license">BSD License</license>
+   <notes>Changed license to New BSD License (Req #13826 [ashnazg])
+Added a test suite against all API methods [ashnazg]
+Switch to package.xml v2 [ashnazg]
+Added Req #13839: Missing XHTML empty tags to collapse [ashnazg|drry]
+Fixed Bug #5392: encoding of ISO-8859-1 is the only supported encoding [ashnazg]
+Fixed Bug #4950: Incorrect CDATA serializing [ashnazg|drry]
+-- (this fix differs from the one in v1.2.0a1)</notes>
+  </release>
+  <release>
+   <version>
     <release>1.2.0a2</release>
     <api>1.2.0</api>
    </version>
@@ -101,15 +117,13 @@ Fixed Bug #4950: Incorrect CDATA serializing [ashnazg|drry]
    </stability>
    <date>2008-05-22</date>
    <license uri="http://opensource.org/licenses/bsd-license">BSD License</license>
-   <notes>
-Changed license to New BSD License (Req #13826 [ashnazg])
+   <notes>Changed license to New BSD License (Req #13826 [ashnazg])
 Added a test suite against all API methods [ashnazg]
 Switch to package.xml v2 [ashnazg]
 Added Req #13839: Missing XHTML empty tags to collapse [ashnazg|drry]
 Fixed Bug #5392: encoding of ISO-8859-1 is the only supported encoding [ashnazg]
 Fixed Bug #4950: Incorrect CDATA serializing [ashnazg|drry]
--- (this fix differs from the one in v1.2.0a1)
-   </notes>
+-- (this fix differs from the one in v1.2.0a1)</notes>
   </release>
   <release>
    <version>
