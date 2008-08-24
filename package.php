@@ -2,8 +2,8 @@
 
 require_once 'PEAR/PackageFileManager.php';
 
-$version = '1.3.0a1';
-$state = 'alpha';
+$version = '1.3.0';
+$state = 'stable';
 
 $notes = <<<EOT
 - switch to BSD License
