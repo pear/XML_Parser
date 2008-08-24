@@ -1,41 +1,17 @@
 <?php
-/**
- * script to automate the generation of the
- * package.xml file.
- *
- * $Id$
- *
- * @author      Stephan Schmidt <schst@php-tools.net>
- * @package     XML_Parser
- * @subpackage  Tools
- */
 
-/**
- * uses PackageFileManager
- */
 require_once 'PEAR/PackageFileManager.php';
 
-/**
- * current version
- */
-$version = '1.2.8';
+$version = '1.3.0a1';
+$state = 'alpha';
 
-/**
- * current state
- */
-$state = 'stable';
-
-/**
- * release notes
- */
 $notes = <<<EOT
-- fixed bug #5557: Raise a more useful error message when using invalid source encoding
-- fixed bug #6078: func-mode does not handle all allowed letters in tags
+- switch to BSD License
+- switch to package.xml v2
+- PEAR CS cleanup
+- Fix Doc #13120:  Mistake in example code
 EOT;
 
-/**
- * package description
- */
 $description = <<<EOT
 This is an XML parser based on PHPs built-in xml extension.
 It supports two basic modes of operation: "func" and "event".  In "func" mode, it will look for a function named after each element (xmltag_ELEMENT for start tags and xmltag_ELEMENT_ for end tags), and in "event" mode it uses a set of generic callbacks.
