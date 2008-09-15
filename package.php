@@ -2,14 +2,11 @@
 
 require_once 'PEAR/PackageFileManager.php';
 
-$version = '1.3.0';
+$version = '1.3.1';
 $state = 'stable';
 
 $notes = <<<EOT
-- switch to BSD License
-- switch to package.xml v2
-- PEAR CS cleanup
-- Fix Doc #13120:  Mistake in example code
+- correct package.xml to reflect switch to BSD License
 EOT;
 
 $description = <<<EOT
@@ -28,7 +25,7 @@ $result = $package->setOptions(array(
     'description'       => $description,
     'version'           => $version,
     'state'             => $state,
-    'license'           => 'PHP License',
+    'license'           => 'BSD License',
     'filelistgenerator' => 'cvs',
     'ignore'            => array('package.php', 'package.xml', 'package2.xml'),
     'notes'             => $notes,
@@ -49,6 +46,7 @@ if (PEAR::isError($result)) {
 $package->addMaintainer('schst', 'lead', 'Stephan Schmidt', 'schst@php-tools.net');
 $package->addMaintainer('ssb', 'developer', 'Stig S&#230;ther Bakken', 'stig@php.net');
 $package->addMaintainer('cox', 'developer', 'Tomas V.V.Cox', 'cox@php.net');
+$package->addMaintainer('ashnazg', 'lead', 'Chuck Burgess', 'ashnazg@php.net');
 
 $package->addDependency('PEAR', '', 'has', 'pkg', false);
 $package->addDependency('php', '4.2.0', 'ge', 'php', false);
