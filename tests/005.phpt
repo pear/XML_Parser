@@ -22,8 +22,8 @@ require_once "XML/Parser.php";
 class TestEncodings1 extends XML_Parser {
     var $output = '';
 
-    function TestEncodings1($to, $from) {
-        $this->XML_Parser($from, 'event', $to);
+    function TestEncodings1($to, $mode, $from) {
+        $this->XML_Parser($from, $mode, $to);
     }
     function startHandler($xp, $elem, $attribs) {
         $this->output .= "<$elem>";
@@ -35,16 +35,20 @@ class TestEncodings1 extends XML_Parser {
         $this->output .= $data;
     }
     function test($data) {
-        // $this->output = '';
-        $this->parseString($data, true);
-        return $this->output;
+        $result = $this->parseString($data, true);
+        if (PEAR::isError($result)) {
+            return $result;
+        }
     }
 }
 
 $xml = "<?xml version='1.0' ?>";
 $input = array(
     "UTF-8"      => "<a>abcÃ¦Ã¸Ã¥</a>",
-    "ISO-8859-1" => "<a>abcæøå</a>",
+
+    /* are these special chars allowed in ISO-8859-1 context??? */
+    "ISO-8859-1" => "<a>abcæøå</a>", //    "ISO-8859-1" => "<a>abc¥<a>",
+
     "US-ASCII"   => "<a>abcaoa</a>"
 );
 
@@ -55,12 +59,12 @@ foreach ($input as $srcenc => $string) {
             continue;
         }
         print "Testing $srcenc -> $tgtenc: ";
-        $p =& new TestEncodings1($tgtenc, $srcenc);
+        $p =& new TestEncodings1($tgtenc, 'event', $srcenc);
         $e = $p->test($input[$srcenc]);
         if (PEAR::isError($e)) {
             printf("OOPS: %s\n", $e->getMessage());
         } else {
-            var_dump($e);
+            var_dump($p->output);
         }
     }
 }
