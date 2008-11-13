@@ -39,4 +39,6 @@ TEST:  using root and an array URI
 <!DOCTYPE rootTag PUBLIC "-//PHP//PEAR/DTD PACKAGE 0.1" "http://pear.php.net/dtd/package-1.0">
 
 TEST:  using root and an array URI and an internal DTD entry
-<!DOCTYPE rootTag PUBLIC "-//PHP//PEAR/DTD PACKAGE 0.1" "http://pear.php.net/dtd/package-1.0" [\n<!ELEMENT additionalInfo (#PCDATA)>\n]>
+<!DOCTYPE rootTag PUBLIC "-//PHP//PEAR/DTD PACKAGE 0.1" "http://pear.php.net/dtd/package-1.0" [
+<!ELEMENT additionalInfo (#PCDATA)>
+]>

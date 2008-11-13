@@ -338,7 +338,7 @@ class XML_Util
         if (empty($internalDtd)) {
             return sprintf('<!DOCTYPE %s%s>', $root, $ref);
         } else {
-            return sprintf('<!DOCTYPE %s%s [\n%s\n]>', $root, $ref, $internalDtd);
+            return sprintf("<!DOCTYPE %s%s [\n%s\n]>", $root, $ref, $internalDtd);
         }
     }
 
