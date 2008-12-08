@@ -22,10 +22,10 @@
   <email>davey@php.net</email>
   <active>no</active>
  </helper>
- <date>2008-07-26</date>
- <time>21:46:39</time>
+ <date>2008-12-07</date>
+ <time>19:40:27</time>
  <version>
-  <release>1.2.0</release>
+  <release>1.2.1</release>
   <api>1.2.0</api>
  </version>
  <stability>
@@ -33,13 +33,7 @@
   <api>stable</api>
  </stability>
  <license uri="http://opensource.org/licenses/bsd-license">BSD License</license>
- <notes>Changed license to New BSD License (Req #13826 [ashnazg])
-Added a test suite against all API methods [ashnazg]
-Switch to package.xml v2 [ashnazg]
-Added Req #13839: Missing XHTML empty tags to collapse [ashnazg|drry]
-Fixed Bug #5392: encoding of ISO-8859-1 is the only supported encoding [ashnazg]
-Fixed Bug #4950: Incorrect CDATA serializing [ashnazg|drry]
--- (this fix differs from the one in v1.2.0a1)</notes>
+ <notes>Fixed Bug #14760: Bug in getDocTypeDeclaration() [ashnazg|fpospisil]</notes>
  <contents>
   <dir baseinstalldir="XML" name="/">
    <dir name="examples">
@@ -87,6 +81,19 @@ Fixed Bug #4950: Incorrect CDATA serializing [ashnazg|drry]
  </dependencies>
  <phprelease />
  <changelog>
+  <release>
+   <version>
+    <release>1.2.1</release>
+    <api>1.2.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2008-12-07</date>
+   <license uri="http://opensource.org/licenses/bsd-license">BSD License</license>
+   <notes>Fixed Bug #14760: Bug in getDocTypeDeclaration() [ashnazg|fpospisil]</notes>
+  </release>
   <release>
    <version>
     <release>1.2.0</release>
