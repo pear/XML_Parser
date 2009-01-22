@@ -68,6 +68,7 @@ Furthermore its now possible to split the parser from the handler object, so you
     <file baseinstalldir="XML" name="Simple.php" role="php" />
    </dir> <!-- /Parser -->
    <dir name="tests">
+    <file baseinstalldir="XML" name="AllTests.php" role="test" />
     <file baseinstalldir="XML" name="001.phpt" role="test" />
     <file baseinstalldir="XML" name="002.phpt" role="test" />
     <file baseinstalldir="XML" name="003.phpt" role="test" />

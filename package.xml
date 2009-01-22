@@ -63,6 +63,7 @@ Furthermore its now possible to split the parser from the handler object, so you
      <file role="php" name="Simple.php"/>
     </dir> <!-- /Parser -->
     <dir name="tests">
+     <file role="test" name="AllTests.php"/>
      <file role="test" name="001.phpt"/>
      <file role="test" name="002.phpt"/>
      <file role="test" name="003.phpt"/>
