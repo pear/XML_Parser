@@ -2,11 +2,12 @@
 
 require_once 'PEAR/PackageFileManager.php';
 
-$version = '1.3.1';
+$version = '1.3.2';
 $state = 'stable';
 
 $notes = <<<EOT
-- correct package.xml to reflect switch to BSD License
+- Fix Bug #9328: assigned by reference error in XML_RSS parse
+- add an AllTests.php for PHPUnit usage
 EOT;
 
 $description = <<<EOT
