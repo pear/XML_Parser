@@ -6,7 +6,7 @@ XML Parser: mixing character encodings
         print 'skip - xml extension not available';
     }
     if (!extension_loaded('mbstring')) {
-        print 'skip - exif extension not available';
+        print 'skip - mbstring extension not available';
     }
 ?>
 --FILE--
