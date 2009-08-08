@@ -1,7 +1,14 @@
 --TEST--
 XML Parser: mixing character encodings
 --SKIPIF--
-<?php if (!extension_loaded("xml")) echo 'skip'; ?>
+<?php
+    if (!extension_loaded("xml")) {
+        print 'skip - xml extension not available';
+    }
+    if (!extension_loaded('mbstring')) {
+        print 'skip - exif extension not available';
+    }
+?>
 --FILE--
 <?php // -*- C++ -*-
 //
@@ -47,7 +54,7 @@ $input = array(
     "UTF-8"      => "<a>abcÃ¦Ã¸Ã¥</a>",
 
     /* are these special chars allowed in ISO-8859-1 context??? */
-    "ISO-8859-1" => "<a>abcæøå</a>", //    "ISO-8859-1" => "<a>abc¥<a>",
+    "ISO-8859-1" => "<a>abcï¿½ï¿½ï¿½</a>", //    "ISO-8859-1" => "<a>abcï¿½<a>",
 
     "US-ASCII"   => "<a>abcaoa</a>"
 );
@@ -71,7 +78,7 @@ foreach ($input as $srcenc => $string) {
 
 ?>
 --EXPECT--
-Testing UTF-8 -> ISO-8859-1: string(13) "<A>abcæøå</A>"
+Testing UTF-8 -> ISO-8859-1: string(13) "<A>abcï¿½ï¿½ï¿½</A>"
 Testing UTF-8 -> US-ASCII: string(13) "<A>abc???</A>"
 Testing ISO-8859-1 -> UTF-8: string(16) "<A>abcÃ¦Ã¸Ã¥</A>"
 Testing ISO-8859-1 -> US-ASCII: string(13) "<A>abc???</A>"

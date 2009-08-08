@@ -7,8 +7,8 @@ XML Parser:  test for Bug #9328 "assigned by reference error in XML_RSS parse"
  */
 $originalErrorReporting = error_reporting();
 error_reporting(E_ALL & ~E_WARNING);
-if ('OK' != (include_once 'XML/RSS.php')) {
-    print('skip if XML_RSS is not installed');
+if (false == (include_once 'XML/RSS.php')) {
+    print('skip - XML_RSS is not installed');
 }
 error_reporting($originalErrorReporting);
 ?>
