@@ -2,29 +2,32 @@
 XML Parser: mixing character encodings
 --SKIPIF--
 <?php
-    if (!extension_loaded("xml")) {
-        print 'skip - xml extension not available';
-    }
-    if (!extension_loaded('mbstring')) {
-        print 'skip - mbstring extension not available';
-    }
+if (true) {
+    print 'skip - incomplete test!';
+}
+if (!extension_loaded('xml')) {
+    print 'skip - xml extension not available';
+}
+if (!extension_loaded('mbstring')) {
+    print 'skip - mbstring extension not available';
+}
 ?>
 --FILE--
-<?php // -*- C++ -*-
-//
-// Test for: XML/Parser.php
-// Parts tested: - mixing character encodings
-//
-// This is what we test:
-// 1 UTF-8      -> ISO-8859-1
-// 2 UTF-8      -> US-ASCII
-// 3 ISO-8859-1 -> UTF-8
-// 4 ISO-8859-1 -> US-ASCII
-// 5 US-ASCII   -> UTF-8
-// 6 US-ASCII   -> ISO-8859-1
-//
+<?php
 
-require_once "XML/Parser.php";
+/* Test for: XML/Parser.php
+ * Parts tested: - mixing character encodings
+ *
+ * This is what we test:
+ * 1 UTF-8      -> ISO-8859-1
+ * 2 UTF-8      -> US-ASCII
+ * 3 ISO-8859-1 -> UTF-8
+ * 4 ISO-8859-1 -> US-ASCII
+ * 5 US-ASCII   -> UTF-8
+ * 6 US-ASCII   -> ISO-8859-1
+ */
+
+require_once 'XML/Parser.php';
 
 class TestEncodings1 extends XML_Parser {
     var $output = '';
