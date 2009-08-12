@@ -2,10 +2,8 @@
 XML Parser:  test for Bug #9328 "assigned by reference error in XML_RSS parse"
 --SKIPIF--
 <?php
-if (version_compare(PHP_VERSION, '5.2.0', 'lt')
-    || version_compare(PHP_VERSION, '5.2.10', 'ge')
-) {
-    print 'skip - test only applies to PHP5.2.x earlier than 5.2.10';
+if (version_compare(PHP_VERSION, '5.2.10', 'lt')) {
+    print 'skip - test only applies to PHP5.2.10 and higher';
 }
 if (!extension_loaded('xml')) {
     print 'skip - xml extension not available';
@@ -35,4 +33,4 @@ $error = $rss->parse();
 echo $error->getMessage() . PHP_EOL;
 ?>
 --EXPECT--
-XML_Parser: Invalid document end at XML input line 1:1
+XML_Parser: Not well-formed (invalid token) at XML input line 1:1
