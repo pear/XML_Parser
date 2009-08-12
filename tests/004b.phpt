@@ -1,9 +1,9 @@
 --TEST--
-XML Parser: error class (PHP4 behavior)
+XML Parser: error class (PHP5 behavior)
 --SKIPIF--
 <?php
-if (version_compare(PHP_VERSION, '5.0.0', 'ge')) {
-    print 'skip - test only applies to PHP4';
+if (version_compare(PHP_VERSION, '5.0.0', 'lt')) {
+    print 'skip - test only applies to PHP5';
 }
 if (!extension_loaded('xml')) {
     print 'skip - xml extension not available';
@@ -23,4 +23,4 @@ if (PEAR::isError($e)) {
 ?>
 --EXPECT--
 New XML_Parser:  string(10) "xml_parser"
-Error message: XML_Parser: mismatched tag at XML input line 2:7
+Error message: XML_Parser: Mismatched tag at XML input line 2:12

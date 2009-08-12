@@ -68,6 +68,7 @@ Furthermore its now possible to split the parser from the handler object, so you
      <file role="test" name="002.phpt"/>
      <file role="test" name="003.phpt"/>
      <file role="test" name="004.phpt"/>
+     <file role="test" name="004b.phpt"/>
      <file role="test" name="005.phpt"/>
      <file role="test" name="AllTests.php"/>
      <file role="test" name="bug-9328.phpt"/>
