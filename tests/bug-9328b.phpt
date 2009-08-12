@@ -3,9 +3,9 @@ XML Parser:  test for Bug #9328 "assigned by reference error in XML_RSS parse"
 --SKIPIF--
 <?php
 if (version_compare(PHP_VERSION, '5.0.0', 'lt')
-    || version_compare(PHP_VERSION, '5.2.0', 'ge')
+    || version_compare(PHP_VERSION, '5.2.7', 'ge')
 ) {
-    print 'skip - test only applies to PHP5.0.x and PHP5.1.x';
+    print 'skip - test only applies to PHP5.0.0 through PHP5.2.6';
 }
 if (!extension_loaded('xml')) {
     print 'skip - xml extension not available';
