@@ -28,7 +28,7 @@ error_reporting($originalErrorReporting);
 
 require_once 'XML/RSS.php';
 
-$url = 'www.someverybogusurl.com';
+$url = 'www.someverybogusurl.thisisnotatld';
 $rss =& new XML_RSS($url);
 
 $error = $rss->parse();
