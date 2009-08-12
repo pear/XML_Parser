@@ -2,8 +2,10 @@
 XML Parser:  test for Bug #9328 "assigned by reference error in XML_RSS parse"
 --SKIPIF--
 <?php
-if (version_compare(PHP_VERSION, '5.0.0', 'ge')) {
-    print 'skip - test only applies to PHP4';
+if (version_compare(PHP_VERSION, '5.0.0', 'lt')
+    || version_compare(PHP_VERSION, '5.2.0', 'ge')
+) {
+    print 'skip - test only applies to PHP5.0.x and PHP5.1.x';
 }
 if (!extension_loaded('xml')) {
     print 'skip - xml extension not available';
@@ -33,4 +35,4 @@ $error = $rss->parse();
 echo $error->getMessage() . PHP_EOL;
 ?>
 --EXPECT--
-XML_Parser: syntax error at XML input line 1:0
+XML_Parser: Empty document at XML input line 1:1

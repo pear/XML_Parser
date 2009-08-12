@@ -72,6 +72,8 @@ Furthermore its now possible to split the parser from the handler object, so you
      <file role="test" name="005.phpt"/>
      <file role="test" name="AllTests.php"/>
      <file role="test" name="bug-9328.phpt"/>
+     <file role="test" name="bug-9328b.phpt"/>
+     <file role="test" name="bug-9328c.phpt"/>
      <file role="test" name="test2.xml"/>
      <file role="test" name="test3.xml"/>
     </dir> <!-- /tests -->
