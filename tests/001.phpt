@@ -40,7 +40,6 @@ class __TestParser1 extends XML_Parser {
 
     }
 }
-error_reporting(1023);
 print "new __TestParser1 ";
 var_dump(strtolower(get_class($o = new __TestParser1())));
 print "parseString ";
