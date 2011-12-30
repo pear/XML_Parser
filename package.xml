@@ -48,6 +48,13 @@ Remove package.php from release
  </notes>
  <contents>
   <dir baseinstalldir="XML" name="/">
+   <dir name="XML">
+    <file md5sum="83d7130b17386b7d163003f11e5cdf5b" name="Parser.php" role="php" />
+    <dir name="Parser">
+     <file md5sum="88ef6410c394195a5d6740d0cf9a6d9a" name="Simple.php" role="php" />
+    </dir>
+   </dir>
+
    <file baseinstalldir="XML" md5sum="88f4675e960d07abb4b53406923fee90" name="examples/xml_parser_file.php" role="doc" />
    <file baseinstalldir="XML" md5sum="48d354dd3d0ab55a4078ae5c3c1340ea" name="examples/xml_parser_file.xml" role="doc" />
    <file baseinstalldir="XML" md5sum="9d16033d9d2f15df41a8f7208209deb1" name="examples/xml_parser_funcmode.php" role="doc" />
@@ -57,21 +64,18 @@ Remove package.php from release
    <file baseinstalldir="XML" md5sum="9fb1cbc541788cc653bdd3d66b9e4c41" name="examples/xml_parser_simple2.php" role="doc" />
    <file baseinstalldir="XML" md5sum="ad866824329ffbd32743a97b78405b40" name="examples/xml_parser_simple2.xml" role="doc" />
    <file baseinstalldir="XML" md5sum="4dc0ca1c7898a4da0c559a813f58068c" name="examples/xml_parser_simple_handler.php" role="doc" />
-   <file baseinstalldir="XML" md5sum="88ef6410c394195a5d6740d0cf9a6d9a" name="Parser/Simple.php" role="php" />
    <file baseinstalldir="XML" md5sum="c8b3925caafec04114ce46b590d8e21b" name="tests/001.phpt" role="test" />
    <file baseinstalldir="XML" md5sum="127466ab6483e636f7f99ce44dee6bfd" name="tests/002.phpt" role="test" />
    <file baseinstalldir="XML" md5sum="bdac6b971b9a30db1d881e3ec4494e96" name="tests/003.phpt" role="test" />
    <file baseinstalldir="XML" md5sum="034536524d8b092a05b0d6ab75ec229c" name="tests/004.phpt" role="test" />
    <file baseinstalldir="XML" md5sum="9e2f8319efd3585757385c54193db965" name="tests/004b.phpt" role="test" />
    <file baseinstalldir="XML" md5sum="1ef453ddc2e206b2d36aaa0fb033baae" name="tests/005.phpt" role="test" />
-   <file baseinstalldir="XML" md5sum="74196cbb41d3554beed6bfc6b2962163" name="tests/AllTests.php" role="test" />
    <file baseinstalldir="XML" md5sum="8b33aaf8d12e650bdb79b4f7f9afbc86" name="tests/bug-9328.phpt" role="test" />
    <file baseinstalldir="XML" md5sum="2d80348998a6964e2933de5466bfe3ce" name="tests/bug-9328b.phpt" role="test" />
    <file baseinstalldir="XML" md5sum="2aa6e822875c20d3b813dd15e438de53" name="tests/bug-9328c.phpt" role="test" />
    <file baseinstalldir="XML" md5sum="d4400734126a7aa92a0a91812f48bfb7" name="tests/bug-9328d.phpt" role="test" />
    <file baseinstalldir="XML" md5sum="21dc5257d037acc919a99f6b861a80bf" name="tests/test2.xml" role="test" />
    <file baseinstalldir="XML" md5sum="21dc5257d037acc919a99f6b861a80bf" name="tests/test3.xml" role="test" />
-   <file baseinstalldir="XML" md5sum="83d7130b17386b7d163003f11e5cdf5b" name="Parser.php" role="php" />
   </dir>
  </contents>
  <dependencies>

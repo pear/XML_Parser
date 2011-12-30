@@ -11,12 +11,7 @@ if (!extension_loaded('xml')) {
 ?>
 --FILE--
 <?php
-chdir (dirname(__FILE__));
-if (file_exists('../Parser.php')) {
-    require_once "../Parser.php";
-} else {
-    require_once "XML/Parser.php";
-}
+require_once "XML/Parser.php";
 
 print 'New XML_Parser:  ';
 var_dump(strtolower(get_class($p = new XML_Parser())));

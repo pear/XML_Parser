@@ -10,12 +10,7 @@ XML Parser: parse from file
 //               - some handlers
 //               - parse from file
 //
-chdir (dirname(__FILE__));
-if (file_exists('../Parser.php')) {
-    require_once "../Parser.php";
-} else {
-    require_once "XML/Parser.php";
-}
+require_once "XML/Parser.php";
 
 class __TestParser2 extends XML_Parser {
     function __TestParser2() {
@@ -43,7 +38,7 @@ class __TestParser2 extends XML_Parser {
 print "new __TestParser2 ";
 var_dump(strtolower(get_class($o = new __TestParser2())));
 print "setInputFile ";
-print is_resource($o->setInputFile("test2.xml"))."\n";
+print is_resource($o->setInputFile(dirname(__FILE__) . "/test2.xml"))."\n";
 print "parse ";
 var_dump($o->parse());
 
