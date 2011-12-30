@@ -20,15 +20,15 @@ EOT;
 $package = PEAR_PackageFileManager2::importOptions(
     'package.xml',
     array(
-    'filelistgenerator' => 'cvs',
+    'filelistgenerator' => 'svn',
     'changelogoldtonew' => false,
     'simpleoutput'	=> true,
     'baseinstalldir'    => 'XML',
     'packagefile'       => 'package.xml',
     'packagedirectory'  => '.'));
 
-if (PEAR::isError($result)) {
-    echo $result->getMessage();
+if (PEAR::isError($package)) {
+    echo $package->getMessage();
     die();
 }
 
@@ -49,10 +49,10 @@ $package->setPhpDep('4.3.0');
 $package->setPearinstallerDep('1.4.3');
 $package->addExtensionDep('required', 'pcre');
 $package->addIgnore(array('package.php', 'package.xml'));
-$package->addReplacement('Util.php', 'package-info', '@version@', 'version');
+$package->addReplacement('XML/Util.php', 'package-info', '@version@', 'version');
 $package->generateContents();
 
-if ($_SERVER['argv'][1] == 'make') {
+if (@$_SERVER['argv'][1] == 'make') {
     $result = $package->writePackageFile();
 } else {
     $result = $package->debugPackageFile();
