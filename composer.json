@@ -23,14 +23,14 @@
     ],
     "autoload": {
         "psr-0": {
-            "XML_Parser": "./"
+            "XML": "./"
         }
     },
     "description": "A github mirror",
     "include-path": [
         "./"
     ],
-    "license": "BSD License",
+    "license": "BSD-2-Clause",
     "name": "pear/xml_parser",
     "support": {
         "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=XML_Parser",
@@ -38,7 +38,7 @@
     },
     "type": "library",
     "require": {
-        "pear/pear_exception": "*"
+        "pear/pear": "*"
     },
     "require-dev": {
         "phpunit/phpunit": "*"
