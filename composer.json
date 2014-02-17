@@ -1,0 +1,41 @@
+{
+    "authors": [
+        {
+            "email": "ashnazg@php.net",
+            "name": "Chuck Burgess",
+            "role": "Lead"
+        },
+        {
+            "email": "schst@php-tools.net",
+            "name": "Stephan Schmidt",
+            "role": "Lead"
+        },
+        {
+            "email": "davey@php.net",
+            "name": "Davey Shafik",
+            "role": "Helper"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "XML_Util": "./"
+        }
+    },
+    "description": "More info available on: http://pear.php.net/package/XML_Util",
+    "include-path": [
+        "./"
+    ],
+    "license": "BSD License",
+    "name": "pear/xml_util",
+    "support": {
+        "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=XML_Util",
+        "source": "https://github.com/pear/XML_Util"
+    },
+    "type": "library",
+    "require": {
+        "pear/pear_exception": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    }
+}
