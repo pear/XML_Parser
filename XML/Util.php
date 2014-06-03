@@ -650,7 +650,7 @@ class XML_Util
 
         // create attribute list
         $attList = XML_Util::attributesToString($tag['attributes'],
-            $sortAttributes, $multiline, $indent, $linebreak, $replaceEntities);
+            $sortAttributes, $multiline, $indent, $linebreak, XML_UTIL_ENTITIES_NONE);
         if (!isset($tag['content']) || (string)$tag['content'] == '') {
             $tag = sprintf('<%s%s />', $tag['qname'], $attList);
         } else {
