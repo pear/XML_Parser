@@ -6,7 +6,6 @@ Chuck Burgess <ashnazg@php.net>
 --FILE--
 <?php
 require_once 'XML' . DIRECTORY_SEPARATOR . 'Util.php';
-
 echo '=====XML_Util::reverseEntities() basic tests=====' . PHP_EOL . PHP_EOL;
 
 $data = 'This string contains &lt; &amp; &gt;.';

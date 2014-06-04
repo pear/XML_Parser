@@ -6,7 +6,6 @@ Chuck Burgess <ashnazg@php.net>
 --FILE--
 <?php
 require_once 'XML' . DIRECTORY_SEPARATOR . 'Util.php';
-
 echo '=====XML_Util::createEndElement() basic tests=====' . PHP_EOL . PHP_EOL;
 
 echo "TEST:  basic usage (myTag)" . PHP_EOL;

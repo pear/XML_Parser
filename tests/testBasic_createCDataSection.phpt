@@ -6,7 +6,6 @@ Chuck Burgess <ashnazg@php.net>
 --FILE--
 <?php
 require_once 'XML' . DIRECTORY_SEPARATOR . 'Util.php';
-
 echo '=====XML_Util::createCDataSection() basic tests=====' . PHP_EOL . PHP_EOL;
 
 echo "TEST:  basic usage" . PHP_EOL;

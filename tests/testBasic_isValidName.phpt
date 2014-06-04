@@ -6,7 +6,6 @@ Chuck Burgess <ashnazg@php.net>
 --FILE--
 <?php
 require_once 'XML' . DIRECTORY_SEPARATOR . 'Util.php';
-
 echo '=====XML_Util::isValidName() basic tests=====' . PHP_EOL . PHP_EOL;
 
 echo "TEST:  valid tag" . PHP_EOL;

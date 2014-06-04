@@ -6,7 +6,6 @@ Chuck Burgess <ashnazg@php.net>
 --FILE--
 <?php
 require_once 'XML' . DIRECTORY_SEPARATOR . 'Util.php';
-
 echo '=====XML_Util::createStartElement() basic tests=====' . PHP_EOL . PHP_EOL;
 
 echo "TEST:  tag only" . PHP_EOL;

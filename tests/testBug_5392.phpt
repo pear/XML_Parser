@@ -6,7 +6,6 @@ Chuck Burgess <ashnazg@php.net>
 --FILE--
 <?php
 require_once 'XML' . DIRECTORY_SEPARATOR . 'Util.php';
-
 echo '=====XML_Util tests for Bug #5392 "encoding of ISO-8859-1 is the only supported encoding"=====' . PHP_EOL . PHP_EOL;
 
 echo "TEST:  test case provided in bug report" . PHP_EOL;

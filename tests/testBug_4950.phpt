@@ -6,7 +6,6 @@ Chuck Burgess <ashnazg@php.net>
 --FILE--
 <?php
 require_once 'XML' . DIRECTORY_SEPARATOR . 'Util.php';
-
 echo '=====XML_Util tests for Bug #4950 "Incorrect CDATA serializing"=====' . PHP_EOL . PHP_EOL;
 
 echo "TEST:  test case provided in bug report" . PHP_EOL;
