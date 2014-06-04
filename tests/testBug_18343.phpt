@@ -5,12 +5,6 @@ Chuck Burgess <ashnazg@php.net>
 # created for v1.2.2a1 2014-06-03
 --FILE--
 <?php
-// to run tests against an installation, run from anywhere but the parent directory:
-//     pear run-tests XML_Util/tests/ -p xml_util
-//
-// to run tests on uninstalled sandbox, run from the parent directory exactly:
-//     pear run-tests tests
-//
 require_once 'XML' . DIRECTORY_SEPARATOR . 'Util.php';
 
 echo '=====XML_Util tests for Bug #18343 "Entities in file names decoded during packaging"=====' . PHP_EOL . PHP_EOL;
