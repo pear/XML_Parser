@@ -17,10 +17,10 @@ $array = array(
         "name"  => "test/Horde/Feed/fixtures/lexicon/http-p.moreover.com-cgi-local-page%2Fo=rss&s=Newsweek",
     )
 );
-echo XML_Util::createTagFromArray($array) . PHP_EOL;
+echo XML_Util::createTagFromArray($array, XML_UTIL_ENTITIES_NONE) . PHP_EOL;
 ?>
 --EXPECT--
 =====XML_Util tests for Bug #18343 "Entities in file names decoded during packaging"=====
 
 TEST:  test case provided in bug report
-<install as="Horde/Feed/fixtures/lexicon/http-p.moreover.com-cgi-local-page%2Fo=rss&s=Newsweek" name="test/Horde/Feed/fixtures/lexicon/http-p.moreover.com-cgi-local-page%2Fo=rss&s=Newsweek" />
+<install as="Horde/Feed/fixtures/lexicon/http-p.moreover.com-cgi-local-page%2Fo=rss&amp;s=Newsweek" name="test/Horde/Feed/fixtures/lexicon/http-p.moreover.com-cgi-local-page%2Fo=rss&amp;s=Newsweek" />

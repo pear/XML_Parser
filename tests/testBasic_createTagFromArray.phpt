@@ -146,13 +146,13 @@ TEST:  basic usage with a valid array (qname and namespaceUri)
 <foo:bar xmlns:foo="http://foo.com" />
 
 TEST:  basic usage with a valid array (qname, namespaceUri, and attributes)
-<foo:bar argh="fruit&vegetable" key="value" xmlns:foo="http://foo.com" />
+<foo:bar argh="fruit&amp;vegetable" key="value" xmlns:foo="http://foo.com" />
 
 TEST:  basic usage with a valid array (qname, namespaceUri, attributes, and content)
-<foo:bar argh="fruit&vegetable" key="value" xmlns:foo="http://foo.com">I&apos;m inside the tag</foo:bar>
+<foo:bar argh="fruit&amp;vegetable" key="value" xmlns:foo="http://foo.com">I&apos;m inside the tag</foo:bar>
 
 TEST:  basic usage with a valid array (qname, attributes, and content)
-<foo:bar argh="fruit&vegetable" key="value">I&apos;m inside the tag</foo:bar>
+<foo:bar argh="fruit&amp;vegetable" key="value">I&apos;m inside the tag</foo:bar>
 
 TEST:  basic usage with a valid array (qname, namespaceUri, and content)
 <foo:bar xmlns:foo="http://foo.com">I&apos;m inside the tag</foo:bar>
@@ -161,32 +161,32 @@ TEST:  basic usage with a valid array (namespaceUri, attributes, and content)
 You must either supply a qualified name (qname) or local tag name (localPart).
 
 TEST:  basic usage with a valid array (qname, namespaceUri, attributes, and content), plus REPLACE_ENTITIES
-<foo:bar argh="fruit&vegetable" key="value" xmlns:foo="http://foo.com">I&apos;m inside the tag</foo:bar>
+<foo:bar argh="fruit&amp;vegetable" key="value" xmlns:foo="http://foo.com">I&apos;m inside the tag</foo:bar>
 
 TEST:  basic usage with a valid array (qname, namespaceUri, attributes, and content), plus ENTITIES_NONE
-<foo:bar argh="fruit&vegetable" key="value" xmlns:foo="http://foo.com">I'm inside the tag</foo:bar>
+<foo:bar argh="fruit&amp;vegetable" key="value" xmlns:foo="http://foo.com">I'm inside the tag</foo:bar>
 
 TEST:  basic usage with a valid array (qname, namespaceUri, attributes, and content), REPLACE_ENTITIES, and multiline = false
-<foo:bar argh="fruit&vegetable" key="value" xmlns:foo="http://foo.com">I&apos;m inside the tag</foo:bar>
+<foo:bar argh="fruit&amp;vegetable" key="value" xmlns:foo="http://foo.com">I&apos;m inside the tag</foo:bar>
 
 TEST:  basic usage with a valid array (qname, namespaceUri, attributes, and content), REPLACE_ENTITIES, and multiline = true
-<foo:bar argh="fruit&vegetable"
+<foo:bar argh="fruit&amp;vegetable"
          key="value"
          xmlns:foo="http://foo.com">I&apos;m inside the tag</foo:bar>
 
 TEST:  basic usage with a valid array (qname, namespaceUri, attributes, and content), REPLACE_ENTITIES, multiline = true, and indent = (2 spaces)
-<foo:bar argh="fruit&vegetable"
+<foo:bar argh="fruit&amp;vegetable"
   key="value"
   xmlns:foo="http://foo.com">I&apos;m inside the tag</foo:bar>
 
 TEST:  basic usage with a valid array (qname, namespaceUri, attributes, and content), REPLACE_ENTITIES, multiline = true, indent = (2 spaces), and linebreak = '^'
-<foo:bar argh="fruit&vegetable"^  key="value"^  xmlns:foo="http://foo.com">I&apos;m inside the tag</foo:bar>
+<foo:bar argh="fruit&amp;vegetable"^  key="value"^  xmlns:foo="http://foo.com">I&apos;m inside the tag</foo:bar>
 
 TEST:  basic usage with a valid array (qname, namespaceUri, attributes, and content), REPLACE_ENTITIES, multiline = true, indent = (2 spaces), linebreak = '^', and sortAttributes = true
-<foo:bar argh="fruit&vegetable"^  key="value"^  xmlns:foo="http://foo.com">I&apos;m inside the tag</foo:bar>
+<foo:bar argh="fruit&amp;vegetable"^  key="value"^  xmlns:foo="http://foo.com">I&apos;m inside the tag</foo:bar>
 
 TEST:  basic usage with a valid array (qname, namespaceUri, attributes, and content), REPLACE_ENTITIES, multiline = true, indent = (2 spaces), linebreak = '^', and sortAttributes = false
-<foo:bar key="value"^  argh="fruit&vegetable"^  xmlns:foo="http://foo.com">I&apos;m inside the tag</foo:bar>
+<foo:bar key="value"^  argh="fruit&amp;vegetable"^  xmlns:foo="http://foo.com">I&apos;m inside the tag</foo:bar>
 
 TEST:  cause a non-scalar error on the content tag
 Supplied non-scalar value as tag content
