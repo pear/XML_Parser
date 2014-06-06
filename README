@@ -1,0 +1,6 @@
+to run tests against an installation, run from anywhere but the parent directory:
+> pear run-tests XML_Util/tests/ -p xml_util
+
+to run tests on uninstalled sandbox, run from the parent directory exactly:
+> pear run-tests tests
+

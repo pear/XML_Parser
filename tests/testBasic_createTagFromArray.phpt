@@ -163,7 +163,7 @@ TEST:  basic usage with a valid array (qname, namespaceUri, attributes, and cont
 <foo:bar argh="fruit&amp;vegetable" key="value" xmlns:foo="http://foo.com">I&apos;m inside the tag</foo:bar>
 
 TEST:  basic usage with a valid array (qname, namespaceUri, attributes, and content), plus ENTITIES_NONE
-<foo:bar argh="fruit&vegetable" key="value" xmlns:foo="http://foo.com">I'm inside the tag</foo:bar>
+<foo:bar argh="fruit&amp;vegetable" key="value" xmlns:foo="http://foo.com">I'm inside the tag</foo:bar>
 
 TEST:  basic usage with a valid array (qname, namespaceUri, attributes, and content), REPLACE_ENTITIES, and multiline = false
 <foo:bar argh="fruit&amp;vegetable" key="value" xmlns:foo="http://foo.com">I&apos;m inside the tag</foo:bar>
