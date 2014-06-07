@@ -42,28 +42,28 @@ Request #19750	examples/example.php encoding
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
-   <file baseinstalldir="XML" md5sum="af2746028ae4395f549855a5e444ada7" name="examples/example.php" role="doc" />
-   <file baseinstalldir="XML" md5sum="b9e52f4aa372c4067c609f49c2285b8f" name="examples/example2.php" role="doc" />
-   <file baseinstalldir="XML" md5sum="73088689d58b71cd4f86013c88b72216" name="tests/testBasic_apiVersion.phpt" role="test" />
-   <file baseinstalldir="XML" md5sum="4b17c0df7fbfb1bb2f3f636ebd6c2cbd" name="tests/testBasic_attributesToString.phpt" role="test" />
-   <file baseinstalldir="XML" md5sum="dc4202f1451bbeb62a5bc7d56a7c774c" name="tests/testBasic_collapseEmptyTags.phpt" role="test" />
-   <file baseinstalldir="XML" md5sum="4c87fda94fdfb7a78ba84998d6e28f45" name="tests/testBasic_createCDataSection.phpt" role="test" />
-   <file baseinstalldir="XML" md5sum="c101844768f146653c59c81978060158" name="tests/testBasic_createComment.phpt" role="test" />
-   <file baseinstalldir="XML" md5sum="ba75d66c2f0fb0010c71f3bcd1f64eb2" name="tests/testBasic_createEndElement.phpt" role="test" />
-   <file baseinstalldir="XML" md5sum="ad786fb687e1eea1f6890a7424709c79" name="tests/testBasic_createStartElement.phpt" role="test" />
-   <file baseinstalldir="XML" md5sum="5f453edadebaa3435c8e6f09a3aaaa9c" name="tests/testBasic_createTag.phpt" role="test" />
-   <file baseinstalldir="XML" md5sum="637fa86b8bcf0086334f69004a435169" name="tests/testBasic_createTagFromArray.phpt" role="test" />
-   <file baseinstalldir="XML" md5sum="817882a0ab33e60f17ee71874ad975f0" name="tests/testBasic_getDocTypeDeclaration.phpt" role="test" />
-   <file baseinstalldir="XML" md5sum="5bc1926a488a6b63ec6366bfcf06a50a" name="tests/testBasic_getXmlDeclaration.phpt" role="test" />
-   <file baseinstalldir="XML" md5sum="a727860d55c14194fdaffa839a59a540" name="tests/testBasic_isValidName.phpt" role="test" />
-   <file baseinstalldir="XML" md5sum="300a6192f7cc6f7bc3d8f2576b51e4b0" name="tests/testBasic_raiseError.phpt" role="test" />
-   <file baseinstalldir="XML" md5sum="e6717d43001775cccd52bd5195cf02e0" name="tests/testBasic_replaceEntities.phpt" role="test" />
-   <file baseinstalldir="XML" md5sum="431856aa83a23396a9f00915dd2be192" name="tests/testBasic_reverseEntities.phpt" role="test" />
-   <file baseinstalldir="XML" md5sum="ab035534463cae8cc903e907aead8ffe" name="tests/testBasic_splitQualifiedName.phpt" role="test" />
-   <file baseinstalldir="XML" md5sum="1850856692ff6c6df5e8acb16e1080ce" name="tests/testBug_4950.phpt" role="test" />
-   <file baseinstalldir="XML" md5sum="b4127883df40a4b0d1736ad42215ee25" name="tests/testBug_5392.phpt" role="test" />
+   <file md5sum="af2746028ae4395f549855a5e444ada7" name="examples/example.php" role="doc" />
+   <file md5sum="b9e52f4aa372c4067c609f49c2285b8f" name="examples/example2.php" role="doc" />
+   <file md5sum="73088689d58b71cd4f86013c88b72216" name="tests/testBasic_apiVersion.phpt" role="test" />
+   <file md5sum="4b17c0df7fbfb1bb2f3f636ebd6c2cbd" name="tests/testBasic_attributesToString.phpt" role="test" />
+   <file md5sum="dc4202f1451bbeb62a5bc7d56a7c774c" name="tests/testBasic_collapseEmptyTags.phpt" role="test" />
+   <file md5sum="4c87fda94fdfb7a78ba84998d6e28f45" name="tests/testBasic_createCDataSection.phpt" role="test" />
+   <file md5sum="c101844768f146653c59c81978060158" name="tests/testBasic_createComment.phpt" role="test" />
+   <file md5sum="ba75d66c2f0fb0010c71f3bcd1f64eb2" name="tests/testBasic_createEndElement.phpt" role="test" />
+   <file md5sum="ad786fb687e1eea1f6890a7424709c79" name="tests/testBasic_createStartElement.phpt" role="test" />
+   <file md5sum="5f453edadebaa3435c8e6f09a3aaaa9c" name="tests/testBasic_createTag.phpt" role="test" />
+   <file md5sum="637fa86b8bcf0086334f69004a435169" name="tests/testBasic_createTagFromArray.phpt" role="test" />
+   <file md5sum="817882a0ab33e60f17ee71874ad975f0" name="tests/testBasic_getDocTypeDeclaration.phpt" role="test" />
+   <file md5sum="5bc1926a488a6b63ec6366bfcf06a50a" name="tests/testBasic_getXmlDeclaration.phpt" role="test" />
+   <file md5sum="a727860d55c14194fdaffa839a59a540" name="tests/testBasic_isValidName.phpt" role="test" />
+   <file md5sum="300a6192f7cc6f7bc3d8f2576b51e4b0" name="tests/testBasic_raiseError.phpt" role="test" />
+   <file md5sum="e6717d43001775cccd52bd5195cf02e0" name="tests/testBasic_replaceEntities.phpt" role="test" />
+   <file md5sum="431856aa83a23396a9f00915dd2be192" name="tests/testBasic_reverseEntities.phpt" role="test" />
+   <file md5sum="ab035534463cae8cc903e907aead8ffe" name="tests/testBasic_splitQualifiedName.phpt" role="test" />
+   <file md5sum="1850856692ff6c6df5e8acb16e1080ce" name="tests/testBug_4950.phpt" role="test" />
+   <file md5sum="b4127883df40a4b0d1736ad42215ee25" name="tests/testBug_5392.phpt" role="test" />
    <file baseinstalldir="/" md5sum="b133427f8ea9b60c5bec7400cd5e4c7f" name="tests/testBug_18343.phpt" role="test" />
-   <file baseinstalldir="XML" md5sum="ae894509114393e5f7f257cadfa87ead" name="XML/Util.php" role="php">
+   <file md5sum="ae894509114393e5f7f257cadfa87ead" name="XML/Util.php" role="php">
     <tasks:replace from="@version@" to="version" type="package-info" />
    </file>
   </dir>
