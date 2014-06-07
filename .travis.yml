@@ -3,4 +3,4 @@ install:
   - pear install -f package.xml
 php:
   - 5.4
-script: phpunit tests/
+script: pear run-tests -r tests/
