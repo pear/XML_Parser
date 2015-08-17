@@ -5,7 +5,7 @@
 /**
  * XML_Parser
  *
- * XML Parser's Simple parser class 
+ * XML Parser's Simple parser class
  *
  * PHP versions 4 and 5
  *
@@ -131,7 +131,7 @@ class XML_Parser_Simple extends XML_Parser
         'notation_decl_handler'             => 'notationHandler',
         'external_entity_ref_handler'       => 'entityrefHandler'
     );
-    
+
     /**
      * Creates an XML parser.
      *
@@ -163,7 +163,7 @@ class XML_Parser_Simple extends XML_Parser
         }
 
         if ($this->mode != 'func' && $this->mode != 'event') {
-            return $this->raiseError('Unsupported mode given', 
+            return $this->raiseError('Unsupported mode given',
                 XML_PARSER_ERROR_UNSUPPORTED_MODE);
         }
         xml_set_object($this->parser, $this->_handlerObj);
@@ -197,7 +197,7 @@ class XML_Parser_Simple extends XML_Parser
         $this->_elStack = array();
         $this->_data    = array();
         $this->_depth   = 0;
-        
+
         $result = $this->_create();
         if ($this->isError($result)) {
             return $result;
@@ -281,7 +281,7 @@ class XML_Parser_Simple extends XML_Parser
     /**
      * handle a tag
      *
-     * Implement this in your parser 
+     * Implement this in your parser
      *
      * @param string $name    element name
      * @param array  $attribs attributes
