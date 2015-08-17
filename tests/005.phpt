@@ -32,9 +32,6 @@ require_once 'XML/Parser.php';
 class TestEncodings1 extends XML_Parser {
     var $output = '';
 
-    function TestEncodings1($to, $mode, $from) {
-        $this->XML_Parser($from, $mode, $to);
-    }
     function startHandler($xp, $elem, $attribs) {
         $this->output .= "<$elem>";
     }
@@ -69,7 +66,7 @@ foreach ($input as $srcenc => $string) {
             continue;
         }
         print "Testing $srcenc -> $tgtenc: ";
-        $p =& new TestEncodings1($tgtenc, 'event', $srcenc);
+        $p = new TestEncodings1($tgtenc, 'event', $srcenc);
         $e = $p->test($input[$srcenc]);
         if (PEAR::isError($e)) {
             printf("OOPS: %s\n", $e->getMessage());

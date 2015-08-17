@@ -13,10 +13,7 @@ XML Parser: parse from file resource
 require_once "XML/Parser.php";
 
 class __TestParser3 extends XML_Parser {
-    function __TestParser3() {
-        $this->XML_Parser();
-    }
-    function startHandler($xp, $element, $attribs) {
+    function startHandler($xp, $element, &$attribs) {
         print "<$element";
         reset($attribs);
         while (list($key, $val) = each($attribs)) {

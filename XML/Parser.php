@@ -192,26 +192,6 @@ class XML_Parser extends PEAR
     var $_validEncodings = array('ISO-8859-1', 'UTF-8', 'US-ASCII');
 
     // }}}
-    // {{{ php4 constructor
-
-    /**
-     * Creates an XML parser.
-     *
-     * This is needed for PHP4 compatibility, it will
-     * call the constructor, when a new instance is created.
-     *
-     * @param string $srcenc source charset encoding, use NULL (default) to use
-     *                       whatever the document specifies
-     * @param string $mode   how this parser object should work, "event" for
-     *                       startelement/endelement-type events, "func"
-     *                       to have it call functions named after elements
-     * @param string $tgtenc a valid target encoding
-     */
-    function XML_Parser($srcenc = null, $mode = 'event', $tgtenc = null)
-    {
-        XML_Parser::__construct($srcenc, $mode, $tgtenc);
-    }
-    // }}}
     // {{{ php5 constructor
 
     /**
@@ -226,7 +206,7 @@ class XML_Parser extends PEAR
      */
     function __construct($srcenc = null, $mode = 'event', $tgtenc = null)
     {
-        $this->PEAR('XML_Parser_Error');
+        parent::__construct('XML_Parser_Error');
 
         $this->mode   = $mode;
         $this->srcenc = $srcenc;
@@ -279,9 +259,9 @@ class XML_Parser extends PEAR
      * @access public
      * @since v1.2.0beta3
      */
-    function setHandlerObj(&$obj)
+    function setHandlerObj($obj)
     {
-        $this->_handlerObj = &$obj;
+        $this->_handlerObj = $obj;
         return true;
     }
 
@@ -298,14 +278,14 @@ class XML_Parser extends PEAR
         }
 
         if (!is_object($this->_handlerObj)) {
-            $this->_handlerObj = &$this;
+            $this->_handlerObj = $this;
         }
         switch ($this->mode) {
 
         case 'func':
             xml_set_object($this->parser, $this->_handlerObj);
-            xml_set_element_handler($this->parser, 
-                array(&$this, 'funcStartHandler'), array(&$this, 'funcEndHandler'));
+            xml_set_element_handler($this->parser,
+                array($this, 'funcStartHandler'), array($this, 'funcEndHandler'));
             break;
 
         case 'event':
@@ -513,7 +493,7 @@ class XML_Parser extends PEAR
 
             while ($data = fread($this->fp, 4096)) {
                 if (!$this->_parseString($data, feof($this->fp))) {
-                    $error = &$this->raiseError();
+                    $error = $this->raiseError();
                     $this->free();
                     return $error;
                 }
@@ -521,7 +501,7 @@ class XML_Parser extends PEAR
         } else {
             // otherwise, $this->fp must be a string
             if (!$this->_parseString($this->fp, true)) {
-                $error = &$this->raiseError();
+                $error = $this->raiseError();
                 $this->free();
                 return $error;
             }
@@ -569,7 +549,7 @@ class XML_Parser extends PEAR
         }
 
         if (!$this->_parseString($data, $eof)) {
-            $error = &$this->raiseError();
+            $error = $this->raiseError();
             $this->free();
             return $error;
         }
@@ -610,10 +590,10 @@ class XML_Parser extends PEAR
      *
      * @return XML_Parser_Error reference to the error object
      **/
-    function &raiseError($msg = null, $ecode = 0)
+    function raiseError($msg = null, $ecode = 0)
     {
         $msg = !is_null($msg) ? $msg : $this->parser;
-        $err = &new XML_Parser_Error($msg, $ecode);
+        $err = new XML_Parser_Error($msg, $ecode);
         return parent::raiseError($err);
     }
 
@@ -634,9 +614,9 @@ class XML_Parser extends PEAR
         $func = 'xmltag_' . $elem;
         $func = str_replace(array('.', '-', ':'), '_', $func);
         if (method_exists($this->_handlerObj, $func)) {
-            call_user_func(array(&$this->_handlerObj, $func), $xp, $elem, $attribs);
+            call_user_func(array($this->_handlerObj, $func), $xp, $elem, $attribs);
         } elseif (method_exists($this->_handlerObj, 'xmltag')) {
-            call_user_func(array(&$this->_handlerObj, 'xmltag'), 
+            call_user_func(array($this->_handlerObj, 'xmltag'),
                 $xp, $elem, $attribs);
         }
     }
@@ -657,9 +637,9 @@ class XML_Parser extends PEAR
         $func = 'xmltag_' . $elem . '_';
         $func = str_replace(array('.', '-', ':'), '_', $func);
         if (method_exists($this->_handlerObj, $func)) {
-            call_user_func(array(&$this->_handlerObj, $func), $xp, $elem);
+            call_user_func(array($this->_handlerObj, $func), $xp, $elem);
         } elseif (method_exists($this->_handlerObj, 'xmltag_')) {
-            call_user_func(array(&$this->_handlerObj, 'xmltag_'), $xp, $elem);
+            call_user_func(array($this->_handlerObj, 'xmltag_'), $xp, $elem);
         }
     }
 
@@ -761,7 +741,7 @@ class XML_Parser_Error extends PEAR_Error
                 xml_get_current_line_number($msgorparser),
                 xml_get_current_column_number($msgorparser));
         }
-        $this->PEAR_Error($msgorparser, $code, $mode, $level);
+        parent::__construct($msgorparser, $code, $mode, $level);
     }
     // }}}
 }

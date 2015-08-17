@@ -29,7 +29,7 @@ error_reporting($originalErrorReporting);
 require_once 'XML/RSS.php';
 
 $url = 'www.someverybogusurl.thisisnotatld';
-$rss =& new XML_RSS($url);
+$rss = new XML_RSS($url);
 
 $error = $rss->parse();
 echo $error->getMessage() . PHP_EOL;

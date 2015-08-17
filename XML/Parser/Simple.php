@@ -72,15 +72,15 @@ require_once 'XML/Parser.php';
  *     {
  *        $this->XML_Parser_Simple();
  *      }
- * 
+ *
  *    function handleElement($name, $attribs, $data)
  *     {
  *         printf('handle %s<br>', $name);
  *     }
  * }
- * 
- * $p = &new myParser();
- * 
+ *
+ * $p = new myParser();
+ *
  * $result = $p->setInputFile('myDoc.xml');
  * $result = $p->parse();
  * </code>
@@ -145,9 +145,9 @@ class XML_Parser_Simple extends XML_Parser
      *                       named after elements (handleElement_$name())
      * @param string $tgtenc a valid target encoding
      */
-    function XML_Parser_Simple($srcenc = null, $mode = 'event', $tgtenc = null)
+    function __construct($srcenc = null, $mode = 'event', $tgtenc = null)
     {
-        $this->XML_Parser($srcenc, $mode, $tgtenc);
+        parent::__construct($srcenc, $mode, $tgtenc);
     }
 
     /**
@@ -159,7 +159,7 @@ class XML_Parser_Simple extends XML_Parser
     function _initHandlers()
     {
         if (!is_object($this->_handlerObj)) {
-            $this->_handlerObj = &$this;
+            $this->_handlerObj = $this;
         }
 
         if ($this->mode != 'func' && $this->mode != 'event') {
@@ -168,10 +168,10 @@ class XML_Parser_Simple extends XML_Parser
         }
         xml_set_object($this->parser, $this->_handlerObj);
 
-        xml_set_element_handler($this->parser, array(&$this, 'startHandler'), 
-            array(&$this, 'endHandler'));
-        xml_set_character_data_handler($this->parser, array(&$this, 'cdataHandler'));
-        
+        xml_set_element_handler($this->parser, array($this, 'startHandler'),
+            array($this, 'endHandler'));
+        xml_set_character_data_handler($this->parser, array($this, 'cdataHandler'));
+
         /**
          * set additional handlers for character data, entities, etc.
          */
@@ -256,7 +256,7 @@ class XML_Parser_Simple extends XML_Parser
                 $func = str_replace('.', '_', $func);
             }
             if (method_exists($this->_handlerObj, $func)) {
-                call_user_func(array(&$this->_handlerObj, $func), 
+                call_user_func(array($this->_handlerObj, $func),
                     $el['name'], $el['attribs'], $data);
             }
             break;
