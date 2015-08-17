@@ -26,7 +26,7 @@
             "XML": "./"
         }
     },
-    "description": "A github mirror",
+    "description": "XML parser",
     "include-path": [
         "./"
     ],
@@ -38,9 +38,9 @@
     },
     "type": "library",
     "require": {
-        "pear/pear": "*"
+        "pear/pear-core-minimal": "*"
     },
     "require-dev": {
-        "phpunit/phpunit": "*"
+        "pear/pear": "*"
     }
 }
