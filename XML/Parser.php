@@ -732,7 +732,7 @@ class XML_Parser_Error extends PEAR_Error
     * @access   public
     * @todo PEAR CS - can't meet 85char line limit without arg refactoring
     */
-    function XML_Parser_Error($msgorparser = 'unknown error', $code = 0, $mode = PEAR_ERROR_RETURN, $level = E_USER_NOTICE)
+    function __construct($msgorparser = 'unknown error', $code = 0, $mode = PEAR_ERROR_RETURN, $level = E_USER_NOTICE)
     {
         if (is_resource($msgorparser)) {
             $code        = xml_get_error_code($msgorparser);
@@ -744,5 +744,18 @@ class XML_Parser_Error extends PEAR_Error
         parent::__construct($msgorparser, $code, $mode, $level);
     }
     // }}}
+
+    /**
+     * PHP4 constructor for backwards compatibility with older code
+     *
+     * @param string|resource $msgorparser message or parser resource
+     * @param integer         $code        error code
+     * @param integer         $mode        error handling
+     * @param integer         $level       error level
+     */
+    function XML_Parser_Error($msgorparser = 'unknown error', $code = 0, $mode = PEAR_ERROR_RETURN, $level = E_USER_NOTICE)
+    {
+        self::__construct($msgorparser, $code, $mode, $level);
+    }
 }
 ?>
