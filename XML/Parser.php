@@ -273,7 +273,7 @@ class XML_Parser extends PEAR
      */
     function _initHandlers()
     {
-        if (!is_resource($this->parser)) {
+        if (!$this->parser) {
             return false;
         }
 
@@ -333,7 +333,7 @@ class XML_Parser extends PEAR
         } else {
             $xp = @xml_parser_create($this->srcenc);
         }
-        if (is_resource($xp)) {
+        if ($xp) {
             if ($this->tgtenc !== null) {
                 if (!@xml_parser_set_option($xp, XML_OPTION_TARGET_ENCODING,
                     $this->tgtenc)
@@ -544,7 +544,7 @@ class XML_Parser extends PEAR
      */
     function parseString($data, $eof = false)
     {
-        if (!isset($this->parser) || !is_resource($this->parser)) {
+        if (!$this->parser) {
             $this->reset();
         }
 
@@ -569,9 +569,9 @@ class XML_Parser extends PEAR
      **/
     function free()
     {
-        if (isset($this->parser) && is_resource($this->parser)) {
+        if ($this->parser) {
             xml_parser_free($this->parser);
-            unset( $this->parser );
+            $this->parser = null;
         }
         if (isset($this->fp) && is_resource($this->fp)) {
             fclose($this->fp);
@@ -734,7 +734,7 @@ class XML_Parser_Error extends PEAR_Error
     */
     function __construct($msgorparser = 'unknown error', $code = 0, $mode = PEAR_ERROR_RETURN, $level = E_USER_NOTICE)
     {
-        if (is_resource($msgorparser)) {
+        if (!is_string($msgorparser)) {
             $code        = xml_get_error_code($msgorparser);
             $msgorparser = sprintf('%s at XML input line %d:%d',
                 xml_error_string($code),
